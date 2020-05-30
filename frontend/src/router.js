@@ -5,7 +5,7 @@ import AppHeader from "./views/AppHeader";
 
 import Home from "./views/Home.vue";
 import UserRegistration from "./views/UserRegistration.vue";
-
+import Login from "./views/Login.vue";
 
 
 Vue.use(Router);
@@ -47,6 +47,16 @@ export default new Router({
         default: {userType: 'normal'}
       }
     },
+    {
+      path: "/login",
+      name: "Login",
+      components: {
+        header: AppHeader,
+        default: Login
+      
+      }
+    
+    }
   ],
   scrollBehavior: to => {
     if (to.hash) {

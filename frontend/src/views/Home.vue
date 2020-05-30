@@ -4,7 +4,7 @@
         <div class="position-relative">
             <!-- shape Hero -->
             <section class="section-shaped my-0">
-                <div class="shape shape-style-1 shape-default shape-skew">
+                <div class="shape shape-style-1 bg-gradient-info shape-skew">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -41,10 +41,13 @@
                     <div class="col-lg-12">
                         <div class="row row-grid">
                             <div class="col-lg-4">
+                               
+                               
                                 <card class="border-0" hover shadow body-classes="py-5">
                                     <icon name="ni ni-ambulance" type="primary" rounded class="mb-4">
                                     </icon>
-                                    <h6 class="text-primary text-uppercase">Ayuda Medica</h6>
+                                     <b-img thumbnail fluid src="https://picsum.photos/250/250/?image=54" alt="Image 1"></b-img>
+                                    <h6 class="text-primary text-uppercase">Personas</h6>
                                     <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4
                                         that includes the most important components and features.</p>
                                     <div>
@@ -56,12 +59,14 @@
                                         Entrar
                                     </base-button>
                                 </card>
+
+
                             </div>
                             <div class="col-lg-4">
                                 <card class="border-0" hover shadow body-classes="py-5">
                                     <icon name="ni ni-single-copy-04" type="success" rounded class="mb-4">
                                     </icon>
-                                    <h6 class="text-success text-uppercase">Ayuda Laboral</h6>
+                                    <h6 class="text-success text-uppercase">Empresas</h6>
                                     <p class="description mt-3">Argon is a great free UI package based on Bootstrap
                                         4 that includes the most important components and features.</p>
                                     <div>
@@ -78,7 +83,7 @@
                                 <card class="border-0" hover shadow body-classes="py-5">
                                     <icon name="ni ni-world-2" type="warning" rounded class="mb-4">
                                     </icon>
-                                    <h6 class="text-warning text-uppercase">Ayuda Humanitaria</h6>
+                                    <h6 class="text-warning text-uppercase">Más Información</h6>
                                     <p class="description mt-3">Argon is a great free UI package based on Bootstrap
                                         4 that includes the most important components and features.</p>
                                     <div>
