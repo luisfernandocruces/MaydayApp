@@ -121,7 +121,6 @@ export default {
           if (response.status == 200) {
             var user = response.data.currentUser;
             var token = response.data.accessToken;
-
             localStorage.setItem("jwt", token);
 
             console.log(user);
