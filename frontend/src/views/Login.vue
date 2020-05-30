@@ -42,20 +42,20 @@
               </template>-->
               <template>
                 <div class="text-center text-muted mb-4">
-                  <small>Sig in</small>
+                  <small>Iniciar Sesión</small>
                 </div>
                 <form role="form">
                   <base-input
                     alternative
                     class="mb-3"
-                    placeholder="Email"
+                    placeholder="Correo Electronico"
                     addon-left-icon="ni ni-email-83"
                     v-model="email"
                   ></base-input>
                   <base-input
                     alternative
                     type="password"
-                    placeholder="Password"
+                    placeholder="Contraseña"
                     addon-left-icon="ni ni-lock-circle-open"
                     v-model="password"
                   ></base-input>
