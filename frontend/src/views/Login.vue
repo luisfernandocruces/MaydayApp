@@ -39,7 +39,7 @@
                   Google
                 </base-button>
               </div>
-            </template>-->
+              </template>-->
               <template>
                 <div class="text-center text-muted mb-4">
                   <small>Sig in</small>
@@ -61,9 +61,7 @@
                   ></base-input>
 
                   <div class="text-center">
-                    <base-button type="primary" class="my-4" @click="signin"
-                      >Sign In</base-button
-                    >
+                    <base-button type="primary" class="my-4" @click="signin"> Iniciar Sesión</base-button>
                   </div>
                 </form>
               </template>
@@ -102,7 +100,7 @@ export default {
       show: false,
       email: "",
       password: "",
-      messageLogin: "",
+      messageLogin: ""
     };
   },
   methods: {
@@ -113,25 +111,28 @@ export default {
       console.log(this.password);
       let user = {
         email: this.email,
-        password: this.password,
+        password: this.password
       };
       await axios
         .post("/users/signin", user)
-        .then((response) => {
+        .then(response => {
           if (response.status == 200) {
             var user = response.data.currentUser;
             var token = response.data.accessToken;
             localStorage.setItem("jwt", token);
-
             console.log(user);
           }
+          this.$router.push("/")
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
           console.log("error");
         });
-    },
-  },
+      this.$store.commit("changeTheLogged", true);
+      console.log(this.$store.state.logged);
+
+    }
+  }
 };
 </script>
 <style></style>
