@@ -40,17 +40,15 @@
                   v-model="user.last_name"
                 ></base-input>
 
-                <select
-                  :multiple="multiple === 'true'"
-                  v-bind:class="{ 'fix-height': multiple === 'true' }"
-                  v-model="multipleSelections"
-                >
+                <h6 required class="card-title">Tipo de Documento</h6>
 
                 <el-select
-                  multiple
-                  label="Tipo de Documento"
+                  label="Tipo de documento"
+                  collapse-tags
+                  class="select-primary"
                   size="large"
-                  placeholder="Selecciona el tipo de documento"
+                  required
+                  placeholder="Ingrese el tipo de Documento"
                   v-model="user.document_type"
                 >
                   <el-option
@@ -165,7 +163,7 @@ components: {
       user: {
         first_name: "",
         last_name: "",
-        document_type: "C.C",
+        document_type: "",
         document_number: "",
         professional_card_number: "",
         email: "",
