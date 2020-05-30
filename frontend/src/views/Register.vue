@@ -54,7 +54,7 @@
                     :label="option.type"
                     :key="option.type"
                   ></el-option>
-                </el-select> -->
+                </el-select>-->
 
                 <base-input
                   label="Documento de identidad"
@@ -146,7 +146,6 @@
 <script>
 import axios from "../plugins/axios";
 export default {
-
   props: ["userType"],
   data() {
     return {
@@ -164,15 +163,30 @@ export default {
         birthdate: ""
       },
       document_types: [
-        {type: "Cédula de Ciudadanía"},
-        {type: "Cédula de Extranjería"},
-        {type:"Pasaporte"},
+        { type: "Cédula de Ciudadanía" },
+        { type: "Cédula de Extranjería" },
+        { type: "Pasaporte" }
       ]
     };
   },
+  created() {
+    alert(this.userType);
+  },
   methods: {
     submitRegisterForm() {
-      alert(JSON.stringify(this.user));
+      if (this.userType == "normal") {
+        axios.post("/users/normalUser", this.user).then(response => {
+          if (response.status == 200) {
+            console.log(response.data)
+          }
+        });
+      } else if (this.userType == "health") {
+        axios.post("/users/healthProfessional", this.user).then(response => {
+          if (response.status == 200) {
+            console.log(response.data)
+          }
+        });
+      }
     }
   }
 };
