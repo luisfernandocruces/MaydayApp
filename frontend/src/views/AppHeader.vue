@@ -2,15 +2,15 @@
     <header class="header-global">
         <base-nav class="navbar-main" transparent type="" effect="light" expand>
             <router-link slot="brand" class="navbar-brand mr-lg-5" to="/">
-                <img src="https://i.ibb.co/BNWLgfn/white.png" alt="white" border="0" style="
-    height: 80px;">
+                <img src="img/brand/white.png" alt="white" border="0" style="
+    height: 100px;">
             </router-link>
 
             <div class="row" slot="content-header" slot-scope="{closeMenu}">
                 <div class="col-6 collapse-brand">
                     <a href="https://demos.creative-tim.com/vue-argon-design-system/documentation/">
-                        <img src="img/brand/blue.png" style="
-    height: 80px;">
+                        <img src="img/brand/black.png" style="
+    height: 100px;">
                     </a>
                 </div>
                 <div class="col-6 collapse-close">
