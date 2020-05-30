@@ -170,7 +170,7 @@ export default {
     };
   },
   created() {
-    alert(this.userType);
+    this.userType
   },
   methods: {
     submitRegisterForm() {

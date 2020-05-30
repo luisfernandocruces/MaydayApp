@@ -34,10 +34,9 @@
 
                   <base-button
                   tag="a"
-                  href="#"
                   type="primary"
                   class="mt-4 justify-content-center"
-                >Registrarme</base-button>
+                ><router-link to="/registerNormal" style="color:white">Registrarme</router-link></base-button>
               </div>
             </div>
           </div>
@@ -57,10 +56,9 @@
               <div class="mt-3">
                 <base-button
                   tag="a"
-                  href="#"
                   type="primary"
                   class="mt-4 justify-content-center"
-                >Registrarme</base-button>
+                ><router-link to="/registerHealth" style="color:white">Registrarme</router-link></base-button>
               </div>
             </div>
           </div>
