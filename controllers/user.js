@@ -60,7 +60,7 @@ exports.createHealthProfessional = function (req, res, next) {
 //-----------------------------------------------------------------------
 exports.signin = function (req, res, next) {
   let { email, password } = req.body;
-  User.findById(emailunction, function (err, user) {
+  User.findById(email, function (err, user) {
     if (!user) {
       return res.status(404).send({ message: "User not found" });
     }
@@ -75,7 +75,11 @@ exports.signin = function (req, res, next) {
       expiresIn: 86400, // 24 hours
     });
 
+    res.status(200).send({
+      currentUser: user,
+      accessToken: token,
+    });
+
     if (err) return next(err);
-    res.send(product);
   });
 };
