@@ -18,12 +18,9 @@
                     <div class="col px-0">
                         <div class="row">
                             <div class="col-lg-6">
-                                <h1 class="display-3  text-white">A beautiful Design System
-                                    <span>completed with examples</span>
+                                <h1 class="display-3  text-white">Una aplicación especial para la oferta de ayudas</span>
                                 </h1>
-                                <p class="lead  text-white">The design system comes with four pre-built pages to help
-                                    you get started faster. You can change the text and images and you're good to
-                                    go.</p>
+                                <p class="lead  text-white">Esta pagina web te dara la capacidad de ofrecer y recibir ayudas a personas y empresas afectadas por el COVID-19, tanto para personas como para empresas se han definido diferentes ayudas.</p>
                                 <div class="btn-wrapper">
                                     
                                 </div>
