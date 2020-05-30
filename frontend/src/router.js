@@ -7,6 +7,7 @@ import Home from "./views/Home.vue";
 import UserRegistration from "./views/Register.vue";
 import Login from "./views/Login.vue";
 import Profile from "./views/Profile.vue";
+import PublishHelp from "./views/PublishHelp.vue"
 
 import RegisterMenu from "./views/RegisterMenu.vue";
 
@@ -47,6 +48,15 @@ export default new Router({
       props:{
         default: {userType: 'normal'}
       }
+    },
+    {
+      path: "/publishHelp",
+      name: "publishHelp",
+      components: {
+        header: AppHeader,
+        default: PublishHelp,
+      },
+      
     },
     {
       path: "/login",
