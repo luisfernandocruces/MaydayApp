@@ -87,13 +87,27 @@
         </div>
       </div>
     </div>
+
+    <modal :show.sync="modalShow">
+      <template slot="header">
+        <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+      </template>
+      <div>{{messageLogin}}</div>
+      <template slot="footer">
+        <base-button type="secondary" @click="modalShow = false">Aceptar</base-button>
+      </template>
+    </modal>
   </section>
 </template>
 <script>
 import axios from "../plugins/axios";
+import Modal from "@/components/Modal";
 
 export default {
   name: "login",
+  components: {
+    Modal
+  },
   data() {
     return {
       modalShow: false,
@@ -120,15 +134,26 @@ export default {
             var user = response.data.currentUser;
             var token = response.data.accessToken;
             localStorage.setItem("jwt", token);
-            console.log(user);
+
+            this.$store.commit("updateUser", user);
+            console.log(this.$store.state.user);
+            this.$store.commit("changeTheLogged", true);
+            this.$router.push("/");
           }
         })
         .catch(error => {
           console.log(error);
-          console.log("error");
+          if (error.response.status == 401) {
+            this.messageLogin = "Contraseña incorrecta";
+            this.modalShow = true;
+          } else if (error.response.status == 404) {
+            this.messageLogin = "Usuario no registrado";
+            this.modalShow = true;
+          } else {
+            this.messageLogin = "Problemas interno del servido. " + error;
+            this.modalShow = true;
+          }
         });
-      this.$store.commit("changeTheLogged", true);
-      console.log(this.$store.state.logged);
     }
   }
 };

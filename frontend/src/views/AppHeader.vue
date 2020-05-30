@@ -27,13 +27,25 @@
 
           <router-link v-if="this.logged_usu == true" to="/profile" class="dropdown-item">Perfil</router-link>
 
-          <router-link v-if="this.logged_usu == false" to="/login" class="dropdown-item">Iniciar Sesión</router-link>
-          <router-link v-if="this.logged_usu == false" to="/registerMenu" class="dropdown-item">Registro</router-link>
-          
+          <router-link
+            v-if="this.logged_usu == false"
+            to="/login"
+            class="dropdown-item"
+          >Iniciar Sesión</router-link>
+          <router-link
+            v-if="this.logged_usu == false"
+            to="/registerMenu"
+            class="dropdown-item"
+          >Registro</router-link>
         </base-dropdown>
       </ul>
 
-      <base-button type="primary" @click="signout()" v-if="this.logged_usu == true"  class="dropdown-item">Cerrar Sesión</base-button>
+      <base-button
+        type="primary"
+        @click="signout()"
+        v-if="this.logged_usu == true"
+        class="dropdown-item"
+      >Cerrar Sesión</base-button>
     </base-nav>
   </header>
 </template>
@@ -53,13 +65,13 @@ export default {
       return this.$store.state.logged;
     }
   },
-  created(){
-      console.log(this.logged_usu);
+  created() {
+    console.log(this.logged_usu);
   },
-  methods:{
-    signout(){
+  methods: {
+    signout() {
       this.$store.commit("changeTheLogged", false);
-      alert("Ha cerrado sesión")
+      alert("Ha cerrado sesión");
     }
   }
 };
