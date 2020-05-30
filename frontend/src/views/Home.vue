@@ -44,11 +44,9 @@
                                
                                
                                 <card class="border-0" hover shadow body-classes="py-5">
-                                    <icon name="ni ni-ambulance" type="primary" rounded class="mb-4">
-                                    </icon>                  
+                                    <img src="img/helps/people.jpg" alt="people" border="0" style="height: 180px;">                
                                     <h6 class="text-primary text-uppercase">Personas</h6>
-                                    <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4
-                                        that includes the most important components and features.</p>
+                                    <p class="description mt-3">Aquí podrás encontrar información sobre diferentes tipos de ayudas para personas.</p>
                                     <div>
                                         <badge type="primary" rounded>MÉDICA</badge>
                                         <badge type="primary" rounded>TRABAJO</badge>
@@ -64,11 +62,10 @@
                             </div>
                             <div class="col-lg-4">
                                 <card class="border-0" hover shadow body-classes="py-5">
-                                    <img src="img/helps/work.png" alt="work" border="0" style="height: 150px;">
+                                    <img src="img/helps/work2.jpg" alt="work" border="0" style="height: 180px;">
 
                                     <h6 class="text-info text-uppercase">Empresas</h6>
-                                    <p class="description mt-3">Argon is a great free UI package based on Bootstrap
-                                        4 that includes the most important components and features.</p>
+                                    <p class="description mt-3">Aquí podrás encontrar información sobre diferentes tipos de ayudas para empresas.</p>
                                     <div>
                                         <badge type="info" rounded>BIOSEGURIDAD</badge>
                                         <badge type="info" rounded>EMPRENDIMIENTO</badge>
@@ -83,18 +80,16 @@
 
                             <div class="col-lg-4">
                                 <card class="border-0" hover shadow body-classes="py-5">
-                                    <icon name="ni ni-single-copy-04" type="success" rounded class="mb-4">
-                                    </icon>
+                                    <img src="img/helps/other.png" class="text-center" alt="work" border="0" style="height: 180px;">
                                     <h6 class="text-success text-uppercase" align>Otras Ayudas</h6>
-                                    <p class="description mt-3">Argon is a great free UI package based on Bootstrap
-                                        4 that includes the most important components and features.</p>
+                                    <p class="description mt-3">Aquí podrás encontrar información sobre cualquier otro tipo ayuda.</p>
                                     <div>
                                         <badge type="success" rounded>LEGALES</badge>
                                         <badge type="success" rounded>CONTÁCTANOS</badge>
                                         <badge type="success" rounded>PERSONAS ESPECIALES</badge>
                                         <badge type="success" rounded></badge>
                                     </div>
-                                    <base-button tag="a" href="#" type="success" class="mt-4">
+                                    <base-button tag="a" href="#" type="success" class="mt-4 justify-content-center">
                                         Entrar
                                     </base-button>
                                 </card>

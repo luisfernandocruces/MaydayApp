@@ -17,30 +17,67 @@
               required
               v-model="user.last_name"></base-input>
 
-            <label for="identityNumber"> Documento de identidad </label>
-            <input type="number" name="identityNumber" v-model="user.document_number" />
+            <base-input label="Documento de identidad"
+              type="number"
+              placeholder="Documento"
+              name="document_number"
+              required
+              v-model="user.document_number"></base-input>
+            
+            <base-input label="Fecha de Nacimiento"
+              type="date"
+              name="birthdate"
+              required
+              v-model="user.birthdate"></base-input>
             
             <div v-if="userType === 'health'">
-                <label for="professionalCardNumber"> Tarjeta profesional </label>
-                <input type="number" name="professionalCardNumber" v-model="user.professional_card_number" />
-                <label for="healtArea"> Area de la Salud </label>
-                <input type="text" name="healtArea" v-model="user.health_area"/>
+                <base-input label="Numero Tarjeta profesional"
+                    type="number"
+                    placeholder="Numero Tarjeta profesional"
+                    name="professionalCardNumber"
+                    required
+                    v-model="user.professional_card_number"></base-input>
+                
+                <base-input label="Area de la Salud"
+                    type="text"
+                    placeholder="Area de la Salud"
+                    name="healtArea"
+                    required
+                    v-model="user.health_area"></base-input>
             </div>
+            
+            <base-input label="Correo Electronico"
+              type="text"
+              placeholder="Correo"
+              name="email"
+              required
+              v-model="user.email"></base-input>
 
-            <label for="email"> Correo Electrónico </label>
-            <input type="text" name="email" v-model="user.email"/>
+            <base-input label="Contraseña"
+              type="password"
+              name="password"
+              required
+              v-model="user.password"></base-input>
 
-            <label for="pwd"> Contraseña </label>
-            <input type="password" name="pwd" v-model="user.password"/>
+            <base-input label="Confirmar Contraseña"
+              type="password"
+              name="confirm_password"
+              required></base-input>
 
-            <label for="confirmPassword"> Confirmar contraseña </label>
-            <input type="password" name="confirmPassword" v-model="user.password"/>
+            <base-input label="Número telefónico"
+              type="number"
+              name="phone_number"
+              v-model="user.phone_number"></base-input>
 
-            <label for="phoneNumber"> Número telefónico </label>
-            <input type="number" name="phoneNumber" v-model="user.phone_number"/>
-
-            <label for="description"> Breve Descripción de quien eres </label>
-            <input type="text" name="description" v-model="user.description"/>
+            <div class="col-md-12">
+              <base-input label="Breve Description">
+                <textarea
+                  placeholder="Breve descripción sobre tu persona"
+                  name="description"
+                  v-model="user.description"
+                ></textarea>
+              </base-input>
+            </div>
 
             <input type="submit" value="Registrarme!">
         </form>
@@ -61,13 +98,14 @@ export default {
         password: "",
         phone_number: "",
         description: "",
-        health_area
+        health_area:"",
+        birthdate:"",
       },
     };
   },
     methods: {
         submitRegisterForm() {
-            alert(user);
+            alert(JSON.stringify(this.user));
         },
     }
 }
