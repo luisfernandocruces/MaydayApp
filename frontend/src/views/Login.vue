@@ -42,7 +42,7 @@
               </template>-->
               <template>
                 <div class="text-center text-muted mb-4">
-                  <small>Iniciar Sesión</small>
+                  Iniciar Sesión
                 </div>
                 <form role="form">
                   <base-input
@@ -70,7 +70,7 @@
               <div class="col-6"></div>
               <div class="col-6 text-right">
                 <a href="#" class="text-white">
-                  <small>Create new account</small>
+                  <router-link to="/registerMenu" class= "text-white">Crear una cuenta</router-link>
                 </a>
               </div>
             </div>
