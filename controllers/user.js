@@ -3,7 +3,6 @@ const User = require("../models/user");
 //-----------------------------------------------------------------------
 // Normal user
 //-----------------------------------------------------------------------
-
 exports.createNormalPerson = function (req, res, next) {
   let user = new User({
     rol: "normal person",
@@ -30,6 +29,7 @@ exports.createNormalPerson = function (req, res, next) {
 //-----------------------------------------------------------------------
 // Health professional user
 //-----------------------------------------------------------------------
+
 exports.createHealthProfessional = function (req, res, next) {
   let user = new User({
     rol: "health professional",
