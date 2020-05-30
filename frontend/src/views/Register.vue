@@ -40,7 +40,13 @@
                   v-model="user.last_name"
                 ></base-input>
 
-                <!-- <el-select
+                <select
+                  :multiple="multiple === 'true'"
+                  v-bind:class="{ 'fix-height': multiple === 'true' }"
+                  v-model="multipleSelections"
+                >
+
+                <el-select
                   multiple
                   label="Tipo de Documento"
                   size="large"
@@ -54,7 +60,7 @@
                     :label="option.type"
                     :key="option.type"
                   ></el-option>
-                </el-select>-->
+                </el-select>
 
                 <base-input
                   label="Documento de identidad"
@@ -144,8 +150,15 @@
   </section>
 </template>
 <script>
+import { Select, Option } from "element-ui";
+
 import axios from "../plugins/axios";
 export default {
+components: {
+    [Option.name]: Option,
+    [Select.name]: Select
+  },
+
   props: ["userType"],
   data() {
     return {
@@ -177,13 +190,13 @@ export default {
       if (this.userType == "normal") {
         axios.post("/users/normalUser", this.user).then(response => {
           if (response.status == 200) {
-            console.log(response.data)
+            console.log(response.data);
           }
         });
       } else if (this.userType == "health") {
         axios.post("/users/healthProfessional", this.user).then(response => {
           if (response.status == 200) {
-            console.log(response.data)
+            console.log(response.data);
           }
         });
       }
