@@ -8,6 +8,8 @@ import UserRegistration from "./views/Register.vue";
 import Login from "./views/Login.vue";
 import Profile from "./views/Profile.vue";
 
+import RegisterMenu from "./views/RegisterMenu.vue";
+
 
 Vue.use(Router);
 
@@ -36,7 +38,7 @@ export default new Router({
       }
     },
     {
-      path: "/register",
+      path: "/registerNormal",
       name: "registerNormal",
       components: {
         header: AppHeader,
@@ -63,7 +65,16 @@ export default new Router({
         default: Profile
       
       }
-    },    
+    }, 
+    {
+      path: "/registerMenu",
+      name: "RegisterMenu",
+      components: {
+        header: AppHeader,
+        default: RegisterMenu
+      
+      }
+    }, 
   ],
   scrollBehavior: to => {
     if (to.hash) {

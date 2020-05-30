@@ -180,7 +180,10 @@ components: {
       ]
     };
   },
-  created() {},
+  created() {
+
+  },
+
   methods: {
     register() {
       if (this.userType == "normal") {
