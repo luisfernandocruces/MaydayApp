@@ -8,7 +8,7 @@
 
       <div class="row" slot="content-header" slot-scope="{closeMenu}">
         <div class="col-6 collapse-brand">
-          <a href="https://demos.creative-tim.com/vue-argon-design-system/documentation/">
+          <a href="">
             <img src="img/brand/black.png" style="
     height: 100px;" />
           </a>
@@ -22,7 +22,7 @@
         <base-dropdown tag="li" class="nav-item">
           <a slot="title" href="#" class="nav-link" data-toggle="dropdown" role="button">
             <i class="ni ni-collection d-lg-none"></i>
-            <span class="nav-link-inner--text">MENU</span>
+            <span class="nav-link-inner--text">Menú</span>
           </a>
 
           <router-link v-if="this.logged_usu == true" to="/profile" class="dropdown-item">Perfil</router-link>
@@ -32,8 +32,10 @@
           
         </base-dropdown>
       </ul>
-
-      <base-button type="primary" @click="signout()" v-if="this.logged_usu == true"  class="dropdown-item">Cerrar Sesión</base-button>
+        <div class="col" style="text-align-last: right;">
+          <a class="text-white" @click="signout()" v-if="this.logged_usu == true" >Cerrar Sesión</a>
+        </div>
+      
     </base-nav>
   </header>
 </template>
@@ -60,6 +62,7 @@ export default {
     signout(){
       this.$store.commit("changeTheLogged", false);
       alert("Ha cerrado sesión")
+       this.$router.push("/login")
     }
   }
 };
