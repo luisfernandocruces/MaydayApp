@@ -44,9 +44,7 @@
                                
                                
                                 <card class="border-0" hover shadow body-classes="py-5">
-                                    <icon name="ni ni-ambulance" type="primary" rounded class="mb-4">
-                                    </icon>                 
-                                    
+                                    <img src="img/helps/people.jpg" alt="people" border="0" style="height: 150px;">                
                                     <h6 class="text-primary text-uppercase">Personas</h6>
                                     <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4
                                         that includes the most important components and features.</p>
@@ -65,8 +63,8 @@
                             </div>
                             <div class="col-lg-4">
                                 <card class="border-0" hover shadow body-classes="py-5">
-                                    <icon name="ni ni-single-copy-04" type="info" rounded class="mb-4">
-                                    </icon>
+                                    <img src="img/helps/work2.jpg" alt="work" border="0" style="height: 150px;">
+
                                     <h6 class="text-info text-uppercase">Empresas</h6>
                                     <p class="description mt-3">Argon is a great free UI package based on Bootstrap
                                         4 that includes the most important components and features.</p>
