@@ -54,7 +54,6 @@
                     <badge type="primary" rounded>PSICOLÓGICA</badge>
                   </div>
                     <base-button type="primary" class="mt-4"><router-link to="/helpMenu" style="color:white">Entrar</router-link></base-button>
-                    
                 </card>
               </div>
               <div class="col-lg-4">

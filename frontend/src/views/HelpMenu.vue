@@ -17,58 +17,112 @@
           <div class="mb-3"></div>
           <tabs fill class="flex-column flex-md-row">
             <card shadow>
-              <tab-pane title="Médica">
+              <tab-pane title="Médica" class="text-center">
                 <p class="description">
                   Raw denim you probably haven't heard of them jean shorts
                   Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
                   cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
                   keffiyeh dreamcatcher synth.
                 </p>
-                <p class="description">
-                  Raw denim you probably haven't heard of them jean shorts
-                  Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse.
-                </p>
+                <img 
+                  src="img/helps/ayudamedica.png"
+                  alt="ayudamedica"
+                  border="0"
+                  style="height: 350px;"
+                />
+                <div >
+                  <base-button type="primary" class="mt-4">
+                    <router-link to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
+                  </base-button>
+
+                  <base-button type="primary" class="mt-4">
+                    <router-link to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
+                  </base-button>
+                </div>
               </tab-pane>
-              <tab-pane title="Humanitaria">
+              <tab-pane title="Humanitaria" class="text-center">
                 <p class="description">
                   Raw denim you probably haven't heard of them jean shorts
                   Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
                   cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
                   keffiyeh dreamcatcher synth.
                 </p>
-                <p class="Trabajo">
-                  Raw denim you probably haven't heard of them jean shorts
-                  Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse.
-                </p>
+                <img
+                  src="img/helps/ayudahumanitaria.jpg"
+                  alt="ayudahumanitaria"
+                  border="0"
+                  style="height: 350px;"
+                />
+                <div >
+                  <base-button type="primary" class="mt-4">
+                    <router-link to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
+                  </base-button>
+
+                  <base-button type="primary" class="mt-4">
+                    <router-link to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
+                  </base-button>
+                </div>
               </tab-pane>
-              <tab-pane title="Psicológica">
+              <tab-pane title="Psicológica" class="text-center">
                 <p class="description">
                   Raw denim you probably haven't heard of them jean shorts
                   Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
                   cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
                   keffiyeh dreamcatcher synth.
                 </p>
-                <p class="description">
-                  Raw denim you probably haven't heard of them jean shorts
-                  Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse.
-                </p>
+                <img
+                  src="img/helps/ayudapsicologica.jpg"
+                  alt="ayudapsicologica"
+                  border="0"
+                  style="height: 350px;"
+                />
+                <div >
+                  <base-button type="primary" class="mt-4">
+                    <router-link to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
+                  </base-button>
+
+                  <base-button type="primary" class="mt-4">
+                    <router-link to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
+                  </base-button>
+                </div>
               </tab-pane>
 
-              <tab-pane title="Espiritual">
+              <tab-pane title="Espiritual" class="text-center">
                 <p class="description">
                   Cosby sweater eu banh mi, qui irure terry richardson ex
                   squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan
                   american apparel, butcher voluptate nisi qui.
                 </p>
+                <img
+                  src="img/helps/ayudaespiritual.jpg"
+                  alt="ayudaespiritual"
+                  border="0"
+                  style="height: 350px;"
+                />
+                <div >
+                  <base-button type="primary" class="mt-4">
+                    <router-link to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
+                  </base-button>
+
+                  <base-button type="primary" class="mt-4">
+                    <router-link to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
+                  </base-button>
+                </div>
               </tab-pane>
 
-              <tab-pane title="Messages">
+              <tab-pane title="Trabajo" class="text-center">
                 <p class="description">
                   Raw denim you probably haven't heard of them jean shorts
                   Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
                   cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
                   keffiyeh dreamcatcher synth.
                 </p>
+                <img
+                  src="img/helps/ayudatrabajo.png"
+                  alt="ayudatrabajo"
+                  border="0"
+                  style="height: 350px;"
+                />
               </tab-pane>
             </card>
           </tabs>
