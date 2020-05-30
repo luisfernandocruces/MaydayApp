@@ -8,7 +8,7 @@
 
       <div class="row" slot="content-header" slot-scope="{closeMenu}">
         <div class="col-6 collapse-brand">
-          <a href="https://demos.creative-tim.com/vue-argon-design-system/documentation/">
+          <a href="">
             <img src="img/brand/black.png" style="
     height: 100px;" />
           </a>
@@ -32,8 +32,10 @@
           
         </base-dropdown>
       </ul>
-
-      <base-button type="primary" @click="signout()" v-if="this.logged_usu == true"  class="dropdown-item">Cerrar Sesión</base-button>
+        <div class="col" style="text-align-last: right;">
+          <a class="text-white" @click="signout()" v-if="this.logged_usu == true" >Cerrar Sesión</a>
+        </div>
+      
     </base-nav>
   </header>
 </template>
