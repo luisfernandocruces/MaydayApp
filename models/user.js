@@ -12,7 +12,9 @@ let UserSchema = new mongoose.Schema({
     phone_number: {type: String, max:20},
     description: {type: String},
     professional_card_number: {type: String},
-    health_area: {type: String}
+    health_area: {type: String},
+    conversations_ids: {type: []},
+    supports_ids: {type: []}
 
 })
 
