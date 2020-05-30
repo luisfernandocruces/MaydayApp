@@ -21,7 +21,7 @@
             class="border-0"
           >
             <template>
-              <form @submit.prevent="handleSubmit" @submit="submitRegisterForm">
+              <form>
                 <base-input
                   label="Nombre"
                   type="text"
@@ -140,7 +140,7 @@
                   </base-input>
                 </div>
 
-                <input type="submit" value="Registrarme!" />
+                <button @click="register">Registrarme!</button>
               </form>
             </template>
           </card>
@@ -165,7 +165,7 @@ components: {
       user: {
         first_name: "",
         last_name: "",
-        document_type: "Cédula de Ciudadanía",
+        document_type: "C.C",
         document_number: "",
         professional_card_number: "",
         email: "",
@@ -182,21 +182,23 @@ components: {
       ]
     };
   },
-  created() {
-    alert(this.userType);
-  },
+  created() {},
   methods: {
-    submitRegisterForm() {
+    register() {
       if (this.userType == "normal") {
         axios.post("/users/normalUser", this.user).then(response => {
           if (response.status == 200) {
-            console.log(response.data);
+            alert("Usuario creado");
+          } else {
+
           }
         });
       } else if (this.userType == "health") {
         axios.post("/users/healthProfessional", this.user).then(response => {
           if (response.status == 200) {
-            console.log(response.data);
+            alert("Usuario creado");
+          } else {
+
           }
         });
       }
