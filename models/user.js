@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-let UserSchema = new Schema({
+let UserSchema = new mongoose.Schema({
   rol: { type: String, required: true },
   first_name: { type: String, required: true, max: 50 },
   last_name: { type: String, required: true, max: 50 },
@@ -14,6 +14,8 @@ let UserSchema = new Schema({
   description: { type: String },
   professional_card_number: { type: String },
   health_area: { type: String },
+  conversations_ids: { type: [] },
+  supports_ids: { type: [] },
 });
 
 module.exports = mongoose.model("User", UserSchema);
