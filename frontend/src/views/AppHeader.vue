@@ -3,7 +3,7 @@
         <base-nav class="navbar-main" transparent type="" effect="light" expand>
             <router-link slot="brand" class="navbar-brand mr-lg-5" to="/">
                 <img src="img/brand/white.png" alt="white" border="0" style="
-    height: 100px;">
+    height: 120px;">
             </router-link>
 
             <div class="row" slot="content-header" slot-scope="{closeMenu}">
@@ -22,12 +22,12 @@
                 <base-dropdown tag="li" class="nav-item">
                     <a slot="title" href="#" class="nav-link" data-toggle="dropdown" role="button">
                         <i class="ni ni-collection d-lg-none"></i>
-                        <span class="nav-link-inner--text">Options</span>
+                        <span class="nav-link-inner--text">Menu</span>
                     </a>
                     
-                    <router-link to="/profile" class="dropdown-item">Profile</router-link>
+                    <router-link to="/profile" class="dropdown-item">Perfil</router-link>
                     <router-link to="/login" class="dropdown-item">Login</router-link>
-                    <router-link to="/register" class="dropdown-item">Register</router-link>
+                    <router-link to="/register" class="dropdown-item">Registro</router-link>
                 </base-dropdown>
             </ul>
            
