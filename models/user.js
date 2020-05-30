@@ -5,7 +5,7 @@ let UserSchema = new mongoose.Schema({
   rol: { type: String, required: true },
   first_name: { type: String, required: true, max: 50 },
   last_name: { type: String, required: true, max: 50 },
-  email: { type: String, required: true, max: 50 },
+  _id: { type: String, required: true, max: 50 },
   birthdate: { type: Date, required: true },
   password: { type: String, required: true, max: 50 },
   document_type: { type: String, required: true, max: 50 },

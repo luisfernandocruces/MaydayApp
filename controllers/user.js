@@ -1,4 +1,6 @@
 const User = require("../models/user");
+var jwt = require("jsonwebtoken");
+const config = require("../config/auth.config");
 
 //-----------------------------------------------------------------------
 // Normal user
@@ -8,7 +10,7 @@ exports.createNormalPerson = function (req, res, next) {
     rol: "normal person",
     first_name: req.body.first_name,
     last_name: req.body.last_name,
-    email: req.body.email,
+    _id: req.body.email,
     birthdate: req.body.birthdate,
     password: req.body.password,
     document_type: req.body.document_type,
@@ -35,7 +37,7 @@ exports.createHealthProfessional = function (req, res, next) {
     rol: "health professional",
     first_name: req.body.first_name,
     last_name: req.body.last_name,
-    email: req.body.email,
+    _id: req.body.email,
     birthdate: req.body.birthdate,
     password: req.body.password,
     document_type: req.body.document_type,
@@ -50,5 +52,30 @@ exports.createHealthProfessional = function (req, res, next) {
   user.save((error) => {
     if (error) return next(error);
     res.send("Health professional user created succesfully!");
+  });
+};
+
+//-----------------------------------------------------------------------
+// Sign in
+//-----------------------------------------------------------------------
+exports.signin = function (req, res, next) {
+  let { email, password } = req.body;
+  User.findById(emailunction, function (err, user) {
+    if (!user) {
+      return res.status(404).send({ message: "User not found" });
+    }
+
+    if (user.password != password) {
+      return res.status(401).send({
+        message: "Incorrect password",
+      });
+    }
+
+    var token = jwt.sign({ id: user.email }, config.secret, {
+      expiresIn: 86400, // 24 hours
+    });
+
+    if (err) return next(err);
+    res.send(product);
   });
 };

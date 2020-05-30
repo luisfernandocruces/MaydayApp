@@ -15,5 +15,6 @@ router.post("/healthProfessional", userController.createHealthProfessional);
 //---------------------------------------------------------------------------
 //Login
 //---------------------------------------------------------------------------
+router.post("/signin", userController.signin);
 
 module.exports = router;
