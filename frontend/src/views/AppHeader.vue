@@ -33,7 +33,7 @@
         </base-dropdown>
       </ul>
 
-      <button @click="signout()" v-if="this.logged_usu == true"  class="dropdown-item">Cerrar Sesión</button>
+      <base-button type="primary" @click="signout()" v-if="this.logged_usu == true"  class="dropdown-item">Cerrar Sesión</base-button>
     </base-nav>
   </header>
 </template>
