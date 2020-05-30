@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <div class="position-relative">
             <!-- shape Hero -->
             <section class="section-shaped my-0">
@@ -84,10 +83,10 @@
                                     <h6 class="text-success text-uppercase" align>Otras Ayudas</h6>
                                     <p class="description mt-3">Aquí podrás encontrar información sobre cualquier otro tipo ayuda.</p>
                                     <div>
-                                        <badge type="success" rounded>LEGALES</badge>
-                                        <badge type="success" rounded>CONTÁCTANOS</badge>
+                                        <badge type="success" rounded>LEGAL</badge>
                                         <badge type="success" rounded>PERSONAS ESPECIALES</badge>
-                                        <badge type="success" rounded></badge>
+                                        <badge type="success" rounded>CONTÁCTANOS</badge>
+                                        
                                     </div>
                                     <base-button tag="a" href="#" type="success" class="mt-4 justify-content-center">
                                         Entrar

@@ -22,7 +22,7 @@
                 <base-dropdown tag="li" class="nav-item">
                     <a slot="title" href="#" class="nav-link" data-toggle="dropdown" role="button">
                         <i class="ni ni-collection d-lg-none"></i>
-                        <span class="nav-link-inner--text">Menu</span>
+                        <span class="nav-link-inner--text">MENU</span>
                     </a>
                     
                     <router-link to="/profile" class="dropdown-item">Perfil</router-link>

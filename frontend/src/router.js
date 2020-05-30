@@ -6,6 +6,7 @@ import AppHeader from "./views/AppHeader";
 import Home from "./views/Home.vue";
 import UserRegistration from "./views/Register.vue";
 import Login from "./views/Login.vue";
+import Profile from "./views/Profile.vue";
 
 
 Vue.use(Router);
@@ -53,8 +54,16 @@ export default new Router({
         default: Login
       
       }
-    
-    }
+    },
+    {
+      path: "/profile",
+      name: "Profile",
+      components: {
+        header: AppHeader,
+        default: Profile
+      
+      }
+    },    
   ],
   scrollBehavior: to => {
     if (to.hash) {
