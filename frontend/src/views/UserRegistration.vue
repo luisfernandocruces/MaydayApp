@@ -105,7 +105,7 @@ export default {
   },
     methods: {
         submitRegisterForm() {
-            alert(JSON.stringify(this.user));
+            
         },
     }
 }

@@ -39,42 +39,37 @@
                   Google
                 </base-button>
               </div>
-            </template>-->
-              <template>
-                <div class="text-center text-muted mb-4">
-                  <small>Sig in</small>
-                </div>
-                <form role="form">
-                  <base-input
-                    alternative
-                    class="mb-3"
-                    placeholder="Email"
-                    addon-left-icon="ni ni-email-83"
-                    v-model="email"
-                  ></base-input>
-                  <base-input
-                    alternative
-                    type="password"
-                    placeholder="Password"
-                    addon-left-icon="ni ni-lock-circle-open"
-                    v-model="password"
-                  ></base-input>
-
-                  <div class="text-center">
-                    <base-button type="primary" class="my-4" @click="signin"
-                      >Sign In</base-button
-                    >
-                  </div>
-                </form>
-              </template>
-            </card>
-            <div class="row mt-3">
-              <div class="col-6"></div>
-              <div class="col-6 text-right">
-                <a href="#" class="text-white">
-                  <small>Create new account</small>
-                </a>
+            </template> -->
+            <template>
+              <div class="text-center text-muted mb-4">
+                <small>Iniciar Sesión</small>
               </div>
+              <form role="form">
+                <base-input
+                  alternative
+                  class="mb-3"
+                  placeholder="Correo electrónico"
+                  addon-left-icon="ni ni-email-83"
+                ></base-input>
+                <base-input
+                  alternative
+                  type="password"
+                  placeholder="Contraseña"
+                  addon-left-icon="ni ni-lock-circle-open"
+                ></base-input>
+
+                <div class="text-center">
+                  <base-button type="primary" class="my-4">Iniciar Sesión</base-button>
+                </div>
+              </form>
+            </template>
+          </card>
+          <div class="row mt-3">
+            <div class="col-6"></div>
+            <div class="col-6 text-right">
+              <a href="#" class="text-white">
+                <small>Crear Cuenta</small>
+              </a>
             </div>
           </div>
         </div>
