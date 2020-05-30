@@ -24,6 +24,12 @@
               required
               v-model="user.document_number"></base-input>
             
+            <base-input label="Fecha de Nacimiento"
+              type="date"
+              name="birthdate"
+              required
+              v-model="user.birthdate"></base-input>
+            
             <div v-if="userType === 'health'">
                 <base-input label="Numero Tarjeta profesional"
                     type="number"
@@ -93,12 +99,13 @@ export default {
         phone_number: "",
         description: "",
         health_area:"",
+        birthdate:"",
       },
     };
   },
     methods: {
         submitRegisterForm() {
-            alert(user);
+            alert(JSON.stringify(this.user));
         },
     }
 }
