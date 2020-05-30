@@ -4,7 +4,7 @@ import AppHeader from "./views/AppHeader";
 
 
 import Home from "./views/Home.vue";
-
+import UserRegistration from "./views/UserRegistration.vue";
 
 
 
