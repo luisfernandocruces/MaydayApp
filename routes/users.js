@@ -12,6 +12,17 @@ router.post("/normalUser", userController.createNormalPerson);
 //---------------------------------------------------------------------------
 router.post("/healthProfessional", userController.createHealthProfessional);
 
+
+
+//-----------------------------------------------------------------------
+// General CRUD
+//-----------------------------------------------------------------------
+router.get('/', userController.index)
+router.get('/:id', userController.details)
+router.put('/:id', userController.update)
+router.delete('/:id', userController.delete)
+
+
 //---------------------------------------------------------------------------
 //Login
 //---------------------------------------------------------------------------
