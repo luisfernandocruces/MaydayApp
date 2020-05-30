@@ -9,6 +9,7 @@ import Login from "./views/Login.vue";
 import Profile from "./views/Profile.vue";
 
 import RegisterMenu from "./views/RegisterMenu.vue";
+import HelpMenu from "./views/HelpMenu.vue";
 
 
 Vue.use(Router);
@@ -72,6 +73,15 @@ export default new Router({
       components: {
         header: AppHeader,
         default: RegisterMenu
+      
+      }
+    },
+    {
+      path: "/helpMenu",
+      name: "HelpMenu",
+      components: {
+        header: AppHeader,
+        default: HelpMenu
       
       }
     }, 
