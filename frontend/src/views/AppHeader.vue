@@ -26,7 +26,7 @@
                     </a>
                     
                     <router-link to="/profile" class="dropdown-item">Perfil</router-link>
-                    <router-link to="/login" class="dropdown-item">Login</router-link>
+                    <router-link to="/login" class="dropdown-item">Iniciar Sesión</router-link>
                     <router-link to="/register" class="dropdown-item">Registro</router-link>
                 </base-dropdown>
             </ul>

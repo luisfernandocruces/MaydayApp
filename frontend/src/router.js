@@ -36,7 +36,7 @@ export default new Router({
       }
     },
     {
-      path: "/registerNormal",
+      path: "/register",
       name: "registerNormal",
       components: {
         header: AppHeader,
