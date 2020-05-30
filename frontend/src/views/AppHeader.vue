@@ -26,8 +26,13 @@
                     </a>
                     
                     <router-link to="/profile" class="dropdown-item">Perfil</router-link>
+<<<<<<< HEAD
                     <router-link to="/login" class="dropdown-item">Login</router-link>
                     <router-link to="/registerMenu" class="dropdown-item">Registro</router-link>
+=======
+                    <router-link to="/login" class="dropdown-item">Iniciar Sesión</router-link>
+                    <router-link to="/register" class="dropdown-item">Registro</router-link>
+>>>>>>> 5d6c1969ac5146e3247ae93098f90fca350dfa20
                 </base-dropdown>
             </ul>
            
