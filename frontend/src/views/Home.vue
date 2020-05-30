@@ -36,13 +36,13 @@
         </div>
         <section class="section section-lg pt-lg-0 mt--200">
             <div class="container">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center" >
                     <div class="col-lg-12">
                         <div class="row row-grid">
                             <div class="col-lg-4">
                                
                                
-                                <card class="border-0" hover shadow body-classes="py-5">
+                                <card class="border-0" style="text-align: center;" hover shadow body-classes="py-5">
                                     <img src="img/helps/people.jpg" alt="people" border="0" style="height: 180px;">                
                                     <h6 class="text-primary text-uppercase">Personas</h6>
                                     <p class="description mt-3">Aquí podrás encontrar información sobre diferentes tipos de ayudas para personas.</p>
@@ -60,7 +60,7 @@
 
                             </div>
                             <div class="col-lg-4">
-                                <card class="border-0" hover shadow body-classes="py-5">
+                                <card class="border-0" style="text-align: center;" hover shadow body-classes="py-5">
                                     <img src="img/helps/work2.jpg" alt="work" border="0" style="height: 180px;">
 
                                     <h6 class="text-info text-uppercase">Empresas</h6>
@@ -78,7 +78,7 @@
                             </div>
 
                             <div class="col-lg-4">
-                                <card class="border-0" hover shadow body-classes="py-5">
+                                <card class="border-0" style="text-align: center;" hover shadow body-classes="py-5">
                                     <img src="img/helps/other.png" class="text-center" alt="work" border="0" style="height: 180px;">
                                     <h6 class="text-success text-uppercase" align>Otras Ayudas</h6>
                                     <p class="description mt-3">Aquí podrás encontrar información sobre cualquier otro tipo ayuda.</p>
