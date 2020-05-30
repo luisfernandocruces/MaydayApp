@@ -56,6 +56,54 @@ exports.createHealthProfessional = function (req, res, next) {
 };
 
 //-----------------------------------------------------------------------
+// General CRUD
+//-----------------------------------------------------------------------
+
+exports.details = function (req,res,next){
+  User.findById(req.params.id, function(err, user){
+      if(err){
+          return next(err);
+      }else{
+          res.send(user)
+      }
+  })
+}
+
+exports.update = function (req,res,next){
+  User.findByIdAndUpdate(req.params.id, { $set: req.body} , function(err, user){
+      if(err){
+          return next(err);
+      }else{
+          res.send('User Updated Succesfully')
+      }
+  })
+}
+exports.delete = function (req,res,next){
+  User.findByIdAndDelete(req.params.id, function(err, user){
+      if(err){
+          return next(err);
+      }else{
+          res.send('User Deleted Succesfully')
+      }
+  })
+}
+
+exports.index = function (req,res,next){
+  let users =User.find({}, function(err, users){
+      if(err){
+          return next(err);
+      }else{
+          res.send(users)
+      }
+  })
+}
+
+
+
+
+
+
+//-----------------------------------------------------------------------
 // Sign in
 //-----------------------------------------------------------------------
 exports.signin = function (req, res, next) {
