@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="position-relative">
-      <!-- shape Hero -->
+      <!-- shape Hero -->gi
       <section class="section-shaped my-0">
         <div class="shape shape-style-1 bg-gradient-info shape-skew">
           <span></span>
@@ -18,15 +18,11 @@
           <div class="col px-0">
             <div class="row">
               <div class="col-lg-6">
-                <h1 class="display-3 text-white">
-                  A beautiful Design System
-                  <span>completed with examples</span>
-                </h1>
-                <p class="lead text-white">
-                  The design system comes with four pre-built pages to help
-                  you get started faster. You can change the text and images and you're good to
-                  go.
-                </p>
+
+                <h1 class="display-3 text-white">Una aplicación especial para la oferta de ayudas</h1>
+                <p
+                  class="lead text-white"
+                >Esta pagina web te dara la capacidad de ofrecer y recibir ayudas a personas y empresas afectadas por el COVID-19, tanto para personas como para empresas se han definido diferentes ayudas.</p>
                 <div class="btn-wrapper"></div>
               </div>
             </div>
@@ -41,29 +37,36 @@
           <div class="col-lg-12">
             <div class="row row-grid">
               <div class="col-lg-4">
-                <card class="border-0" style="text-align: center;" hover shadow body-classes="py-5">
+                <card class="border-0" hover shadow body-classes="py-5">
                   <img src="img/helps/people.jpg" alt="people" border="0" style="height: 180px;" />
                   <h6 class="text-primary text-uppercase">Personas</h6>
-                  <p
-                    class="description mt-3"
-                  >Aquí podrás encontrar información sobre diferentes tipos de ayudas para personas.</p>
+                  <p class="description mt-3">
+                    Aquí podrás encontrar información sobre diferentes tipos de
+                    ayudas para personas.
+                  </p>
                   <div>
                     <badge type="primary" rounded>MÉDICA</badge>
                     <badge type="primary" rounded>TRABAJO</badge>
                     <badge type="primary" rounded>HUMANITARIA</badge>
                     <badge type="primary" rounded>PSICOLÓGICA</badge>
                   </div>
-                    <base-button type="primary" class="mt-4"><router-link to="/helpMenu" style="color:white">Entrar</router-link></base-button>
+
+                <base-button type="primary" class="mt-4">
+                    <router-link to="/helpMenu" style="color:white">Entrar</router-link>
+                  </base-button>
+               
+               
                 </card>
               </div>
               <div class="col-lg-4">
-                <card class="border-0" style="text-align: center;" hover shadow body-classes="py-5">
+                <card class="border-0" hover shadow body-classes="py-5">
                   <img src="img/helps/work2.jpg" alt="work" border="0" style="height: 180px;" />
 
                   <h6 class="text-info text-uppercase">Empresas</h6>
-                  <p
-                    class="description mt-3"
-                  >Aquí podrás encontrar información sobre diferentes tipos de ayudas para empresas.</p>
+                  <p class="description mt-3">
+                    Aquí podrás encontrar información sobre diferentes tipos de
+                    ayudas para empresas.
+                  </p>
                   <div>
                     <badge type="info" rounded>BIOSEGURIDAD</badge>
                     <badge type="info" rounded>EMPRENDIMIENTO</badge>
@@ -75,7 +78,7 @@
               </div>
 
               <div class="col-lg-4">
-                <card class="border-0" style="text-align: center;" hover shadow body-classes="py-5">
+                <card class="border-0" hover shadow body-classes="py-5">
                   <img
                     src="img/helps/other.png"
                     class="text-center"
@@ -84,13 +87,15 @@
                     style="height: 180px;"
                   />
                   <h6 class="text-success text-uppercase" align>Otras Ayudas</h6>
-                  <p
-                    class="description mt-3"
-                  >Aquí podrás encontrar información sobre cualquier otro tipo ayuda.</p>
+                  <p class="description mt-3">
+                    Aquí podrás encontrar información sobre cualquier otro tipo
+                    ayuda.
+                  </p>
                   <div>
-                    <badge type="success" rounded>LEGAL</badge>
-                    <badge type="success" rounded>PERSONAS ESPECIALES</badge>
+                    <badge type="success" rounded>LEGALES</badge>
                     <badge type="success" rounded>CONTÁCTANOS</badge>
+                    <badge type="success" rounded>PERSONAS ESPECIALES</badge>
+                    <badge type="success" rounded></badge>
                   </div>
                   <base-button
                     tag="a"

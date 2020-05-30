@@ -32,11 +32,13 @@
                 />
                 <div >
                   <base-button type="primary" class="mt-4">
-                    <router-link to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
+                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
+                  <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Solicitar Ayuda</router-link>
                   </base-button>
 
-                  <base-button type="primary" class="mt-4">
-                    <router-link to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
+                  <base-button type="info" class="mt-4">
+                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
+                  <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Ofrecer Ayuda</router-link>
                   </base-button>
                 </div>
               </tab-pane>
@@ -55,11 +57,13 @@
                 />
                 <div >
                   <base-button type="primary" class="mt-4">
-                    <router-link to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
+                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
+                  <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Solicitar Ayuda</router-link>
                   </base-button>
 
-                  <base-button type="primary" class="mt-4">
-                    <router-link to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
+                  <base-button type="info" class="mt-4">
+                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
+                  <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Ofrecer Ayuda</router-link>
                   </base-button>
                 </div>
               </tab-pane>
@@ -78,11 +82,13 @@
                 />
                 <div >
                   <base-button type="primary" class="mt-4">
-                    <router-link to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
+                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
+                  <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Solicitar Ayuda</router-link>
                   </base-button>
 
-                  <base-button type="primary" class="mt-4">
-                    <router-link to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
+                  <base-button type="info" class="mt-4">
+                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
+                  <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Ofrecer Ayuda</router-link>
                   </base-button>
                 </div>
               </tab-pane>
@@ -101,11 +107,13 @@
                 />
                 <div >
                   <base-button type="primary" class="mt-4">
-                    <router-link to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
+                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
+                  <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Solicitar Ayuda</router-link>
                   </base-button>
 
-                  <base-button type="primary" class="mt-4">
-                    <router-link to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
+                  <base-button type="info" class="mt-4">
+                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
+                  <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Ofrecer Ayuda</router-link>
                   </base-button>
                 </div>
               </tab-pane>
@@ -123,6 +131,18 @@
                   border="0"
                   style="height: 350px;"
                 />
+
+                 <div >
+                  <base-button type="primary" class="mt-4">
+                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
+                  <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Solicitar Ayuda</router-link>
+                  </base-button>
+
+                  <base-button type="info" class="mt-4">
+                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
+                  <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Ofrecer Ayuda</router-link>
+                  </base-button>
+                </div>
               </tab-pane>
             </card>
           </tabs>
@@ -138,6 +158,11 @@ export default {
   components: {
     Tabs,
     TabPane
+  },
+   computed: {
+    logged_usu() {
+      return this.$store.state.logged;
+    }
   }
 };
 </script>
