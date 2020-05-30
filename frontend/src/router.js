@@ -4,6 +4,7 @@ import AppHeader from "./views/AppHeader";
 
 
 import Home from "./views/Home.vue";
+import Login from "./views/Login.vue";
 
 
 
@@ -19,6 +20,16 @@ export default new Router({
       components: {
         header: AppHeader,
         default: Home
+      
+      }
+    
+    },
+    {
+      path: "/login",
+      name: "Login",
+      components: {
+        header: AppHeader,
+        default: Login
       
       }
     
