@@ -29,7 +29,7 @@
             </div>
 
             <div class="text-center mt-5">
-              <h3 style="margin-top: 150px;">Síntomas COVID-19</h3>
+              <h3 style="margin-top: 150px;">Evalúa tus síntomas</h3>
               <span class="font-weight-light">Por favor, responda todas las preguntas.</span>
             </div>
 

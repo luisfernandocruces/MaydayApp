@@ -107,14 +107,6 @@
       </div>
     </section>
 
-
-
-
-
-
-
-
-
     <section class="section section section-shaped my-0 overflow-hidden">
       <div class="shape shape-style-1 bg-gradient-warning shape-skew">
         <span></span>
@@ -145,9 +137,7 @@
               </div>
               <div class="pl-4">
                 <h4 class="display-3 text-white">Prevención COVID-19</h4>
-                <p class="text-white">
-                  ¿Crees que tienes COVID-19? Llena este formulario y no te mueras!!! DUH
-                </p>
+                <p class="text-white">Revisa tus síntomas y descubre qué hacer después.</p>
               </div>
             </div>
             <card shadow class="shadow-lg--hover mt-5">
@@ -162,7 +152,7 @@
                     every summer, and that process will continue whatever happens.
                   </p>
 
-                  <router-link  class="text-success" to="/symptomsForm">Click Aquí</router-link>
+                  <router-link class="text-success" to="/symptomsForm">Click Aquí</router-link>
                 </div>
               </div>
             </card>
@@ -177,7 +167,7 @@
                     The Arctic Ocean freezes every winter and much of the sea-ice then thaws
                     every summer, and that process will continue whatever happens.
                   </p>
-                  <router-link  class="text-warning" to="/medicalHelpInformation">Click Aquí</router-link>
+                  <router-link class="text-warning" to="/medicalHelpInformation">Click Aquí</router-link>
                 </div>
               </div>
             </card>
