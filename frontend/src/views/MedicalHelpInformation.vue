@@ -33,11 +33,11 @@
     </div>
     <section class="section section-lg pt-lg-0 mt--300">
       <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" style="margin-top:-60rem">
           <div class="col">
             <div class="row row-grid">
               <div class="col text-center">
-                <div id="carousel-1" style="margin-top:-100px">
+                <div id="carousel-1">
                   <b-carousel
                     id="carousel-fade"
                     :interval="2000"
