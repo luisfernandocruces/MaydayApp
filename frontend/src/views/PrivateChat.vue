@@ -23,13 +23,13 @@
             <div id="Chat-Box">
               <ul>
                 <li v-for="message in messages" :key="message">
-                  <strong>{{message.from}} :</strong>
-                  {{message.msg}}
+                  <strong>{{ message.from }} :</strong>
+                  {{ message.msg }}
                 </li>
               </ul>
             </div>
             <div id="sendMessage" class="row">
-                <div class="col">
+              <div class="col">
                 <textarea
                   class="form-control"
                   id="description"
@@ -37,10 +37,12 @@
                   placeholder="Escribe tu mensaje..."
                   v-model="new_message"
                 ></textarea>
-                </div>
-                <div class="col-md-auto">
-                <base-button type="primary" @click="sendMessage">Enviar</base-button>
-                </div>
+              </div>
+              <div class="col-md-auto">
+                <base-button type="primary" @click="sendMessage"
+                  >Enviar</base-button
+                >
+              </div>
             </div>
           </card>
         </div>
@@ -51,33 +53,29 @@
 <script>
 import io from "socket.io-client";
 export default {
-  
   data() {
     return {
       other_user: this.$store.state.toUserEmail,
       messages: [
         { from: "dangaltor", msg: "hola que tal" },
-        { from: this.$store.state.toUserEmail, msg: "Bien y vos?" }
+        { from: this.$store.state.toUserEmail, msg: "Bien y vos?" },
       ],
       new_message: "",
-      socket: null,
+      socket: io("http://localhost:3000"),
     };
   },
-  created(){
-      this.socket = io('localhost:8080');
-      this.socket.on('message_received', (message) => {
-          this.messages.push({from: this.other_user, msg: message});
-      });
-      alert(this.other_user);
-  },
+  created() {},
 
   methods: {
-      sendMessage(){
-          if(this.new_message){
-              this.messages.push({from: "dangaltor", msg: this.new_message});
-              this.new_message = "";
-          }
+    sendMessage() {
+      if (this.new_message) {
+        this.messages.push({ from: "dangaltor", msg: this.new_message });
+        this.new_message = "";
       }
-  }
+    },
+  },
+  beforeDestroy() {
+    this.$root.$el.parentNode.removeChild(this.$root.$el);
+  },
 };
 </script>

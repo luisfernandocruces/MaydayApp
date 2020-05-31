@@ -9,14 +9,6 @@ var debug = require("debug")("maydayapp:server");
 var http = require("http");
 
 /**
- * io
- */
-var io = require("socket.io")(http);
-io.on("connection", function (socket) {
-  console.log("connected");
-});
-
-/**
  * Get port from environment and store in Express.
  */
 
@@ -92,3 +84,13 @@ function onListening() {
   var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
   debug("Listening on " + bind);
 }
+
+// Setting up Socket.io
+const io = require("socket.io")(server);
+io.on("connection", function (socket) {
+  console.log("Socket Connection Established with ID :" + socket.id);
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+    io.emit("user disconnected");
+  });
+});
