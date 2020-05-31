@@ -94,11 +94,11 @@
                 required
                
               ><el-date-picker  style="width: -webkit-fill-available;"
-       v-model="user.birthdate"
-      type="date"
-      format="dd/MM/yyyy"
-      placeholder="Selecciona una fecha de nacimiento">
-    </el-date-picker></base-input>
+                  v-model="user.birthdate"
+                  type="date"
+                  format="dd/MM/yyyy"
+                  placeholder="Selecciona una fecha de nacimiento">
+                </el-date-picker></base-input>
             </div>
           </div>
 
