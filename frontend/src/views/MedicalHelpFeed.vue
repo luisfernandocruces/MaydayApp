@@ -24,6 +24,29 @@
     </section>
     <section class="section section-skew" style="margin-top:-100px">
       <div class="container">
+        <!-- Modal -->
+
+        <modal :show.sync="modals.modal1">
+          <h6 slot="header" class="modal-title" id="modal-title-default">Type your modal title</h6>
+
+          <p>
+            Far far away, behind the word mountains, far from the countries Vokalia and
+            Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
+            right at the coast of the Semantics, a large language ocean.
+          </p>
+          <p>
+            A small river named Duden flows by their place and supplies it with the necessary
+            regelialia. It is a paradisematic country, in which roasted parts of sentences
+            fly into your mouth.
+          </p>
+
+          <template slot="footer">
+            <base-button type="primary">Save changes</base-button>
+            <base-button type="link" class="ml-auto" @click="modals.modal1 = false">Close</base-button>
+          </template>
+        </modal>
+
+        <!-- End Modal -->
         <div class="row">
           <div class="col col-lg-3">
             <article class="card-group-item">
@@ -169,6 +192,7 @@
               <base-button type="info" class="mt-4">
                 <router-link to="/helpMenu" style="color:white">Solicitar</router-link>
               </base-button>
+              <base-button block type="primary" class="mb-3" @click="modals.modal1 = true">Default</base-button>
             </card>
           </div>
         </div>
@@ -178,12 +202,20 @@
 </template>
 <script>
 import axios from "../plugins/axios";
+
+import Modal from "@/components/Modal";
 export default {
+  components: {
+    Modal
+  },
   data() {
     return {
       checkedFilters: [],
       helps: [],
-      filteredHelps: []
+      filteredHelps: [],
+      modals: {
+        modal1: false
+      }
     };
   },
   methods: {
@@ -193,11 +225,11 @@ export default {
         this.helps.forEach(element => {
           var condition = false;
           this.checkedFilters.forEach(filter => {
-            if(element.health_area == filter){
+            if (element.health_area == filter) {
               condition = true;
             }
           });
-          if(condition == true){
+          if (condition == true) {
             this.filteredHelps.push(element);
           }
         });
