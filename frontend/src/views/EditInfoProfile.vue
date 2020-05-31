@@ -204,6 +204,7 @@ export default {
         .put("/users/" + this.email, this.user)
         .then((response) => {
           if (response.status == 200) {
+            this.$store.commit("updateUser", this.user);
             this.messageLogin = "Se han actualizado los datos correctamente.";
             this.modalShow = true;
           }
