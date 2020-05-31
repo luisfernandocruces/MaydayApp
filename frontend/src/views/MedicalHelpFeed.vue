@@ -194,9 +194,7 @@
               <br />
               <div class="row" style="place-content: center;">
                 <div class="col">
-                  <base-button type="info">
-                    <router-link to="/helpMenu" style="color:white">Solicitar</router-link>
-                  </base-button>
+                  <base-button @click="openChat(help.idProfessional)" type="info">Solicitar</base-button>
                 </div>
                 <div class="col">
                   <button
@@ -242,6 +240,10 @@ export default {
     };
   },
   methods: {
+    openChat(idPro) {
+      this.$store.commit("updateToUserEmail", idPro);
+      this.$router.push("/privateChat");
+    },
     formatDate(time) {
       console.log(this.$store.state.user);
 
