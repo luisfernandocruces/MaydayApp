@@ -177,7 +177,7 @@
                     The Arctic Ocean freezes every winter and much of the sea-ice then thaws
                     every summer, and that process will continue whatever happens.
                   </p>
-                  <router-link  class="text-warning" to="/helpMenu">Click Aquí</router-link>
+                  <router-link  class="text-warning" to="/medicalHelpInformation">Click Aquí</router-link>
                 </div>
               </div>
             </card>

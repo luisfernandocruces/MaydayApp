@@ -10,13 +10,13 @@ import PublishHelp from "./views/PublishHelp.vue"
 
 import EditProfile from "./views/EditInfoProfile";
 
-
 import RegisterMenu from "./views/RegisterMenu.vue";
 import HelpMenu from "./views/HelpMenu.vue";
 import MedicalHelpFeed from "./views/MedicalHelpFeed.vue";
 import PrivateChat from "./views/PrivateChat.vue";
 import ChatList from "./views/ChatList.vue";
 import SymptomsForm from "./views/SymptomsForm.vue";
+import MedicalHelpInformation from "./views/MedicalHelpInformation.vue";
 
 Vue.use(Router);
 
@@ -134,6 +134,14 @@ export default new Router({
         default: SymptomsForm,
       },
     },
+    {
+      path: "/medicalHelpInformation",
+      name: "MedicalHelpInformation",
+      components: {
+        header: AppHeader,
+        default: MedicalHelpInformation,
+      },
+    }
   ],
   scrollBehavior: (to) => {
     if (to.hash) {
