@@ -47,6 +47,7 @@ exports.createHealthProfessional = function (req, res, next) {
     description: req.body.description,
     professional_card_number: req.body.professional_card_number,
     health_area: req.body.health_area,
+    gender: req.body.gender
   });
   console.log(user);
 
