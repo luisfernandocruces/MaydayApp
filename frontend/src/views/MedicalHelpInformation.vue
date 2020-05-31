@@ -37,20 +37,56 @@
           <div class="col">
             <div class="row row-grid">
               <div class="col text-center">
-                <b-carousel id="carousel1" controls indicators>
-                  <!-- Text slides with image -->
-                  <b-carousel-slide  img-blank img-alt="Blank image">
-                    <div class="embed-responsive embed-responsive-21by9">
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/G8tbMMGc0so" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                  </b-carousel-slide>
+                <div id="carousel-1" style="margin-top:-100px">
+                  <b-carousel
+                    id="carousel-fade"
+                    :interval="2000"
+                    style="text-shadow: 0px 0px 2px #000"
+                    fade
+                    indicators
+                    img-width="1024"
+                    img-height="480"
+                  >
+                    <b-carousel-slide img-blank img-alt="Blank image">
+                      <div class="embed-responsive embed-responsive-21by9">
+                        <iframe
+                          width="900"
+                          height="315"
+                          src="https://www.youtube.com/embed/G8tbMMGc0so"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen
+                        ></iframe>
+                      </div>
+                    </b-carousel-slide>
 
-                  <b-carousel-slide  img-blank img-alt="Blank image">
-                    <div class="embed-responsive embed-responsive-21by9">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/vlzxSleRnmg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                  </b-carousel-slide>
-                </b-carousel>
+                    <b-carousel-slide img-blank img-alt="Blank image">
+                      <div class="embed-responsive embed-responsive-21by9">
+                        <iframe
+                          width="900"
+                          height="315"
+                          src="https://www.youtube.com/embed/vlzxSleRnmg"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen
+                        ></iframe>
+                      </div>
+                    </b-carousel-slide>
+
+                    <b-carousel-slide img-blank img-alt="Blank image">
+                      <div class="embed-responsive embed-responsive-21by9">
+                        <iframe
+                          width="560"
+                          height="315"
+                          src="https://www.youtube.com/embed/NMmAj1EKdVo"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen
+                        ></iframe>
+                      </div>
+                    </b-carousel-slide>
+                  </b-carousel>
+                </div>
               </div>
             </div>
           </div>
@@ -207,5 +243,4 @@ export default {
 };
 </script>
 <style >
-
 </style>
