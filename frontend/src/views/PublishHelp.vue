@@ -386,7 +386,6 @@ export default {
       this.healthSupport.schedules = this.supports;
       if (this.healthSupport.schedules.length == 0) {
         axios.delete("/healthsupport/" + this.idHS).then(response => {
-          console.log(response.data);
           this.healthSupport.idProfessional = "";
           this.healthSupport.schedules = [];
           this.supports = [];
