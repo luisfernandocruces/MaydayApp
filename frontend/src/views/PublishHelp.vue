@@ -128,6 +128,7 @@ export default {
     };
   },
   computed: {
+    
     idUser() {
       return this.$store.state.user._id;
     },
