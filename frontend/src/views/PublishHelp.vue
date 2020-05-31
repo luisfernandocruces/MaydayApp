@@ -233,7 +233,11 @@ export default {
 
       Id: undefined,
       editing: false,
-      healthSupport: undefined,
+      idHS: "",
+      healthSupport: {
+        idProfessional: "",
+        schedules: []
+      },
       supports: [],
       dayOfWeek2: undefined,
       startTime2: undefined,
@@ -259,6 +263,7 @@ export default {
           console.log(element.idProfessional + "   " + this.idUser);
           if (element.idProfessional == this.idUser) {
             this.healthSupport = element;
+            this.idHS = element._id;
             this.supports = element.schedules;
           }
         });
@@ -278,20 +283,34 @@ export default {
         }
         this.supports.push(sc);
         this.healthSupport.schedules = this.supports;
-        axios
-          .put("/healthsupport/" + this.healthSupport._id, this.healthSupport)
+        
+        if(this.supports.length == 1){
+          this.healthSupport.idProfessional = this.idUser;
+          axios.post("/healthsupport", this.healthSupport).then(response =>{
+            if(response.status == 200){
+              this.idHS = response.data;
+              alert("Horario Agregado Satisfactoriamente");
+            }
+            
+          });
+        }else if(this.supports.length > 1){
+          axios
+          .put("/healthsupport/" + this.idHS, this.healthSupport)
           .then(response => {
             if (response.status == 200) {
               alert("Horario Agregado Satisfactoriamente");
             }
           });
+        }
+
+        
       } else {
         this.supports[this.Id].dayOfWeek = this.dayOfWeek2;
         this.supports[this.Id].startTime = this.startTime2;
         this.supports[this.Id].endTime = this.endTime2;
         this.healthSupport.schedules = this.supports;
         axios
-          .put("/healthsupport/" + this.healthSupport._id, this.healthSupport)
+          .put("/healthsupport/" + this.idHS, this.healthSupport)
           .then(response => {
             if (response.status == 200) {
               alert("Horario Editado Satisfactoriamente");
