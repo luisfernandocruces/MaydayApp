@@ -21,9 +21,10 @@
                 v-for="user in usersWithChat" :key="user.email">
                 <h6 class="text-info text-uppercase">{{user.first_name}} {{user.last_name}}</h6>
                 <p class="description mt-3">{{user.email}}</p>
-                <base-button type="info" class="mt-4">
-                    <router-link :to="{ name: 'PrivateChat',
-                                        params: { toUser: user.email }}" style="color:white">Ver Chat</router-link>
+                <base-button type="info" class="mt-4" @click="goToPrivateChat(user.email)">
+                    Ver Chat
+                    <!-- <router-link :to="{ name: 'privateChat',
+                                        params: { other_user: user.email }}" style="color:white">Ver Chat</router-link> -->
                 </base-button>
             </card>
           </div>
@@ -45,6 +46,13 @@ export default {
         ],
 
     };
+  },
+
+  methods: {
+      goToPrivateChat(other_email) {
+        this.$store.commit('updateToUserEmail', other_email);
+        this.$router.push('/privateChat'); 
+      }
   }
 };
 </script>

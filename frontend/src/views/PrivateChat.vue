@@ -51,13 +51,13 @@
 <script>
 import io from "socket.io-client";
 export default {
-
-  props: ["other_user"],  
+  
   data() {
     return {
+      other_user: this.$store.state.toUserEmail,
       messages: [
         { from: "dangaltor", msg: "hola que tal" },
-        { from: "otra_persona", msg: "Bien y vos?" }
+        { from: this.$store.state.toUserEmail, msg: "Bien y vos?" }
       ],
       new_message: "",
       socket: null,
@@ -68,6 +68,7 @@ export default {
       this.socket.on('message_received', (message) => {
           this.messages.push({from: this.other_user, msg: message});
       });
+      alert(this.other_user);
   },
 
   methods: {
