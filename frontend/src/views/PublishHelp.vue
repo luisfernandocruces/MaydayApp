@@ -129,6 +129,15 @@ export default {
       idUser: "123456789"
     };
   },
+  computed: {
+    
+    idUser() {
+      return this.$store.state.user._id;
+    },
+    user() {
+      return this.$store.state.user;
+    }
+  },
   created() {
     axios.get("/healthsupport").then(response => {
     
