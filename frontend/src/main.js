@@ -22,6 +22,12 @@ import Argon from "./plugins/argon-kit";
 import store from './config/store';
 import "./registerServiceWorker";
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+
+Vue.use(ElementUI);
+
 Vue.config.productionTip = false;
 Vue.use(Argon);
 new Vue({

@@ -12,7 +12,9 @@
       </div>
     </section>
     <section class="section section-skew">
-      <div class="container">
+      <div class="container px-lg-lg">
+        <h4>sadf</h4>
+        <!-- Modal -->
         <card shadow class="card-profile mt--300" no-body>
           <div class="col-md-4">
             <modal :show.sync="modals.modal1">
@@ -39,22 +41,60 @@
               </template>
             </modal>
           </div>
-          <div class="container pt-lg-md">
-            <base-input
-              v-model="dayOfWeek"
-              type="text"
-              placeholder="Día de la Semana"
-              name="first_name"
-              required
-            ></base-input>
-            <base-input
-              placeholder="Hora Inicio"
-              type="number"
-              name="startTime"
-              v-model="startTime"
-            ></base-input>
-            <base-input placeholder="Hora Fin" type="number" name="endTime" v-model="endTime"></base-input>
-            <base-button @click="register">Guardar</base-button>
+
+          <!-- End Modal -->
+          <div class="container">
+            <br />
+            <h4 style="text-align-last: center;">Horarios de Ayuda Médica</h4>
+            <br />
+            <div class="row md-2">
+              <div class="col-md-3">
+                <base-input type="text" placeholder="Día de la Semana" name="first_name" required>
+                  <el-select v-model="dayOfWeek" placeholder="Seleccionar">
+                    <el-option
+                      v-for="item in options"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select>
+                </base-input>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <base-input placeholder="Hora Inicio"  name="startTime">
+                  <el-time-select
+                    v-model="startTime"
+                    :picker-options="{
+                    start: '00:00',
+                    step: '00:15',
+                    end: '23:59'
+                  }"
+                    placeholder="Seleccionar hora inicial"
+                  ></el-time-select>
+                </base-input>
+              </div>
+              <div class="col">
+                <base-input placeholder="Hora Fin"  name="endTime">
+                  <el-time-select
+                    v-model="endTime"
+                    :picker-options="{
+                    start: '00:00',
+                    step: '00:15',
+                    end: '23:59'
+                  }"
+                    placeholder="Seleccionar hora final"
+                  ></el-time-select>
+                </base-input>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <base-button @click="register">Guardar</base-button>
+              </div>
+            </div>
+            <br />
           </div>
           <table class="table">
             <thead>
@@ -97,8 +137,6 @@
               </tr>
             </tbody>
           </table>
-         
-          
         </card>
       </div>
     </section>
@@ -107,15 +145,50 @@
 <script>
 import axios from "../plugins/axios";
 import Modal from "@/components/Modal";
+import { DatePicker, TimeSelect } from "element-ui";
 export default {
   components: {
-    Modal
+    Modal,
+    [DatePicker.name]: DatePicker,
+    [TimeSelect.name]: TimeSelect
   },
   data() {
     return {
+      options: [
+        {
+          value: "Lunes",
+          label: "Lunes"
+        },
+        {
+          value: "Martes",
+          label: "Martes"
+        },
+        {
+          value: "Miércoles",
+          label: "Miércoles"
+        },
+        {
+          value: "Jueves",
+          label: "Jueves"
+        },
+        {
+          value: "Viernes",
+          label: "Viernes"
+        },
+        {
+          value: "Sabado",
+          label: "Sabado"
+        },
+        {
+          value: "Domingo",
+          label: "Domingo"
+        }
+      ],
+      value: "",
       modals: {
         modal1: false
       },
+
       Id: undefined,
       editing: false,
       healthSupport: undefined,
@@ -125,12 +198,10 @@ export default {
       endTime2: undefined,
       dayOfWeek: undefined,
       startTime: undefined,
-      endTime: undefined,
-     
+      endTime: undefined
     };
   },
   computed: {
-    
     idUser() {
       return this.$store.state.user._id;
     },
@@ -140,11 +211,10 @@ export default {
   },
   created() {
     axios.get("/healthsupport").then(response => {
-    
       if (response.status == 200) {
         response.data.forEach(element => {
-          console.log(element)
-          console.log(element.idProfessional+"   "+this.idUser)
+          console.log(element);
+          console.log(element.idProfessional + "   " + this.idUser);
           if (element.idProfessional == this.idUser) {
             this.healthSupport = element;
             this.supports = element.schedules;
