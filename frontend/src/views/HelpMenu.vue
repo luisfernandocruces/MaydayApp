@@ -37,7 +37,7 @@
                     type="info"
                     class="mt-4"
                   >
-                    <router-link to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
+                    <router-link to="/publishHelp" style="color:white">Ofrecer Ayuda</router-link>
                     <router-link
                       v-if="this.logged_usu == false"
                       to="/login"

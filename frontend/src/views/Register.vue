@@ -19,7 +19,7 @@
             <p v-if="errors.length">
               <base-alert v-for="error in errors" type="warning" :key="error">
                 <strong>Atención!</strong>
-                {{error}}
+                {{ error }}
               </base-alert>
             </p>
           </div>
@@ -48,21 +48,18 @@
           </div>
 
           <div class="row">
-            <div class="col-md-6" >
-              <base-input required label="Tipo de Documento"  >
-              
+            <div class="col-md-6">
+              <base-input required label="Tipo de Documento">
                 <el-select
-                style="width: -webkit-fill-available;"
+                  style="width: -webkit-fill-available;"
                   label="Tipo de documento"
                   collapse-tags
-                 
                   size="large"
                   required
                   placeholder="Ingrese el tipo de Documento"
                   v-model="user.document_type"
                 >
                   <el-option
-                  
                     v-for="option in document_types"
                     class="select-primary"
                     :value="option.type"
@@ -74,7 +71,6 @@
             </div>
             <div class="col">
               <base-input
-               
                 label="Documento de identidad"
                 type="number"
                 placeholder="Documento"
@@ -92,13 +88,15 @@
                 type="date"
                 name="birthdate"
                 required
-               
-              ><el-date-picker  style="width: -webkit-fill-available;"
+                ><el-date-picker
+                  style="width: -webkit-fill-available;"
                   v-model="user.birthdate"
                   type="date"
                   format="dd/MM/yyyy"
-                  placeholder="Selecciona una fecha de nacimiento">
-                </el-date-picker></base-input>
+                  placeholder="Selecciona una fecha de nacimiento"
+                >
+                </el-date-picker
+              ></base-input>
             </div>
           </div>
 
@@ -121,16 +119,20 @@
                 placeholder="Area de la Salud"
                 name="healtArea"
                 required
-                
-              > <el-select v-model="user.health_area" size="large" placeholder="Seleccionar"   style="width: -webkit-fill-available;">
-                    <el-option
-                     
-                      v-for="item in areas"
-                      :key="item.value"
-                      :label="item.value"
-                      :value="item.value"
-                    ></el-option>
-                  </el-select></base-input>
+              >
+                <el-select
+                  v-model="user.health_area"
+                  size="large"
+                  placeholder="Seleccionar"
+                  style="width: -webkit-fill-available;"
+                >
+                  <el-option
+                    v-for="item in areas"
+                    :key="item.value"
+                    :label="item.value"
+                    :value="item.value"
+                  ></el-option> </el-select
+              ></base-input>
             </div>
           </div>
 
@@ -171,42 +173,30 @@
 
           <div class="row">
             <div class="col">
-               <base-input
-                label="Género"
-                required
-                name="gender"
-                
-              > <el-select
-                style="width: -webkit-fill-available;"
-                
-            
-                 
+              <base-input label="Género" required name="gender">
+                <el-select
+                  style="width: -webkit-fill-available;"
                   size="large"
                   required
                   placeholder="Género"
                   v-model="user.gender"
                 >
                   <el-option
-                  
                     v-for="option in genders"
-                   
                     :value="option.type"
                     :label="option.type"
                     :key="option.type"
-                  ></el-option>
-                </el-select></base-input>
+                  ></el-option> </el-select
+              ></base-input>
             </div>
             <div class="col">
               <base-input
-              
                 label="Número telefónico"
                 type="number"
                 name="phone_number"
                 v-model="user.phone_number"
               ></base-input>
             </div>
-
-            
           </div>
 
           <base-input required label="Breve Descripción">
@@ -226,21 +216,35 @@
         <base-button type="info" @click="checkForm">Registrarme</base-button>
       </card>
     </div>
+
+    <modal :show.sync="modalShow">
+      <template slot="header">
+        <h5 class="modal-title" id="exampleModalLabel">¡Cuenta creada!</h5>
+      </template>
+      <div>{{ messageRegister }}</div>
+      <template slot="footer">
+        <base-button type="secondary" @click="goLogin">Aceptar</base-button>
+      </template>
+    </modal>
   </section>
 </template>
 <script>
 import { Select, Option } from "element-ui";
+import Modal from "@/components/Modal";
 
 import axios from "../plugins/axios";
 export default {
   components: {
+    Modal,
     [Option.name]: Option,
-    [Select.name]: Select
+    [Select.name]: Select,
   },
 
   props: ["userType"],
   data() {
     return {
+      modalShow: false,
+      messageRegister: "",
       user: {
         first_name: "",
         last_name: "",
@@ -253,8 +257,9 @@ export default {
         phone_number: "",
         description: "",
         health_area: "",
-        birthdate: ""
-      }, areas: [
+        birthdate: "",
+      },
+      areas: [
         { value: "General" },
         { value: "Enfermería" },
         { value: "Urología" },
@@ -266,41 +271,47 @@ export default {
         { value: "Nefrología" },
         { value: "Gastroenterología" },
         { value: "Neumología" },
-        { value: "Oncología" }
-
+        { value: "Oncología" },
       ],
       document_types: [
         { type: "Cédula de Ciudadanía" },
         { type: "Cédula de Extranjería" },
-        { type: "Pasaporte" }
+        { type: "Pasaporte" },
       ],
-      genders: [
-        { type: "Hombre" },
-        { type: "Mujer" },
-        { type: "Otro" }
-      ],
+      genders: [{ type: "Hombre" }, { type: "Mujer" }, { type: "Otro" }],
       confirmation_password: "",
-      errors: []
+      errors: [],
     };
   },
   created() {},
 
   methods: {
+    goLogin() {
+      this.$router.push("/login");
+    },
     register() {
       if (this.userType == "normal") {
-        axios.post("/users/normalUser", this.user).then(response => {
+        axios.post("/users/normalUser", this.user).then((response) => {
           if (response.status == 200) {
-            alert("Usuario creado");
-          } else {
+            this.messageRegister =
+              "El usuario con el emial " +
+              this.email +
+              " ha sido creado correctamente. Ya puede iniciar sesión.";
+            this.modalShow = true;
           }
         });
       } else if (this.userType == "health") {
-        axios.post("/users/healthProfessional", this.user).then(response => {
-          if (response.status == 200) {
-            alert("Usuario creado");
-          } else {
-          }
-        });
+        axios
+          .post("/users/healthProfessional, por favor Inicie sesión", this.user)
+          .then((response) => {
+            if (response.status == 200) {
+              this.messageRegister =
+                "El usuario con el emial " +
+                this.email +
+                " ha sido creado correctamente. Ya puede iniciar sesión.";
+              this.modalShow = true;
+            }
+          });
       }
     },
 
@@ -358,9 +369,8 @@ export default {
       }
 
       e.preventDefault();
-    }
-  }
+    },
+  },
 };
 </script>
-<style>
-</style>
+<style></style>

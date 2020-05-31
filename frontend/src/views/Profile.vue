@@ -34,6 +34,8 @@
               <div class="col-lg-4 order-lg-1"></div>
             </div>
             <div class="text-center mt-5">
+              <br>
+              <br>
               <h3>
                 {{firstName}} {{lastName}}</h3>
                 <div class="h6 mt-4">

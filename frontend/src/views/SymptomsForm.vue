@@ -40,7 +40,22 @@
                     style="margin-bottom:20px"
                     class="font-weight-bold"
                   >Seleccione su rango de edad:</span>
-                  <h6 style="color:red">PONER DROPBOX!!!</h6>
+                  <base-input
+                    type="text"
+
+                  >
+                    <el-select
+                      v-model="age"
+                      placeholder="Seleccionar"
+                      style=" width: -webkit-fill-available;">
+                      <el-option
+                        v-for="item in ages"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      ></el-option>
+                    </el-select>
+                  </base-input>
                 </div>
 
                 <div>
@@ -48,14 +63,41 @@
                     style="margin-bottom:20px"
                     class="font-weight-bold"
                   >¿Has realizado algún viaje en los últimas 15 días?</span>
-                  <h6 style="color:red">PONER CHECKBOXES!!!</h6>
+                  <base-input
+                    type="text"
+               
+                  >
+                    <el-select
+                      v-model="option"
+                      placeholder="Seleccionar"
+                      style=" width: -webkit-fill-available;">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.type"
+                        :label="item.type"
+                        :value="item.type"
+                      ></el-option>
+                    </el-select>
+                  </base-input>
                 </div>
                 <div>
                   <span
                     style="margin-bottom:20px"
                     class="font-weight-bold"
                   >¿Has estado en contacto con una persona que haya sido diagnosticada con COVID-19 en los últimos 15 días?</span>
-                  <h6 style="color:red">PONER CHECKBOXES!!!</h6>
+                  <base-input type="text">
+                    <el-select
+                      v-model="option2"
+                      placeholder="Seleccionar"
+                      style=" width: -webkit-fill-available;">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.type"
+                        :label="item.type"
+                        :value="item.type"
+                      ></el-option>
+                    </el-select>
+                  </base-input>
                 </div>
               </div>
               <form>
@@ -556,6 +598,33 @@
 export default {
   data() {
     return {
+      ages: [
+        {
+          value: "0-15",
+          label: "0-15"
+        },
+        {
+          value: "51-70",
+          label: "51-70"
+        },
+        {
+          value: "51-70",
+          label: "51-70"
+        },
+        {
+          value: "70+",
+          label: "70+"
+        }
+      ],
+      options: [
+      
+        { type: "Si" },
+        { type: "No" }
+      ],
+      option:'',
+      option2:'',
+      gender:'',
+      age:'',
       checkedSymptoms: []
     };
   }
