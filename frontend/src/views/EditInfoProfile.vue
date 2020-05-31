@@ -46,6 +46,7 @@
                   required
                   placeholder="Ingrese el tipo de Documento"
                   v-model="user.document_type"
+                  disabled
                 >
                   <el-option
                     v-for="option in document_types"
@@ -53,6 +54,7 @@
                     :value="option.type"
                     :label="option.type"
                     :key="option.type"
+                    disabled
                   ></el-option>
                 </el-select>
 
@@ -95,6 +97,7 @@
                 </div>
 
                 <base-input
+                  disabled
                   label="Correo Electronico"
                   type="text"
                   placeholder="Correo"
@@ -126,7 +129,9 @@
                   v-model="user.description"
                 ></base-input>
 
-                <base-button type="primary" @click="updateUser">Actualizar</base-button>
+                <base-button type="primary" @click="updateUser"
+                  >Actualizar</base-button
+                >
                 <br />
                 <br />
               </form>
@@ -134,21 +139,38 @@
           </div>
         </card>
       </div>
+
+      <modal :show.sync="modalShow">
+        <template slot="header">
+          <h5 class="modal-title" id="exampleModalLabel">Información</h5>
+        </template>
+        <div>{{ messageLogin }}</div>
+        <template slot="footer">
+          <base-button type="secondary" @click="gotEditInfo"
+            >Aceptar</base-button
+          >
+        </template>
+      </modal>
     </section>
   </div>
 </template>
 
 <script>
 import { Select, Option } from "element-ui";
+import axios from "../plugins/axios";
+import Modal from "@/components/Modal";
 
 export default {
   name: "EditInfoProfile",
   components: {
+    Modal,
     [Option.name]: Option,
-    [Select.name]: Select
+    [Select.name]: Select,
   },
   data() {
     return {
+      modalShow: false,
+      messageLogin: "",
       user: {
         rol: this.$store.state.user.rol,
         first_name: this.$store.state.user.first_name,
@@ -162,22 +184,38 @@ export default {
         phone_number: this.$store.state.user.phone_number,
         description: this.$store.state.user.description,
         health_area: this.$store.state.user.health_area,
-        birthdate: this.$store.state.user.phone_number
+        birthdate: this.$store.state.user.phone_number,
       },
       document_types: [
         { type: "Cédula de Ciudadanía" },
         { type: "Cédula de Extranjería" },
-        { type: "Pasaporte" }
-      ]
+        { type: "Pasaporte" },
+      ],
     };
   },
   methods: {
+    gotEditInfo() {
+      this.modalShow = false;
+      this.$router.push("/profile");
+    },
     updateUser() {
       console.log("done");
-    }
-  }
+      axios
+        .put("/users/" + this.email, this.user)
+        .then((response) => {
+          if (response.status == 200) {
+            this.messageLogin = "Se han actualizado los datos correctamente.";
+            this.modalShow = true;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.messageLogin = error;
+          this.modalShow = true;
+        });
+    },
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>

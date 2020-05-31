@@ -144,7 +144,6 @@ export default {
             this.$store.commit("changeTheLogged", true);
             this.$router.push("/");
           }
-          this.$router.push("/");
         })
         .catch((error) => {
           console.log(error);
