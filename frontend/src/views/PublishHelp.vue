@@ -16,6 +16,7 @@
         <h4>sadf</h4>
         <!-- Modal -->
         <card shadow class="card-profile mt--300" no-body>
+          <div class="px-4">
           <div class="col-md-4">
             <modal :show.sync="modals.modal1">
               <h6 slot="header" class="modal-title" id="modal-title-default">Editar Horario</h6>
@@ -44,11 +45,14 @@
 
           <!-- End Modal -->
           <div class="container">
+            
             <br />
             <h4 style="text-align-last: center;">Horarios de Ayuda Médica</h4>
             <br />
-            <div class="row md-2">
-              <div class="col-md-3">
+            <div class="row" style="
+    place-content: center;
+">
+              <div class="col-lg-4">
                 <base-input type="text" placeholder="Día de la Semana" name="first_name" required>
                   <el-select v-model="dayOfWeek" placeholder="Seleccionar">
                     <el-option
@@ -61,8 +65,10 @@
                 </base-input>
               </div>
             </div>
-            <div class="row">
-              <div class="col-4">
+            <div class="row" style="
+    place-content: center;
+">
+              <div class="col-lg-4">
                 <base-input placeholder="Hora Inicio"  name="startTime">
                   <el-time-select
                     v-model="startTime"
@@ -75,7 +81,7 @@
                   ></el-time-select>
                 </base-input>
               </div>
-              <div class="col">
+              <div class="col-lg-4">
                 <base-input placeholder="Hora Fin"  name="endTime">
                   <el-time-select
                     v-model="endTime"
@@ -88,9 +94,12 @@
                   ></el-time-select>
                 </base-input>
               </div>
+             
             </div>
-            <div class="row">
-              <div class="col-md-3">
+            <div class="row" style="
+    place-content: center;
+">
+              <div class="mt-2">
                 <base-button @click="register">Guardar</base-button>
               </div>
             </div>
@@ -137,6 +146,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
         </card>
       </div>
     </section>
