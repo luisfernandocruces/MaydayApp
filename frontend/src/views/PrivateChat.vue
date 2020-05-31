@@ -20,7 +20,7 @@
             body-classes="px-lg py-lg"
             class="border-0"
           >
-            <div id="Chat-Box">
+            <div id="Chat-Box" style="overflow-y:scroll">
               <ul>
                 <li v-for="message in conversation.messages" :key="message">
                   <strong>{{ message.idSender }} :</strong>
