@@ -126,7 +126,7 @@ export default {
       dayOfWeek: undefined,
       startTime: undefined,
       endTime: undefined,
-      idUser: "123456789"
+     
     };
   },
   computed: {
