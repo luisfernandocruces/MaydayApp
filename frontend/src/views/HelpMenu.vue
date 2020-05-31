@@ -32,8 +32,7 @@
                 />
                 <div >
                   <base-button type="primary" class="mt-4">
-                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
-                  <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Solicitar Ayuda</router-link>
+                  <router-link to="/medicalHelpFeed" style="color:white">Ver Ayuda</router-link>
                   </base-button>
 
                   <base-button type="info" class="mt-4">
@@ -57,8 +56,7 @@
                 />
                 <div >
                   <base-button type="primary" class="mt-4">
-                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
-                  <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Solicitar Ayuda</router-link>
+                  <router-link to="/helpMenu" style="color:white">Ver Ayuda</router-link>
                   </base-button>
 
                   <base-button type="info" class="mt-4">
@@ -82,8 +80,7 @@
                 />
                 <div >
                   <base-button type="primary" class="mt-4">
-                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
-                  <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Solicitar Ayuda</router-link>
+                  <router-link to="/helpMenu" style="color:white">Ver Ayuda</router-link>
                   </base-button>
 
                   <base-button type="info" class="mt-4">
@@ -95,9 +92,10 @@
 
               <tab-pane title="Espiritual" class="text-center">
                 <p class="description">
-                  Cosby sweater eu banh mi, qui irure terry richardson ex
-                  squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan
-                  american apparel, butcher voluptate nisi qui.
+                  Raw denim you probably haven't heard of them jean shorts
+                  Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
+                  cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
+                  keffiyeh dreamcatcher synth.
                 </p>
                 <img
                   src="img/helps/ayudaespiritual.jpg"
@@ -107,8 +105,7 @@
                 />
                 <div >
                   <base-button type="primary" class="mt-4">
-                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
-                  <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Solicitar Ayuda</router-link>
+                  <router-link to="/helpMenu" style="color:white">Ver Ayuda</router-link>
                   </base-button>
 
                   <base-button type="info" class="mt-4">
@@ -134,8 +131,7 @@
 
                  <div >
                   <base-button type="primary" class="mt-4">
-                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Solicitar Ayuda</router-link>
-                  <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Solicitar Ayuda</router-link>
+                  <router-link to="/helpMenu" style="color:white">Ver Ayuda</router-link>
                   </base-button>
 
                   <base-button type="info" class="mt-4">

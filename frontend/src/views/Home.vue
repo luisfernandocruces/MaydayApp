@@ -1,7 +1,8 @@
 <template>
   <div>
+
+    
     <div class="position-relative">
-      <!-- shape Hero -->gi
       <section class="section-shaped my-0">
         <div class="shape shape-style-1 bg-gradient-info shape-skew">
           <span></span>
@@ -31,6 +32,7 @@
       </section>
       <!-- 1st Hero Variation -->
     </div>
+    
     <section class="section section-lg pt-lg-0 mt--200">
       <div class="container">
         <div class="row justify-content-center">

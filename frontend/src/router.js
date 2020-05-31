@@ -10,6 +10,7 @@ import Profile from "./views/Profile.vue";
 
 import RegisterMenu from "./views/RegisterMenu.vue";
 import HelpMenu from "./views/HelpMenu.vue";
+import MedicalHelpFeed from "./views/MedicalHelpFeed.vue";
 
 
 Vue.use(Router);
@@ -84,7 +85,16 @@ export default new Router({
         default: HelpMenu
       
       }
-    }, 
+    },
+    {
+      path: "/medicalHelpFeed",
+      name: "MedicalHelpFeed",
+      components: {
+        header: AppHeader,
+        default: MedicalHelpFeed
+      
+      }
+    } 
   ],
   scrollBehavior: to => {
     if (to.hash) {
