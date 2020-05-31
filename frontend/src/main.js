@@ -20,10 +20,18 @@ import App from "./App.vue";
 import router from "./router";
 import Argon from "./plugins/argon-kit";
 import store from './config/store';
+import locale from 'element-ui/lib/locale/lang/es'
 import "./registerServiceWorker";
 import VueCarousel from '@chenfengyuan/vue-carousel';
 
-Vue.component(VueCarousel.name, VueCarousel);
+
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+
+Vue.use(ElementUI , { locale });
+
+
 Vue.config.productionTip = false;
 Vue.use(Argon);
 new Vue({

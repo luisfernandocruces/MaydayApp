@@ -116,7 +116,7 @@ export default new Router({
       components: {
         header: AppHeader,
         default: PrivateChat,
-      }
+      },
     },
     {
       path: "/myChats",
