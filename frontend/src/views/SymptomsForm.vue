@@ -23,22 +23,41 @@
                   </a>
                 </div>
               </div>
-              <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
-                <div class="card-profile-actions py-4 mt-lg-0">
-                  <base-button type="info" size="sm" class="mr-4">
-                    <router-link to="/editProfile" style="color:#FFFFFF">Editar Información</router-link>
-                  </base-button>
-                  <base-button type="default" size="sm" class="float-right">Mensajes</base-button>
-                </div>
-              </div>
+              <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center"></div>
+
               <div class="col-lg-4 order-lg-1"></div>
             </div>
 
             <div class="text-center mt-5">
-              <h3>Síntomas COVID-19</h3>
+              <h3 style="margin-top: 150px;">Síntomas COVID-19</h3>
               <span class="font-weight-light">Por favor, responda todas las preguntas.</span>
             </div>
+
             <div class="mt-5" style="margin-left:60px; margin-right:60px;">
+              <div>
+                <div>
+                  <span
+                    style="margin-bottom:20px"
+                    class="font-weight-bold"
+                  >Seleccione su rango de edad:</span>
+                  <h6 style="color:red">PONER DROPBOX!!!</h6>
+                </div>
+
+                <div>
+                  <span
+                    style="margin-bottom:20px"
+                    class="font-weight-bold"
+                  >¿Has realizado algún viaje en los últimas 15 días?</span>
+                  <h6 style="color:red">PONER CHECKBOXES!!!</h6>
+                </div>
+                <div>
+                  <span
+                    style="margin-bottom:20px"
+                    class="font-weight-bold"
+                  >¿Has estado en contacto con una persona que haya sido diagnosticada con COVID-19 en los últimos 15 días?</span>
+                  <h6 style="color:red">PONER CHECKBOXES!!!</h6>
+                </div>
+              </div>
               <form>
                 <span
                   style="margin-bottom:20px"
@@ -53,7 +72,7 @@
                     value
                     style="margin-top:5px"
                   />
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  <label class="form-check-label" for="exampleCheck1">Fiebre</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
@@ -64,7 +83,7 @@
                     value
                     style="margin-top:5px"
                   />
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  <label class="form-check-label" for="exampleCheck1">Cansancio</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
@@ -75,7 +94,10 @@
                     value
                     style="margin-top:5px"
                   />
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Molestias y dolores en el cuerpo</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
@@ -86,7 +108,7 @@
                     value
                     style="margin-top:5px"
                   />
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  <label class="form-check-label" for="exampleCheck1">Dolor de garganta</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
@@ -97,7 +119,7 @@
                     value
                     style="margin-top:5px"
                   />
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  <label class="form-check-label" for="exampleCheck1">Diarrea</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
@@ -108,7 +130,7 @@
                     value
                     style="margin-top:5px"
                   />
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  <label class="form-check-label" for="exampleCheck1">Conjuntivitis</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
@@ -119,7 +141,77 @@
                     value
                     style="margin-top:5px"
                   />
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  <label class="form-check-label" for="exampleCheck1">Dolor de cabeza</label>
+                </div>
+
+                <div style="margin-top:15px; margin-left:20px">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="exampleRadio"
+                    value
+                    style="margin-top:5px"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Pérdida del sentido del olfato o del gusto</label>
+                </div>
+
+                <div style="margin-top:15px; margin-left:20px">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="exampleRadio"
+                    value
+                    style="margin-top:5px"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Erupciones cutáneas o pérdida del color en los dedos de las manos o de los pies</label>
+                </div>
+
+                <div style="margin-top:15px; margin-left:20px">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="exampleRadio"
+                    value
+                    style="margin-top:5px"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Dificultad para respirar o sensación de falta de aire</label>
+                </div>
+
+                <div style="margin-top:15px; margin-left:20px">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="exampleRadio"
+                    value
+                    style="margin-top:5px"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Dificultad para respirar o sensación de falta de aire</label>
+                </div>
+
+                <div style="margin-top:15px; margin-left:20px">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="exampleRadio"
+                    value
+                    style="margin-top:5px"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Incapacidad para hablar o moverse</label>
                 </div>
               </form>
 
@@ -274,9 +366,7 @@
                     value
                     style="margin-top:5px"
                   />
-                  <label class="form-check-label" for="exampleCheck1">
-                    Discapacidad en el aprendizaje
-                  </label>
+                  <label class="form-check-label" for="exampleCheck1">Discapacidad en el aprendizaje</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
@@ -287,10 +377,10 @@
                     value
                     style="margin-top:5px"
                   />
-                  <label class="form-check-label" for="exampleCheck1">
-                    Ha sido diagnosticado con una enfermedad pulmonar severa como asma severa, EPOC
-                    severo, enfermedad intersticial fibrosis quística
-                  </label>
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Ha sido diagnosticado con una enfermedad pulmonar leve o que afecte la respiración</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
@@ -301,10 +391,147 @@
                     value
                     style="margin-top:5px"
                   />
-                  <label class="form-check-label" for="exampleCheck1">
-                    Ha sido diagnosticado con una enfermedad pulmonar severa como asma severa, EPOC
-                    severo, enfermedad intersticial fibrosis quística
-                  </label>
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Ha sido diagnosticado con una enfermedad cardiaca</label>
+                </div>
+
+                <div style="margin-top:15px; margin-left:20px">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="exampleRadio"
+                    value
+                    style="margin-top:5px"
+                  />
+                  <label class="form-check-label" for="exampleCheck1">Presenta hipertensión alta</label>
+                </div>
+
+                <div style="margin-top:15px; margin-left:20px">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="exampleRadio"
+                    value
+                    style="margin-top:5px"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Ha sido diagnosticado con diabetes</label>
+                </div>
+
+                <div style="margin-top:15px; margin-left:20px">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="exampleRadio"
+                    value
+                    style="margin-top:5px"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Ha sido diagnosticado con una enfermedad renal crónica</label>
+                </div>
+
+                <div style="margin-top:15px; margin-left:20px">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="exampleRadio"
+                    value
+                    style="margin-top:5px"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Ha sido diagnosticado con una enfermedad hepática</label>
+                </div>
+
+                <div style="margin-top:15px; margin-left:20px">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="exampleRadio"
+                    value
+                    style="margin-top:5px"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Ha sido diagnosticado con cáncer</label>
+                </div>
+
+                <div style="margin-top:15px; margin-left:20px">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="exampleRadio"
+                    value
+                    style="margin-top:5px"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Padece de inmunosupresión, VIH y/o escleroderma</label>
+                </div>
+
+                <div style="margin-top:15px; margin-left:20px">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="exampleRadio"
+                    value
+                    style="margin-top:5px"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Ha sido diagnosticado con una enfermedad cerebrovascular</label>
+                </div>
+
+                <div style="margin-top:15px; margin-left:20px">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="exampleRadio"
+                    value
+                    style="margin-top:5px"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Ha sido diagnosticado con una enfermedad del sistema nervioso</label>
+                </div>
+
+                <div style="margin-top:15px; margin-left:20px">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="exampleRadio"
+                    value
+                    style="margin-top:5px"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Presenta problemas en el bazo o asplenia</label>
+                </div>
+
+                <div style="margin-top:15px; margin-left:20px">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="exampleRadio"
+                    value
+                    style="margin-top:5px"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exampleCheck1"
+                  >Ha sido diagnosticado con obesidad (ICM > 40)</label>
                 </div>
               </form>
             </div>
@@ -312,7 +539,9 @@
             <div class="mt-5 py-5 border-top text-center">
               <div class="row justify-content-center">
                 <div class="col-lg-9">
-                  <p>Información del usuario.</p>
+                  <base-button type="primary" class="mt-4">
+                    <router-link to="/helpMenu" style="color:white">Obtener resultados</router-link>
+                  </base-button>
                 </div>
               </div>
             </div>
