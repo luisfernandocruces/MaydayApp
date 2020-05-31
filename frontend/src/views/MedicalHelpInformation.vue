@@ -33,7 +33,7 @@
     </div>
     <section class="section section-lg pt-lg-0 mt--300">
       <div class="container">
-        <div class="row justify-content-center" style="margin-top:-60rem">
+        <div class="row justify-content-center">
           <div class="col">
             <div class="row row-grid">
               <div class="col text-center">
@@ -47,7 +47,7 @@
                     img-width="1024"
                     img-height="480"
                   >
-                    <b-carousel-slide img-blank >
+                    <b-carousel-slide img-blank img-alt="Blank image">
                       <div class="embed-responsive embed-responsive-21by9">
                         <iframe
                           width="900"
@@ -60,7 +60,7 @@
                       </div>
                     </b-carousel-slide>
 
-                    <b-carousel-slide img-blank >
+                    <b-carousel-slide img-blank img-alt="Blank image">
                       <div class="embed-responsive embed-responsive-21by9">
                         <iframe
                           width="900"
@@ -232,7 +232,6 @@
 import { BCarousel } from "bootstrap-vue";
 import { BCarouselSlide } from "bootstrap-vue";
 import Closebuy from "./CloseBuy.vue";
-
 export default {
   name: "medialInfo",
   components: {
@@ -243,7 +242,4 @@ export default {
 };
 </script>
 <style >
-.img-fluid.w-100{
-width: 80% !important;
-}
 </style>
