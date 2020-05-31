@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import AppHeader from "./views/AppHeader";
+
 import Home from "./views/Home.vue";
 import UserRegistration from "./views/Register.vue";
 import Login from "./views/Login.vue";
@@ -14,8 +15,6 @@ import EditProfile from "./views/EditInfoProfile";
 import RegisterMenu from "./views/RegisterMenu.vue";
 import HelpMenu from "./views/HelpMenu.vue";
 import MedicalHelpFeed from "./views/MedicalHelpFeed.vue";
-import PrivateChat from "./views/PrivateChat.vue";
-import ChatList from "./views/ChatList.vue";
 
 Vue.use(Router);
 
@@ -107,22 +106,6 @@ export default new Router({
       components: {
         header: AppHeader,
         default: EditProfile,
-      },
-    },
-    {
-      path: "/privateChat",
-      name: "privateChat",
-      components: {
-        header: AppHeader,
-        default: PrivateChat,
-      }
-    },
-    {
-      path: "/myChats",
-      name: "ChatList",
-      components: {
-        header: AppHeader,
-        default: ChatList,
       },
     },
   ],
