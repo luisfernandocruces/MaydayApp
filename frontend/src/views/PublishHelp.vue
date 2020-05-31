@@ -12,7 +12,9 @@
       </div>
     </section>
     <section class="section section-skew">
-      <div class="container px-lg-lg">
+      <div class="container px-lg-lg" style="
+    place-content: center;
+">
         <h4>sadf</h4>
         <!-- Modal -->
         <card shadow class="card-profile mt--300" no-body>
@@ -22,19 +24,49 @@
               <h6 slot="header" class="modal-title" id="modal-title-default">Editar Horario</h6>
 
               <base-input
-                v-model="dayOfWeek2"
+                
                 type="text"
                 placeholder="Día de la Semana"
                 name="first_name2"
                 required
-              ></base-input>
+              ><el-select v-model="dayOfWeek2" placeholder="Seleccionar" style="
+    width: -webkit-fill-available;
+">
+                    <el-option
+                      v-for="item in options"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select></base-input>
               <base-input
                 placeholder="Hora Inicio"
                 type="number"
                 name="startTime2"
-                v-model="startTime2"
-              ></base-input>
-              <base-input placeholder="Hora Fin" type="number" name="endTime" v-model="endTime2"></base-input>
+                
+              ><el-time-select style="
+    width: -webkit-fill-available;
+"
+                    v-model="startTime2"
+                    :picker-options="{
+                    start: '00:00',
+                    step: '00:15',
+                    end: '23:59'
+                  }"
+                    placeholder="Seleccionar hora inicial"
+                  ></el-time-select></base-input>
+              <base-input placeholder="Hora Fin" type="number" name="endTime" ><el-time-select
+                    v-model="endTime2"
+                    style="
+    width: -webkit-fill-available;
+"
+                    :picker-options="{
+                    start: '00:00',
+                    step: '00:15',
+                    end: '23:59'
+                  }"
+                    placeholder="Seleccionar hora final"
+                  ></el-time-select></base-input>
 
               <template slot="footer">
                 <base-button type="primary" @click="register()">Guardar</base-button>
