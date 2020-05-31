@@ -68,3 +68,24 @@ exports.index = function (req, res, next) {
         }
     })
 }
+
+exports.getChatsFromUser = function(req, res, next) {
+    let conversations = Conversation.find({$or:[{idUser: req.params.idPerson}, {idProfessional: req.params.idPerson}]}, function (err, conversations) {
+        if (err) {
+            return next(err);
+        } else {
+            console.log(conversations);
+            var toReturn = [];
+            conversations.forEach(conversation => {
+                var idOther = "";
+                if (conversation.idUser === req.params.idPerson){
+                    idOther = conversation.idProfessional;
+                } else {
+                    idOther = conversation.idUser;
+                }
+                toReturn.push({email: idOther, first_name: 'Prueba', last_name: 'Probada'});
+            });
+            res.send(toReturn);
+        }
+    })
+}
