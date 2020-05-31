@@ -1,134 +1,117 @@
 <template>
-  <div class="home">
-      <div>
-  <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand href="#">NavBar</b-navbar-brand>
+  <div>
 
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+    
+    <div class="position-relative">
+      <section class="section-shaped my-0">
+        <div class="shape shape-style-1 bg-gradient-info shape-skew">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="container shape-container d-flex">
+          <div class="col px-0">
+            <div class="row">
+              <div class="col-lg-6">
 
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
-        <b-nav-item href="#">Link</b-nav-item>
-        <b-nav-item href="#" disabled>Disabled</b-nav-item>
-      </b-navbar-nav>
+                <h1 class="display-3 text-white">Una aplicación especial para la oferta de ayudas</h1>
+                <p
+                  class="lead text-white"
+                >Esta pagina web te dara la capacidad de ofrecer y recibir ayudas a personas y empresas afectadas por el COVID-19, tanto para personas como para empresas se han definido diferentes ayudas.</p>
+                <div class="btn-wrapper"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 1st Hero Variation -->
+    </div>
+    
+    <section class="section section-lg pt-lg-0 mt--200">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12">
+            <div class="row row-grid">
+              <div class="col-lg-4">
+                <card class="border-0 text-center" hover shadow body-classes="py-5">
+                  <img src="img/helps/people.jpg" alt="people" border="0" style="height: 180px;" />
+                  <h6 class="text-primary text-uppercase">Personas</h6>
+                  <p class="description mt-3">
+                    Aquí podrás encontrar información sobre diferentes tipos de
+                    ayudas para personas.
+                  </p>
+                  <div>
+                    <badge type="primary" rounded>MÉDICA</badge>
+                    <badge type="primary" rounded>TRABAJO</badge>
+                    <badge type="primary" rounded>HUMANITARIA</badge>
+                    <badge type="primary" rounded>PSICOLÓGICA</badge>
+                  </div>
 
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
-        <b-nav-form>
-          <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-          <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-        </b-nav-form>
+                <base-button type="primary" class="mt-4">
+                    <router-link to="/helpMenu" style="color:white">Entrar</router-link>
+                  </base-button>
+               
+               
+                </card>
+              </div>
+              <div class="col-lg-4">
+                <card class="border-0 text-center" hover shadow body-classes="py-5">
+                  <img src="img/helps/work2.jpg" alt="work" border="0" style="height: 180px;" />
 
-        <b-nav-item-dropdown text="Lang" right>
-          <b-dropdown-item href="#">EN</b-dropdown-item>
-          <b-dropdown-item href="#">ES</b-dropdown-item>
-          <b-dropdown-item href="#">RU</b-dropdown-item>
-          <b-dropdown-item href="#">FA</b-dropdown-item>
-        </b-nav-item-dropdown>
+                  <h6 class="text-info text-uppercase">Empresas</h6>
+                  <p class="description mt-3">
+                    Aquí podrás encontrar información sobre diferentes tipos de
+                    ayudas para empresas.
+                  </p>
+                  <div>
+                    <badge type="info" rounded>BIOSEGURIDAD</badge>
+                    <badge type="info" rounded>EMPRENDIMIENTO</badge>
+                    <badge type="info" rounded>AYUDA DEL ESTADO</badge>
+                    <badge type="info" rounded></badge>
+                  </div>
+                  <base-button tag="a" href="#" type="info" class="mt-4">Entrar</base-button>
+                </card>
+              </div>
 
-        <b-nav-item-dropdown right>
-          <!-- Using 'button-content' slot -->
-          <template v-slot:button-content>
-            <em>User</em>
-          </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-        </b-nav-item-dropdown>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
-</div>
-   <div>
-    <b-carousel
-      id="carousel-1"
-      v-model="slide"
-      :interval="4000"
-      controls
-      indicators
-      background="#ababab"
-      img-width="1024"
-      img-height="480"
-      style="text-shadow: 1px 1px 2px #333;"
-      @sliding-start="onSlideStart"
-      @sliding-end="onSlideEnd"
-    >
-      <!-- Text slides with image -->
-      <b-carousel-slide
-        caption="First slide"
-        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-        img-src="https://picsum.photos/1024/480/?image=52"
-      ></b-carousel-slide>
-
-      <!-- Slides with custom text -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-        <h1>Hello world!</h1>
-      </b-carousel-slide>
-
-      <!-- Slides with image only -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58"></b-carousel-slide>
-
-      <!-- Slides with img slot -->
-      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-      <b-carousel-slide>
-        <template v-slot:img>
-          <img
-            class="d-block img-fluid w-100"
-            width="1024"
-            height="480"
-            src="https://picsum.photos/1024/480/?image=55"
-            alt="image slot"
-          >
-        </template>
-      </b-carousel-slide>
-
-      <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-      <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
-          a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.
-        </p>
-      </b-carousel-slide>
-    </b-carousel>
-
-    <p class="mt-4">
-      Slide #: {{ slide }}<br>
-      Sliding: {{ sliding }}
-    </p>
-  </div>
-
-<div style="margin-left: 100px; margin-right: 100px;">
-  <b-card-group deck>
-    <b-card title="Title" img-src="./src/assets/ayuda-empresa.jpg" img-alt="Image" img-top>
-      <b-card-text>
-        This is a wider card with supporting text below as a natural lead-in to additional content.
-        This content is a little bit longer.
-      </b-card-text>
-      <template v-slot:footer>
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </template>
-    </b-card>
-
-    <b-card title="Title" img-src="https://picsum.photos/300/300/?image=41" img-alt="Image" img-top>
-      <b-card-text>
-        This card has supporting text below as a natural lead-in to additional content.
-      </b-card-text>
-      <template v-slot:footer>
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </template>
-    </b-card>
-
-    <b-card title="Title" img-src="https://picsum.photos/300/300/?image=41" img-alt="Image" img-top>
-      <b-card-text>
-        This is a wider card with supporting text below as a natural lead-in to additional content.
-        This card has even longer content than the first to show that equal height action.
-      </b-card-text>
-      <template v-slot:footer>
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </template>
-    </b-card>
-  </b-card-group>
-</div>
-
+              <div class="col-lg-4">
+                <card class="border-0 text-center" hover shadow body-classes="py-5">
+                  <img
+                    src="img/helps/other.png"
+                    class="text-center"
+                    alt="work"
+                    border="0"
+                    style="height: 180px;"
+                  />
+                  <h6 class="text-success text-uppercase" align>Otras Ayudas</h6>
+                  <p class="description mt-3">
+                    Aquí podrás encontrar información sobre cualquier otro tipo
+                    ayuda.
+                  </p>
+                  <div>
+                    <badge type="success" rounded>LEGALES</badge>
+                    <badge type="success" rounded>CONTÁCTANOS</badge>
+                    <badge type="success" rounded>PERSONAS ESPECIALES</badge>
+                    <badge type="success" rounded></badge>
+                  </div>
+                  <base-button
+                    tag="a"
+                    href="#"
+                    type="success"
+                    class="mt-4 justify-content-center"
+                  >Entrar</base-button>
+                </card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 
   
@@ -136,8 +119,14 @@
 
 <script>
 export default {
+<<<<<<< HEAD
   name: '',
   components: {
   }
 }
+=======
+  name: "home",
+  components: {}
+};
+>>>>>>> 5d476bdf570bdf8e17b5c1b330bab8a84a4b1586
 </script>
