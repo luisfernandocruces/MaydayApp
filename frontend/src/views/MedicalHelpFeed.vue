@@ -48,7 +48,7 @@
               type="link"
               class="ml-auto"
               @click="modals.modal1 = false"
-              >Close</base-button
+              >Cerrar</base-button
             >
           </template>
         </modal>
