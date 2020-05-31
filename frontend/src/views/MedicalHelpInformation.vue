@@ -178,18 +178,31 @@
         </div>
       </div>
     </section>
+    <section class="section bg-secondary">
+      <div class="container">
+        <div class="row row-grid align-items-center">
+          <div class="col-lg-12">
+            <h4>Hospitales más cercanos</h4>
+            <closebuy></closebuy>
+            
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 import { BCarousel } from "bootstrap-vue";
 import { BCarouselSlide } from "bootstrap-vue";
+import Closebuy from "./CloseBuy.vue";
 
 export default {
   name: "medialInfo",
   components: {
     BCarousel,
-    BCarouselSlide
+    BCarouselSlide,
+    Closebuy
   }
 };
 </script>
