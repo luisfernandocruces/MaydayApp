@@ -218,7 +218,7 @@
       <div class="container">
         <div class="row row-grid align-items-center">
           <div class="col-lg-12">
-            <h4>Hospitales más cercanos</h4>
+            <h4>Centros Médicos más cercanos</h4>
             <closebuy></closebuy>
             
           </div>
