@@ -55,27 +55,33 @@ import io from "socket.io-client";
 export default {
   data() {
     return {
+      user_connected: this.$store.state.user._id,
       other_user: this.$store.state.toUserEmail,
       messages: [
-        { from: "dangaltor", msg: "hola que tal" },
+        { from: this.$store.state.user._id, msg: "hola que tal" },
         { from: this.$store.state.toUserEmail, msg: "Bien y vos?" },
       ],
       new_message: "",
-      socket: io("http://localhost:3000"),
+      socket: null,
     };
   },
-  created() {},
+  created() {
+    this.socket = io("http://localhost:3000");
+    this.socket.on('Server Ready', () => {
+      this.socket.emit('new_chat',{startedBy: this.user_connected, chatsWith: this.other_user});
+    })
+  },
 
   methods: {
     sendMessage() {
       if (this.new_message) {
-        this.messages.push({ from: "dangaltor", msg: this.new_message });
+        this.messages.push({ from: this.user_connected, msg: this.new_message });
         this.new_message = "";
       }
     },
   },
   beforeDestroy() {
-    this.$root.$el.parentNode.removeChild(this.$root.$el);
+    this.socket = null;
   },
 };
 </script>

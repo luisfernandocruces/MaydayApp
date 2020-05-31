@@ -87,10 +87,22 @@ function onListening() {
 
 // Setting up Socket.io
 const io = require("socket.io")(server);
-io.on("connection", function (socket) {
+
+io.on("connection", socket => {
   console.log("Socket Connection Established with ID :" + socket.id);
   socket.on("disconnect", () => {
     console.log("user disconnected");
-    io.emit("user disconnected");
   });
+  socket.on('new_chat', data => {
+    user1 = data.startedBy;
+    user2 = data.chatsWith;
+    if (user2 < user1){
+      userTemp = user2;
+      user2 = user1;
+      user1 = userTemp;
+    }
+    channelName = user1+"$"+user2;
+    socket.join(channelName);
+  });
+  io.to(socket.id).emit('Server Ready', 'Ready');
 });
