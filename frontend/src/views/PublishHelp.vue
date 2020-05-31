@@ -97,6 +97,8 @@
               </tr>
             </tbody>
           </table>
+         
+          
         </card>
       </div>
     </section>
@@ -111,7 +113,6 @@ export default {
   },
   data() {
     return {
-      condition: true,
       modals: {
         modal1: false
       },
@@ -124,33 +125,22 @@ export default {
       endTime2: undefined,
       dayOfWeek: undefined,
       startTime: undefined,
-      endTime: undefined
+      endTime: undefined,
+      idUser: "123456789"
     };
-  },
-  computed: {
-    idUser() {
-      return this.$store.state.user._id;
-    },
-    user() {
-      return this.$store.state.user;
-    }
   },
   created() {
     axios.get("/healthsupport").then(response => {
+    
       if (response.status == 200) {
         response.data.forEach(element => {
+          console.log(element)
+          console.log(element.idProfessional+"   "+this.idUser)
           if (element.idProfessional == this.idUser) {
             this.healthSupport = element;
             this.supports = element.schedules;
-            this.condition = false;
           }
         });
-        if (this.condition == true) {
-          this.healthSupport = {
-            idProfessional: this.idUser,
-            schedules: [{}]
-          };
-        }
       }
     });
   },
@@ -167,34 +157,18 @@ export default {
         }
         this.supports.push(sc);
         this.healthSupport.schedules = this.supports;
-
-        if (this.condition == true) {
-          axios.post("/healthsupport", this.healthSupport).then(response => {
+        axios
+          .put("/healthsupport/" + this.healthSupport._id, this.healthSupport)
+          .then(response => {
             if (response.status == 200) {
               alert("Horario Agregado Satisfactoriamente");
-              
             }
           });
-
-          this.condition = false;
-        } else {
-          axios
-            .put("/healthsupport/" + this.healthSupport._id, this.healthSupport)
-            .then(response => {
-              if (response.status == 200) {
-                alert("Horario Agregado Satisfactoriamente");
-                (this.dayOfWeek = undefined),
-                  (this.startTime = undefined),
-                  (this.endTime = undefined);
-              }
-            });
-        }
       } else {
         this.supports[this.Id].dayOfWeek = this.dayOfWeek2;
         this.supports[this.Id].startTime = this.startTime2;
         this.supports[this.Id].endTime = this.endTime2;
         this.healthSupport.schedules = this.supports;
-
         axios
           .put("/healthsupport/" + this.healthSupport._id, this.healthSupport)
           .then(response => {
