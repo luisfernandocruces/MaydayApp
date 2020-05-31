@@ -92,8 +92,13 @@
                 type="date"
                 name="birthdate"
                 required
-                v-model="user.birthdate"
-              ></base-input>
+               
+              ><el-date-picker  style="width: -webkit-fill-available;"
+       v-model="user.birthdate"
+      type="date"
+      format="dd/MM/yyyy"
+      placeholder="Selecciona una fecha de nacimiento">
+    </el-date-picker></base-input>
             </div>
           </div>
 
@@ -166,7 +171,34 @@
 
           <div class="row">
             <div class="col">
+               <base-input
+                label="Género"
+                required
+                name="gender"
+                
+              > <el-select
+                style="width: -webkit-fill-available;"
+                
+            
+                 
+                  size="large"
+                  required
+                  placeholder="Género"
+                  v-model="user.gender"
+                >
+                  <el-option
+                  
+                    v-for="option in genders"
+                   
+                    :value="option.type"
+                    :label="option.type"
+                    :key="option.type"
+                  ></el-option>
+                </el-select></base-input>
+            </div>
+            <div class="col">
               <base-input
+              
                 label="Número telefónico"
                 type="number"
                 name="phone_number"
@@ -174,7 +206,7 @@
               ></base-input>
             </div>
 
-            <div class="col"></div>
+            
           </div>
 
           <base-input required label="Breve Descripción">
@@ -212,6 +244,7 @@ export default {
       user: {
         first_name: "",
         last_name: "",
+        gender: "",
         document_type: "",
         document_number: "",
         professional_card_number: "",
@@ -240,6 +273,11 @@ export default {
         { type: "Cédula de Ciudadanía" },
         { type: "Cédula de Extranjería" },
         { type: "Pasaporte" }
+      ],
+      genders: [
+        { type: "Hombre" },
+        { type: "Mujer" },
+        { type: "Otro" }
       ],
       confirmation_password: "",
       errors: []
