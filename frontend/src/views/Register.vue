@@ -48,18 +48,21 @@
           </div>
 
           <div class="row">
-            <div class="col">
-              <base-input required label="Tipo de Documento">
+            <div class="col-md-6" >
+              <base-input required label="Tipo de Documento"  >
+              
                 <el-select
+                style="width: -webkit-fill-available;"
                   label="Tipo de documento"
                   collapse-tags
-                  class="select-primary"
+                 
                   size="large"
                   required
                   placeholder="Ingrese el tipo de Documento"
                   v-model="user.document_type"
                 >
                   <el-option
+                  
                     v-for="option in document_types"
                     class="select-primary"
                     :value="option.type"
@@ -71,6 +74,7 @@
             </div>
             <div class="col">
               <base-input
+               
                 label="Documento de identidad"
                 type="number"
                 placeholder="Documento"
@@ -112,8 +116,16 @@
                 placeholder="Area de la Salud"
                 name="healtArea"
                 required
-                v-model="user.health_area"
-              ></base-input>
+                
+              > <el-select v-model="user.health_area" size="large" placeholder="Seleccionar"   style="width: -webkit-fill-available;">
+                    <el-option
+                     
+                      v-for="item in areas"
+                      :key="item.value"
+                      :label="item.value"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select></base-input>
             </div>
           </div>
 
@@ -209,7 +221,21 @@ export default {
         description: "",
         health_area: "",
         birthdate: ""
-      },
+      }, areas: [
+        { value: "General" },
+        { value: "Enfermería" },
+        { value: "Urología" },
+        { value: "Cardiología" },
+        { value: "Pediatría" },
+        { value: "Neurología" },
+        { value: "Ginecología" },
+        { value: "Ortopedia" },
+        { value: "Nefrología" },
+        { value: "Gastroenterología" },
+        { value: "Neumología" },
+        { value: "Oncología" }
+
+      ],
       document_types: [
         { type: "Cédula de Ciudadanía" },
         { type: "Cédula de Extranjería" },
