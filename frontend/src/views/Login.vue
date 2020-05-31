@@ -59,9 +59,9 @@
                   ></base-input>
 
                   <div class="text-center">
-
-                    <base-button type="primary" class="my-4" @click="signin">Iniciar Sesión</base-button>
-
+                    <base-button type="primary" class="my-4" @click="signin"
+                      >Iniciar Sesión</base-button
+                    >
                   </div>
                 </form>
               </template>
@@ -70,7 +70,9 @@
               <div class="col-6"></div>
               <div class="col-6 text-right">
                 <a href="#" class="text-white">
-                  <router-link to="/registerMenu" class="text-white">Crear una cuenta</router-link>
+                  <router-link to="/registerMenu" class="text-white"
+                    >Crear una cuenta</router-link
+                  >
                 </a>
               </div>
             </div>
@@ -142,9 +144,6 @@ export default {
             this.$store.commit("changeTheLogged", true);
             this.$router.push("/");
           }
-
-          this.$router.push("/");
-
         })
         .catch((error) => {
           console.log(error);
@@ -162,9 +161,8 @@ export default {
 
       this.$store.commit("changeTheLogged", true);
       console.log(this.$store.state.logged);
-    }
-  }
-
+    },
+  },
 };
 </script>
 <style></style>
