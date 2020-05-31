@@ -29,15 +29,18 @@
               </ul>
             </div>
             <div id="sendMessage" class="row">
+                <div class="col">
                 <textarea
-                  class="form-control col-lg"
+                  class="form-control"
                   id="description"
                   rows="1"
                   placeholder="Escribe tu mensaje..."
                   v-model="new_message"
                 ></textarea>
-
-                <base-button class="col-sm" type="primary" @click="sendMessage">Enviar</base-button>
+                </div>
+                <div class="col-md-auto">
+                <base-button type="primary" @click="sendMessage">Enviar</base-button>
+                </div>
             </div>
           </card>
         </div>
@@ -48,6 +51,8 @@
 <script>
 import io from "socket.io-client";
 export default {
+
+  props: ["other_user"],  
   data() {
     return {
       messages: [
@@ -55,13 +60,22 @@ export default {
         { from: "otra_persona", msg: "Bien y vos?" }
       ],
       new_message: "",
+      socket: null,
     };
+  },
+  created(){
+      this.socket = io('localhost:8080');
+      this.socket.on('message_received', (message) => {
+          this.messages.push({from: this.other_user, msg: message});
+      });
   },
 
   methods: {
       sendMessage(){
-          this.messages.push({from: "dangaltor", msg: this.new_message});
-          this.new_message = "";
+          if(this.new_message){
+              this.messages.push({from: "dangaltor", msg: this.new_message});
+              this.new_message = "";
+          }
       }
   }
 };
