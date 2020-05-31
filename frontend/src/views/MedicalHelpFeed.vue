@@ -33,33 +33,138 @@
               <div class="filter-content">
                 <div class="card-body">
                   <label class="form-check">
-                    <input class="form-check-input" type="checkbox" name="exampleRadio" value />
-                    <span class="form-check-label">Opción 1</span>
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="exampleRadio"
+                      value="General"
+                      v-model="checkedFilters"
+                    />
+                    <span class="form-check-label">General</span>
                   </label>
                   <label class="form-check">
-                    <input class="form-check-input" type="checkbox" name="exampleRadio" value />
-                    <span class="form-check-label">Opción 2</span>
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="exampleRadio"
+                      value="Enfermería"
+                      v-model="checkedFilters"
+                    />
+                    <span class="form-check-label">Enfermería</span>
                   </label>
                   <label class="form-check">
-                    <input class="form-check-input" type="checkbox" name="exampleRadio" value />
-                    <span class="form-check-label">Opción 3</span>
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="exampleRadio"
+                      value="Urología"
+                      v-model="checkedFilters"
+                    />
+                    <span class="form-check-label">Urología</span>
+                  </label>
+                  <label class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="exampleRadio"
+                      value="Cardiología"
+                      v-model="checkedFilters"
+                    />
+                    <span class="form-check-label">Cardiología</span>
+                  </label>
+                  <label class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="exampleRadio"
+                      value="Pediatría"
+                      v-model="checkedFilters"
+                    />
+                    <span class="form-check-label">Pediatría</span>
+                  </label>
+                  <label class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="exampleRadio"
+                      value="Neurología"
+                      v-model="checkedFilters"
+                    />
+                    <span class="form-check-label">Neurología</span>
+                  </label>
+                  <label class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="exampleRadio"
+                      value="Ginecología"
+                      v-model="checkedFilters"
+                    />
+                    <span class="form-check-label">Ginecología</span>
+                  </label>
+                  <label class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="exampleRadio"
+                      value="Ortopedia"
+                      v-model="checkedFilters"
+                    />
+                    <span class="form-check-label">Ortopedia</span>
+                  </label>
+                  <label class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="exampleRadio"
+                      value="Nefrología"
+                      v-model="checkedFilters"
+                    />
+                    <span class="form-check-label">Nefrología</span>
+                  </label>
+                  <label class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="exampleRadio"
+                      value="Gastroentereología"
+                      v-model="checkedFilters"
+                    />
+                    <span class="form-check-label">Gastroentereología</span>
+                  </label>
+                  <label class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="exampleRadio"
+                      value="Neumología"
+                      v-model="checkedFilters"
+                    />
+                    <span class="form-check-label">Neumología</span>
+                  </label>
+                  <label class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="exampleRadio"
+                      value="Oncología"
+                      v-model="checkedFilters"
+                    />
+                    <span class="form-check-label">Oncología</span>
                   </label>
                 </div>
               </div>
               <div class="text-center">
-                <base-button type="info" class="mt-4">
-                  <router-link to="/symptomsForm" style="color:white">Solicitar</router-link>
-                </base-button>
+                <base-button @click="filtrar()" type="info" class="mt-4">Filtrar</base-button>
               </div>
             </article>
           </div>
-          <div  v-for="(help, index) in helps" :key="index" class="col">
+          <div v-for="(help, index) in filteredHelps" :key="index" class="col">
             <card class="border-0" hover shadow body-classes="py-5" style="margin-bottom:20px">
               <h6 class="text-info text-uppercase">{{help.first_name}} {{help.last_name}}</h6>
-              <p class="description mt-3">{{help.description}}</p>
-              <div>
-                <badge type="info" rounded>{{help.health_area}}</badge>
-              
+              <p class="description mt-3">Especialidad: {{help.health_area}}</p>
+              <div v-for="(sce, index) in help.schedules" :key="index">
+                <badge type="info" rounded>{{sce.dayOfWeek}}: {{sce.startTime}}-{{sce.endTime}}</badge>
               </div>
               <base-button type="info" class="mt-4">
                 <router-link to="/helpMenu" style="color:white">Solicitar</router-link>
@@ -77,26 +182,47 @@ export default {
   data() {
     return {
       checkedFilters: [],
-      helps: []
+      helps: [],
+      filteredHelps: []
     };
   },
+  methods: {
+    filtrar() {
+      this.filteredHelps = [];
+      if (this.checkedFilters.length > 0) {
+        this.helps.forEach(element => {
+          var condition = false;
+          this.checkedFilters.forEach(filter => {
+            if(element.health_area == filter){
+              condition = true;
+            }
+          });
+          if(condition == true){
+            this.filteredHelps.push(element);
+          }
+        });
+      } else {
+        this.filteredHelps = this.helps;
+      }
+    }
+  },
   created() {
-      axios.get("/healthsupport").then(response => {
+    axios.get("/healthsupport").then(response => {
       if (response.status == 200) {
         response.data.forEach(element => {
-          axios.get("/users/" + element.idProfessional).then(response =>{
+          axios.get("/users/" + element.idProfessional).then(response => {
             let singleHelp = {
-              idProfessional : element.idProfessional,
-              first_name : response.data.first_name,
-              last_name : response.data.last_name,
-              description : response.data.description,
-              health_area : response.data.health_area
-            }
-            this.helps.push(singleHelp)
+              idProfessional: element.idProfessional,
+              first_name: response.data.first_name,
+              last_name: response.data.last_name,
+              description: response.data.description,
+              health_area: response.data.health_area,
+              schedules: element.schedules
+            };
+            this.helps.push(singleHelp);
           });
         });
-        
-        console.log(this.helps)
+        this.filteredHelps = this.helps;
       }
     });
   }
