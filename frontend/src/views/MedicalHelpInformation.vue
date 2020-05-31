@@ -244,6 +244,6 @@ export default {
 </script>
 <style >
 .img-fluid.w-100{
-width: 100% !important;
+width: 80% !important;
 }
 </style>
