@@ -35,12 +35,15 @@
             </div>
             <div class="text-center mt-5">
               <h3>
-                {{firstName}} {{lastName}}
-                <span class="font-weight-light">, {{birthdate}}</span>
-              </h3>
-              <div class="h6 font-weight-300">
-                <i class="ni location_pin mr-2"></i>
-                {{phone}}
+                {{firstName}} {{lastName}}</h3>
+                  <div class="h6 mt-4">
+                <i class="ni business_briefcase-24 mr-2"></i>
+                 Fecha Nacimiento: {{formatDate(birthdate)}}
+              </div>
+             
+              <div class="h6 mt-4">
+                <i class="ni business_briefcase-24 mr-2"></i>
+                  Numero de Telefono: {{phone}}
               </div>
               <div class="h6 mt-4">
                 <i class="ni business_briefcase-24 mr-2"></i>
@@ -51,15 +54,14 @@
                 Número de documento: {{documentNumber}}
               </div>
               <div>
-                <i class="ni education_hat mr-2"></i>
-                Descripción:
-                {{description}}
+                
               </div>
             </div>
             <div class="mt-5 py-5 border-top text-center">
               <div class="row justify-content-center">
                 <div class="col-lg-9">
-                  <p>Información del usuario.</p>
+                  <h6>Descripción del usuario:</h6>
+                  <p>{{description}}</p>
                 </div>
               </div>
             </div>
@@ -81,7 +83,17 @@ export default {
       documentType: this.$store.state.user.document_type,
       documentNumber: this.$store.state.user.document_number
     };
-  }
+  },methods: {
+     formatDate(time){
+     
+
+        var t = new Date(time)
+      var dateFormat = require('dateformat');
+
+      var s= dateFormat(t, "dd/mm/yyyy");
+       return s
+      }
+   }
 };
 </script>
 <style></style>

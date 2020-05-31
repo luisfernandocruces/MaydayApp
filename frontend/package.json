@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "dateformat": "^3.0.3",
     "element-ui": "^2.13.2",
     "flatpickr": "^4.5.1",
     "nouislider": "^11.1.0",

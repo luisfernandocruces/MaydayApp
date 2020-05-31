@@ -80,6 +80,7 @@ export default {
   methods: {
     signout() {
       this.$store.commit("changeTheLogged", false);
+      this.$store.commit("updateUser", {} );
       alert("Ha cerrado sesión");
       this.$router.push("/login");
     },
