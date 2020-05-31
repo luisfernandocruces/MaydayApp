@@ -19,41 +19,41 @@
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
                   <a href="#">
-                    <img
-                      v-lazy="'img/profile/person.png'"
-                      class="rounded-circle"
-                    />
+                    <img v-lazy="'img/profile/person.png'" class="rounded-circle" />
                   </a>
                 </div>
               </div>
-              <div
-                class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center"
-              >
+              <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
                 <div class="card-profile-actions py-4 mt-lg-0">
-                  <base-button type="info" size="sm" class="mr-4"
-                    >Editar Información</base-button
-                  >
-                  <base-button type="default" size="sm" class="float-right"
-                    >Mensajes</base-button
-                  >
+                  <base-button type="info" size="sm" class="mr-4">
+                    <router-link to="/editProfile" style="color:#FFFFFF">Editar Información</router-link>
+                  </base-button>
+                  <base-button type="default" size="sm" class="float-right">Mensajes</base-button>
                 </div>
               </div>
               <div class="col-lg-4 order-lg-1"></div>
             </div>
             <div class="text-center mt-5">
               <h3>
-                Nombre Apellido<span class="font-weight-light">, Edad</span>
+                {{firstName}} {{lastName}}
+                <span class="font-weight-light">, {{birthdate}}</span>
               </h3>
               <div class="h6 font-weight-300">
-                <i class="ni location_pin mr-2"></i>Ciudad, Pais
+                <i class="ni location_pin mr-2"></i>
+                {{phone}}
               </div>
               <div class="h6 mt-4">
-                <i class="ni business_briefcase-24 mr-2"></i>Solution Manager -
-                Creative Tim Officer
+                <i class="ni business_briefcase-24 mr-2"></i>
+                Tipo documento: {{documentType}}
+              </div>
+              <div class="h6 mt-4">
+                <i class="ni business_briefcase-24 mr-2"></i>
+                Número de documento: {{documentNumber}}
               </div>
               <div>
-                <i class="ni education_hat mr-2"></i>University of Computer
-                Science
+                <i class="ni education_hat mr-2"></i>
+                Descripción:
+                {{description}}
               </div>
             </div>
             <div class="mt-5 py-5 border-top text-center">
@@ -72,8 +72,16 @@
 <script>
 export default {
   data() {
-    return {};
-  },
+    return {
+      firstName: this.$store.state.user.first_name,
+      lastName: this.$store.state.user.last_name,
+      phone: this.$store.state.user.phone_number,
+      birthdate: this.$store.state.user.birthdate,
+      description: this.$store.state.user.description,
+      documentType: this.$store.state.user.document_type,
+      documentNumber: this.$store.state.user.document_number
+    };
+  }
 };
 </script>
 <style></style>
