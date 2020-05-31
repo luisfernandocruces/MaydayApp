@@ -21,7 +21,9 @@ import router from "./router";
 import Argon from "./plugins/argon-kit";
 import store from './config/store';
 import "./registerServiceWorker";
+import VueCarousel from '@chenfengyuan/vue-carousel';
 
+Vue.component(VueCarousel.name, VueCarousel);
 Vue.config.productionTip = false;
 Vue.use(Argon);
 new Vue({

@@ -39,15 +39,20 @@
           <div class="col">
             <div class="row row-grid">
               <div class="col text-center">
-                <iframe
-                  width="1000"
-                  height="563"
-                  src="https://www.youtube.com/embed/NMmAj1EKdVo"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; 
-                  encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
+                <b-carousel id="carousel1" controls indicators>
+                  <!-- Text slides with image -->
+                  <b-carousel-slide  img-blank img-alt="Blank image">
+                    <div class="embed-responsive embed-responsive-21by9">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/G8tbMMGc0so" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </b-carousel-slide>
+
+                  <b-carousel-slide  img-blank img-alt="Blank image">
+                    <div class="embed-responsive embed-responsive-21by9">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/vlzxSleRnmg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </b-carousel-slide>
+                </b-carousel>
               </div>
             </div>
           </div>
@@ -55,13 +60,12 @@
       </div>
     </section>
 
-
-        <section class="section bg-secondary">
+    <section class="section bg-secondary">
       <div class="container">
         <div class="row row-grid align-items-center">
           <div class="col-md-6">
             <div class="card bg-default shadow border-0">
-              <img v-lazy="'img/communication.png'" class="card-img-top" style="margin-top:20px"/>
+              <img v-lazy="'img/communication.png'" class="card-img-top" style="margin-top:20px" />
               <blockquote class="card-blockquote">
                 <svg
                   preserveAspectRatio="none"
@@ -84,8 +88,24 @@
           <div class="col-md-6">
             <div class="pl-md-5">
               <icon name="ni ni" class="mb-5" size="lg" type="warning" shadow rounded></icon>
-              <icon name="ni ni" class="mb-5" size="lg" type="warning" shadow rounded style="margin-left:5px"></icon>
-              <icon name="ni ni" class="mb-5" size="lg" type="warning" shadow rounded style="margin-left:5px"></icon>
+              <icon
+                name="ni ni"
+                class="mb-5"
+                size="lg"
+                type="warning"
+                shadow
+                rounded
+                style="margin-left:5px"
+              ></icon>
+              <icon
+                name="ni ni"
+                class="mb-5"
+                size="lg"
+                type="warning"
+                shadow
+                rounded
+                style="margin-left:5px"
+              ></icon>
 
               <h3>Our customers</h3>
               <p class="lead">
@@ -109,8 +129,6 @@
         </div>
       </div>
     </section>
-
-
 
     <section class="section section-lg">
       <div class="container">
@@ -186,8 +204,6 @@
         </div>
       </div>
     </section>
-
-
 
     <section class="section section section-shaped my-0 overflow-hidden">
       <div class="shape shape-style-1 bg-gradient-warning shape-skew">
@@ -629,8 +645,17 @@
 </template>
 
 <script>
+import { BCarousel } from "bootstrap-vue";
+import { BCarouselSlide } from "bootstrap-vue";
+
 export default {
-  name: "home",
-  components: {}
+  name: "medialInfo",
+  components: {
+    BCarousel,
+    BCarouselSlide
+  }
 };
 </script>
+<style >
+
+</style>
