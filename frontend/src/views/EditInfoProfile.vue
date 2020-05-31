@@ -296,9 +296,10 @@ export default {
     gotEditInfo() {
       this.modalShow = false;
       this.$router.push("/profile");
+      location.reload();
     },
     updateUser() {
-      console.log(this.user.email);
+      
       axios
         .put("/users/" + this.user.email, this.user)
         .then(response => {
@@ -307,6 +308,7 @@ export default {
             this.$store.commit("updateUser", this.user);
             this.messageLogin = "Se han actualizado los datos correctamente.";
             this.modalShow = true;
+            
           }
         })
         .catch(error => {

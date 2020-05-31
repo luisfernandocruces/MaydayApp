@@ -194,7 +194,7 @@
               <br />
               <div class="row" style="place-content: center;">
                 <div class="col">
-                  <base-button @click="openChat(help.idProfessional)" type="info">Solicitar</base-button>
+                  <base-button v-if="userRol == 'normal person'" @click="openChat(help.idProfessional)" type="info">Solicitar</base-button>
                 </div>
                 <div class="col">
                   <button
@@ -231,6 +231,7 @@ export default {
         schedules: "",
         professionalAge: ""
       },
+      userRol:this.$store.state.user.rol,
       checkedFilters: [],
       helps: [],
       filteredHelps: [],
