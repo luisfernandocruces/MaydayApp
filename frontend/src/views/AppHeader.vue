@@ -49,13 +49,9 @@
         </base-dropdown>
       </ul>
 
-      <base-button
-        type="primary"
-        @click="signout()"
-        v-if="this.logged_usu == true"
-        class="dropdown-item"
-        >Cerrar Sesión</base-button
-      >
+      <div class="col" style="text-align-last: right;">	
+          <a class="text-white" @click="signout()" v-if="this.logged_usu == true" >Cerrar Sesión</a>	     
+        </div>
     </base-nav>
   </header>
 </template>
@@ -82,7 +78,7 @@ export default {
     signout() {
       this.$store.commit("changeTheLogged", false);
       alert("Ha cerrado sesión");
-      this.$router.push("/");
+      this.$router.push("/login");
     },
   },
 };
