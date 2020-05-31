@@ -88,11 +88,14 @@ function onListening() {
 // Setting up Socket.io
 const io = require("socket.io")(server);
 
+//Checking for connecting sockets and configuring them to react to events and send messages
 io.on("connection", socket => {
   console.log("Socket Connection Established with ID :" + socket.id);
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });
+
+  //Join socket to the room corresponding to the private message of him with the destinatary
   socket.on('new_chat', data => {
     user1 = data.startedBy;
     user2 = data.chatsWith;
@@ -105,6 +108,7 @@ io.on("connection", socket => {
     socket.join(channelName);
   });
 
+  //When socket sends a message, adds it to the database and emit it to the room of the private chat
   socket.on('message_sent', data => {
     messageFrom = data.from;
     messageTo = data.to;
@@ -112,6 +116,7 @@ io.on("connection", socket => {
     
     //TODO: AGREGAR A BD
     
+
     channelName = "";
     if (messageFrom < messageTo){
       channelName = messageFrom + "$" + messageTo;
@@ -119,6 +124,8 @@ io.on("connection", socket => {
       channelName = messageTo + "$" + messageFrom;
     }
     socket.to(channelName).emit('message_received', {from: messageFrom, message: messageBody});
-  })
+  });
+  
+  //Tells the client that server is ready to manage requests. 
   io.to(socket.id).emit('Server Ready', 'Ready');
 });
