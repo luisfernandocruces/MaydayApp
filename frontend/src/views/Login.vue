@@ -61,7 +61,7 @@
                   ></base-input>
 
                   <div class="text-center">
-                    <base-button type="primary" class="my-4" @click="signin">Sign In</base-button>
+                    <base-button type="primary" class="my-4" @click="signin"> Iniciar Sesión</base-button>
                   </div>
                 </form>
               </template>
@@ -122,6 +122,7 @@ export default {
             localStorage.setItem("jwt", token);
             console.log(user);
           }
+          this.$router.push("/")
         })
         .catch(error => {
           console.log(error);
@@ -129,6 +130,7 @@ export default {
         });
       this.$store.commit("changeTheLogged", true);
       console.log(this.$store.state.logged);
+
     }
   }
 };

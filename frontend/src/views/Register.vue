@@ -22,6 +22,11 @@
           >
             <template>
               <form>
+                 <p v-if="errors.length">
+                    <base-alert v-for="error in errors" type="warning" :key="error">
+                      <strong>Atención!</strong> {{error}}
+                    </base-alert>
+                 </p>
                 <base-input
                   label="Nombre"
                   type="text"
@@ -40,25 +45,25 @@
                   v-model="user.last_name"
                 ></base-input>
 
-                <h6 required class="card-title">Tipo de Documento</h6>
-
-                <el-select
-                  label="Tipo de documento"
-                  collapse-tags
-                  class="select-primary"
-                  size="large"
-                  required
-                  placeholder="Ingrese el tipo de Documento"
-                  v-model="user.document_type"
-                >
-                  <el-option
-                    v-for="option in document_types"
+                <base-input required label="Tipo de Documento">
+                  <el-select
+                    label="Tipo de documento"
+                    collapse-tags
                     class="select-primary"
-                    :value="option.type"
-                    :label="option.type"
-                    :key="option.type"
-                  ></el-option>
-                </el-select>
+                    size="large"
+                    required
+                    placeholder="Ingrese el tipo de Documento"
+                    v-model="user.document_type"
+                  >
+                    <el-option
+                      v-for="option in document_types"
+                      class="select-primary"
+                      :value="option.type"
+                      :label="option.type"
+                      :key="option.type"
+                    ></el-option>
+                  </el-select>
+                </base-input>
 
                 <base-input
                   label="Documento de identidad"
@@ -119,6 +124,7 @@
                   type="password"
                   name="confirm_password"
                   required
+                  v-model="confirmation_password"
                 ></base-input>
 
                 <base-input
@@ -128,7 +134,16 @@
                   v-model="user.phone_number"
                 ></base-input>
 
-                <div class="col-md-12">
+                <base-input required label="Breve Descripción">
+                  <textarea 
+                    class="form-control"
+                    id="description" rows="3" 
+                    label="Breve Descripción"
+                    placeholder="Haz una breve descripción tuyadsadasd"
+                    v-model="user.description"></textarea>
+                </base-input>
+
+                <!-- <div class="col-md-12">
                   <base-input label="Breve Description">
                     <textarea
                       placeholder="Breve descripción sobre tu persona"
@@ -136,9 +151,9 @@
                       v-model="user.description"
                     ></textarea>
                   </base-input>
-                </div>
+                </div> -->
 
-                <button @click="register">Registrarme!</button>
+                <base-button type="primary" @click="checkForm">Registrarme!</base-button>
               </form>
             </template>
           </card>
@@ -177,7 +192,9 @@ components: {
         { type: "Cédula de Ciudadanía" },
         { type: "Cédula de Extranjería" },
         { type: "Pasaporte" }
-      ]
+      ],
+      confirmation_password:"",
+      errors: []
     };
   },
   created() {
@@ -203,6 +220,63 @@ components: {
           }
         });
       }
+    },
+
+    validEmail: function (email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
+
+    checkForm: function (e) {
+      if (this.name && this.age) {
+        return true;
+      }
+
+      this.errors = [];
+
+      if (!this.user.first_name) {
+        this.errors.push('Nombre requerido');
+      }
+      if (!this.user.last_name) {
+        this.errors.push('Apellido requerido.');
+      }
+      if (!this.user.document_type) {
+        this.errors.push('Tipo de Documento Requerido');
+      }
+      if (!this.user.document_number) {
+        this.errors.push('Número de documento requerido');
+      }
+      if (!this.user.password) {
+        this.errors.push('Contraseña requerida');
+      }
+      if (!this.user.birthdate) {
+        this.errors.push('Fecha de nacimiento Requerida');
+      }
+      if (!this.user.email) {
+        this.errors.push('Correo Requerido');
+      } else if (!this.validEmail(this.user.email)){
+        this.errors.push('El correo electrónico no es válido');
+      }
+      if (this.user.password != this.confirmation_password) {
+        this.errors.push('Las contraseñas no coinciden');
+      }
+
+      if (this.userType == "health"){
+        if (!this.user.professional_card_number) {
+        this.errors.push('Número de tarjeta profesional Requerida');
+        }
+
+        if (!this.user.health_area) {
+        this.errors.push('Área de salud requerida');
+        }
+      }
+
+      if (!this.errors.length){
+        this.register();
+      }
+
+
+      e.preventDefault();
     }
   }
 };
