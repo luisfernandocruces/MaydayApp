@@ -37,7 +37,7 @@
           <div class="col">
             <div class="row row-grid">
               <div class="col text-center">
-                <div id="carousel-1">
+                <div id="carousel-1" style="margin-top:-5%">
                   <b-carousel
                     id="carousel-fade"
                     :interval="2000"
@@ -47,7 +47,7 @@
                     img-width="1024"
                     img-height="480"
                   >
-                    <b-carousel-slide img-blank img-alt="Blank image">
+                    <b-carousel-slide img-blank >
                       <div class="embed-responsive embed-responsive-21by9">
                         <iframe
                           width="900"
@@ -60,7 +60,7 @@
                       </div>
                     </b-carousel-slide>
 
-                    <b-carousel-slide img-blank img-alt="Blank image">
+                    <b-carousel-slide img-blank >
                       <div class="embed-responsive embed-responsive-21by9">
                         <iframe
                           width="900"
@@ -243,4 +243,7 @@ export default {
 };
 </script>
 <style >
+.img-fluid.w-100{
+width: 40% !important;
+}
 </style>
