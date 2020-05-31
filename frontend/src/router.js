@@ -16,6 +16,7 @@ import HelpMenu from "./views/HelpMenu.vue";
 import MedicalHelpFeed from "./views/MedicalHelpFeed.vue";
 import PrivateChat from "./views/PrivateChat.vue";
 import ChatList from "./views/ChatList.vue";
+import SymptomsForm from "./views/SymptomsForm.vue";
 
 Vue.use(Router);
 
@@ -123,6 +124,14 @@ export default new Router({
       components: {
         header: AppHeader,
         default: ChatList,
+      },
+    },
+    {
+      path: "/symptomsForm",
+      name: "SymptomsForm",
+      components: {
+        header: AppHeader,
+        default: SymptomsForm,
       },
     },
   ],
