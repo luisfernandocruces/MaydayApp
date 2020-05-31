@@ -24,7 +24,7 @@
               <p v-if="errors.length">
                 <base-alert v-for="error in errors" type="warning" :key="error">
                   <strong>Atención!</strong>
-                  {{error}}
+                  {{ error }}
                 </base-alert>
               </p>
               <base-input
@@ -145,7 +145,9 @@
                 ></textarea>
               </base-input>
 
-              <base-button type="primary" @click="checkForm">Registrarme!</base-button>
+              <base-button type="primary" @click="checkForm"
+                >Registrarme!</base-button
+              >
             </form>
           </card>
         </div>
@@ -160,7 +162,7 @@ import axios from "../plugins/axios";
 export default {
   components: {
     [Option.name]: Option,
-    [Select.name]: Select
+    [Select.name]: Select,
   },
 
   props: ["userType"],
@@ -177,15 +179,15 @@ export default {
         phone_number: "",
         description: "",
         health_area: "",
-        birthdate: ""
+        birthdate: "",
       },
       document_types: [
         { type: "Cédula de Ciudadanía" },
         { type: "Cédula de Extranjería" },
-        { type: "Pasaporte" }
+        { type: "Pasaporte" },
       ],
       confirmation_password: "",
-      errors: []
+      errors: [],
     };
   },
   created() {},
@@ -193,14 +195,14 @@ export default {
   methods: {
     register() {
       if (this.userType == "normal") {
-        axios.post("/users/normalUser", this.user).then(response => {
+        axios.post("/users/normalUser", this.user).then((response) => {
           if (response.status == 200) {
             alert("Usuario creado");
           } else {
           }
         });
       } else if (this.userType == "health") {
-        axios.post("/users/healthProfessional", this.user).then(response => {
+        axios.post("/users/healthProfessional", this.user).then((response) => {
           if (response.status == 200) {
             alert("Usuario creado");
           } else {
@@ -209,16 +211,13 @@ export default {
       }
     },
 
+    //Taken From: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
     validEmail: function(email) {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
     },
 
     checkForm: function(e) {
-      if (this.name && this.age) {
-        return true;
-      }
-
       this.errors = [];
 
       if (!this.user.first_name) {
@@ -263,9 +262,8 @@ export default {
       }
 
       e.preventDefault();
-    }
-  }
+    },
+  },
 };
 </script>
-<style>
-</style>
+<style></style>
