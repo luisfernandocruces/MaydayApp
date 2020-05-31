@@ -188,7 +188,7 @@
                 >
                   <el-option
                   
-                    v-for="option in gender"
+                    v-for="option in genders"
                    
                     :value="option.type"
                     :label="option.type"
@@ -274,7 +274,7 @@ export default {
         { type: "Cédula de Extranjería" },
         { type: "Pasaporte" }
       ],
-      gender: [
+      genders: [
         { type: "Hombre" },
         { type: "Mujer" },
         { type: "Otro" }
