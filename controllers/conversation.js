@@ -1,5 +1,5 @@
 const Conversation = require('../models/conversation')
-
+const User = require('../models/user')
 
 exports.create = function (req, res, next) {
 
@@ -14,19 +14,19 @@ exports.create = function (req, res, next) {
                     messages: req.body.messages,
                 })
                 conversation.save(err => {
-                    if(err){
+                    if (err) {
                         return next(err)
-                    }else{
+                    } else {
                         res.send(conversation)
                     }
                 })
-            }else{
+            } else {
                 res.send(conversations[0])
             }
         }
     })
 
-    
+
 
 }
 
@@ -69,8 +69,8 @@ exports.index = function (req, res, next) {
     })
 }
 
-exports.getChatsFromUser = function(req, res, next) {
-    let conversations = Conversation.find({$or:[{idUser: req.params.idPerson}, {idProfessional: req.params.idPerson}]}, function (err, conversations) {
+exports.getChatsFromUser = function (req, res, next) {
+    let conversations = Conversation.find({ $or: [{ idUser: req.params.idPerson }, { idProfessional: req.params.idPerson }] }, function (err, conversations) {
         if (err) {
             return next(err);
         } else {
@@ -78,12 +78,22 @@ exports.getChatsFromUser = function(req, res, next) {
             var toReturn = [];
             conversations.forEach(conversation => {
                 var idOther = "";
-                if (conversation.idUser === req.params.idPerson){
+                if (conversation.idUser === req.params.idPerson) {
                     idOther = conversation.idProfessional;
                 } else {
                     idOther = conversation.idUser;
                 }
-                toReturn.push({email: idOther, first_name: 'Prueba', last_name: 'Probada'});
+                var theFirst_name = idOther
+                var theLast_name = " "
+                User.findById(idOther, function (err, user) {
+                    if (err) {
+                        return next(err);
+                    } else {
+                        theFirst_name = user.first_name;
+                        theLast_name = user.last_name
+                    }
+                })
+                toReturn.push({ email: idOther, first_name: idOther, last_name: idOther });
             });
             res.send(toReturn);
         }
