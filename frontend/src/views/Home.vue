@@ -1,7 +1,8 @@
 <template>
   <div>
+
+    
     <div class="position-relative">
-      <!-- shape Hero -->
       <section class="section-shaped my-0">
         <div class="shape shape-style-1 bg-gradient-info shape-skew">
           <span></span>
@@ -18,6 +19,7 @@
           <div class="col px-0">
             <div class="row">
               <div class="col-lg-6">
+
                 <h1 class="display-3 text-white">Una aplicación especial para la oferta de ayudas</h1>
                 <p
                   class="lead text-white"
@@ -30,13 +32,14 @@
       </section>
       <!-- 1st Hero Variation -->
     </div>
+    
     <section class="section section-lg pt-lg-0 mt--200">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-12">
             <div class="row row-grid">
               <div class="col-lg-4">
-                <card class="border-0" hover shadow body-classes="py-5">
+                <card class="border-0 text-center" hover shadow body-classes="py-5">
                   <img src="img/helps/people.jpg" alt="people" border="0" style="height: 180px;" />
                   <h6 class="text-primary text-uppercase">Personas</h6>
                   <p class="description mt-3">
@@ -49,11 +52,16 @@
                     <badge type="primary" rounded>HUMANITARIA</badge>
                     <badge type="primary" rounded>PSICOLÓGICA</badge>
                   </div>
-                  <base-button tag="a" href="#" type="primary" class="mt-4">Entrar</base-button>
+
+                <base-button type="primary" class="mt-4">
+                    <router-link to="/helpMenu" style="color:white">Entrar</router-link>
+                  </base-button>
+               
+               
                 </card>
               </div>
               <div class="col-lg-4">
-                <card class="border-0" hover shadow body-classes="py-5">
+                <card class="border-0 text-center" hover shadow body-classes="py-5">
                   <img src="img/helps/work2.jpg" alt="work" border="0" style="height: 180px;" />
 
                   <h6 class="text-info text-uppercase">Empresas</h6>
@@ -72,7 +80,7 @@
               </div>
 
               <div class="col-lg-4">
-                <card class="border-0" hover shadow body-classes="py-5">
+                <card class="border-0 text-center" hover shadow body-classes="py-5">
                   <img
                     src="img/helps/other.png"
                     class="text-center"
