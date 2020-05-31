@@ -16,7 +16,8 @@
     "mongoose": "^5.9.16",
     "morgan": "^1.9.1",
     "socket.io": "^2.3.0",
-    "vuetify": "^2.2.11"
+    "vuetify": "^2.2.11",
+    "vuex-persistedstate": "^3.0.1"
   },
   "devDependencies": {
     "sass": "^1.19.0",
