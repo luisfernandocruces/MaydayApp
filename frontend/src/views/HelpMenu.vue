@@ -36,7 +36,7 @@
                   </base-button>
 
                   <base-button type="info" class="mt-4">
-                  <router-link v-if="this.logged_usu == true" to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
+                  <router-link v-if="this.logged_usu == true && this.type_user == 'health professional'" to="/helpMenu" style="color:white">Ofrecer Ayuda</router-link>
                   <router-link v-if="this.logged_usu == false" to="/login" style="color:white">Ofrecer Ayuda</router-link>
                   </base-button>
                 </div>
@@ -158,6 +158,9 @@ export default {
    computed: {
     logged_usu() {
       return this.$store.state.logged;
+    },
+    type_user(){
+      return this.$store.state.user.rol
     }
   }
 };

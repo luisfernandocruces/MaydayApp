@@ -41,7 +41,7 @@
 
 
           <router-link v-if="this.logged_usu == true" to="/profile" class="dropdown-item">Perfil</router-link>
-          <router-link v-if="this.logged_usu == true" to="/publishHelp" class="dropdown-item">Publicar Ayuda</router-link>
+          <router-link v-if="this.type_user == 'health professional'" to="/publishHelp" class="dropdown-item">Publicar Ayuda</router-link>
           <router-link v-if="this.logged_usu == false" to="/login" class="dropdown-item">Iniciar Sesión</router-link>
           <router-link v-if="this.logged_usu == false" to="/registerMenu" class="dropdown-item">Registro</router-link>
           
@@ -70,6 +70,9 @@ export default {
     logged_usu() {
       return this.$store.state.logged;
     },
+    type_user(){
+      return this.$store.state.user.rol
+    }
   },
   created() {
     console.log(this.logged_usu);
