@@ -138,9 +138,7 @@ export default {
             var user = response.data.currentUser;
             var token = response.data.accessToken;
             localStorage.setItem("jwt", token);
-
             this.$store.commit("updateUser", user);
-            console.log(this.$store.state.user);
             this.$store.commit("changeTheLogged", true);
             this.$router.push("/");
           }
@@ -154,13 +152,12 @@ export default {
             this.messageLogin = "Usuario no registrado";
             this.modalShow = true;
           } else {
-            this.messageLogin = "Problemas interno del servido. " + error;
+            this.messageLogin = "Problemas interno del servidor" + error;
             this.modalShow = true;
           }
         });
 
-      this.$store.commit("changeTheLogged", true);
-      console.log(this.$store.state.logged);
+      
     },
   },
 };

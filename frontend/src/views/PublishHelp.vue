@@ -327,13 +327,25 @@ export default {
     deleteSchedule(index) {
       this.supports.splice(index, 1);
       this.healthSupport.schedules = this.supports;
-      axios
-        .put("/healthsupport/" + this.healthSupport._id, this.healthSupport)
-        .then(response => {
-          if (response.status == 200) {
-            alert("Horario Borrado Satisfactoriamente");
-          }
-        });
+      if (this.healthSupport.schedules.length == 0) {
+        axios
+          .delete("/healthsupport/" + this.idHS)
+          .then(response => {
+            console.log(response.data);
+            this.healthSupport.idProfessional = "";
+            this.healthSupport.schedules = [];
+            this.supports = [];
+            this.idHS = "";
+          });
+      } else {
+        axios
+          .put("/healthsupport/" + this.healthSupport._id, this.healthSupport)
+          .then(response => {
+            if (response.status == 200) {
+              alert("Horario Borrado Satisfactoriamente");
+            }
+          });
+      }
     }
   }
 };
