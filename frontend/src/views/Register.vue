@@ -207,16 +207,12 @@ components: {
         axios.post("/users/normalUser", this.user).then(response => {
           if (response.status == 200) {
             alert("Usuario creado");
-          } else {
-
           }
         });
       } else if (this.userType == "health") {
         axios.post("/users/healthProfessional", this.user).then(response => {
           if (response.status == 200) {
             alert("Usuario creado");
-          } else {
-
           }
         });
       }

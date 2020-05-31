@@ -15,7 +15,6 @@ let UserSchema = new mongoose.Schema({
   professional_card_number: { type: String },
   health_area: { type: String },
   conversations_ids: { type: [] },
-  supports_ids: { type: [] },
 });
 
 module.exports = mongoose.model("User", UserSchema);
