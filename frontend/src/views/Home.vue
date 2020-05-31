@@ -39,7 +39,7 @@
           <div class="col-lg-12">
             <div class="row row-grid">
               <div class="col-lg-4">
-                <card class="border-0" hover shadow body-classes="py-5">
+                <card class="border-0 text-center" hover shadow body-classes="py-5">
                   <img src="img/helps/people.jpg" alt="people" border="0" style="height: 180px;" />
                   <h6 class="text-primary text-uppercase">Personas</h6>
                   <p class="description mt-3">
@@ -61,7 +61,7 @@
                 </card>
               </div>
               <div class="col-lg-4">
-                <card class="border-0" hover shadow body-classes="py-5">
+                <card class="border-0 text-center" hover shadow body-classes="py-5">
                   <img src="img/helps/work2.jpg" alt="work" border="0" style="height: 180px;" />
 
                   <h6 class="text-info text-uppercase">Empresas</h6>
@@ -80,7 +80,7 @@
               </div>
 
               <div class="col-lg-4">
-                <card class="border-0" hover shadow body-classes="py-5">
+                <card class="border-0 text-center" hover shadow body-classes="py-5">
                   <img
                     src="img/helps/other.png"
                     class="text-center"
