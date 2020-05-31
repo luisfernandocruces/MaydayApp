@@ -36,22 +36,30 @@
             <div class="text-center mt-5">
               <h3>
                 {{firstName}} {{lastName}}</h3>
+                <div class="h6 mt-4">
+                
+                Género: {{gender}}
+              </div>
                   <div class="h6 mt-4">
-                <i class="ni business_briefcase-24 mr-2"></i>
+                
                  Fecha Nacimiento: {{formatDate(birthdate)}}
               </div>
              
               <div class="h6 mt-4">
-                <i class="ni business_briefcase-24 mr-2"></i>
+                
                   Numero de Telefono: {{phone}}
               </div>
               <div class="h6 mt-4">
-                <i class="ni business_briefcase-24 mr-2"></i>
+                
                 Tipo documento: {{documentType}}
               </div>
               <div class="h6 mt-4">
-                <i class="ni business_briefcase-24 mr-2"></i>
+                
                 Número de documento: {{documentNumber}}
+              </div>
+              <div class="h6 mt-4"  v-if="this.health_area != undefined">
+                
+                Área de la salúd: {{health_area}}
               </div>
               <div>
                 
@@ -81,11 +89,14 @@ export default {
       birthdate: this.$store.state.user.birthdate,
       description: this.$store.state.user.description,
       documentType: this.$store.state.user.document_type,
-      documentNumber: this.$store.state.user.document_number
+      documentNumber: this.$store.state.user.document_number,
+      gender: this.$store.state.user.gender,
+      health_area: this.$store.state.user.health_area
     };
   },methods: {
+
      formatDate(time){
-     
+     console.log(this.$store.state.user)
 
         var t = new Date(time)
       var dateFormat = require('dateformat');

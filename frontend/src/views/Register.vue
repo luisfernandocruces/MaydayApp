@@ -48,18 +48,21 @@
           </div>
 
           <div class="row">
-            <div class="col">
-              <base-input required label="Tipo de Documento">
+            <div class="col-md-6" >
+              <base-input required label="Tipo de Documento"  >
+              
                 <el-select
+                style="width: -webkit-fill-available;"
                   label="Tipo de documento"
                   collapse-tags
-                  class="select-primary"
+                 
                   size="large"
                   required
                   placeholder="Ingrese el tipo de Documento"
                   v-model="user.document_type"
                 >
                   <el-option
+                  
                     v-for="option in document_types"
                     class="select-primary"
                     :value="option.type"
@@ -71,6 +74,7 @@
             </div>
             <div class="col">
               <base-input
+               
                 label="Documento de identidad"
                 type="number"
                 placeholder="Documento"
@@ -88,8 +92,13 @@
                 type="date"
                 name="birthdate"
                 required
-                v-model="user.birthdate"
-              ></base-input>
+               
+              ><el-date-picker  style="width: -webkit-fill-available;"
+                  v-model="user.birthdate"
+                  type="date"
+                  format="dd/MM/yyyy"
+                  placeholder="Selecciona una fecha de nacimiento">
+                </el-date-picker></base-input>
             </div>
           </div>
 
@@ -112,8 +121,16 @@
                 placeholder="Area de la Salud"
                 name="healtArea"
                 required
-                v-model="user.health_area"
-              ></base-input>
+                
+              > <el-select v-model="user.health_area" size="large" placeholder="Seleccionar"   style="width: -webkit-fill-available;">
+                    <el-option
+                     
+                      v-for="item in areas"
+                      :key="item.value"
+                      :label="item.value"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select></base-input>
             </div>
           </div>
 
@@ -154,7 +171,34 @@
 
           <div class="row">
             <div class="col">
+               <base-input
+                label="Género"
+                required
+                name="gender"
+                
+              > <el-select
+                style="width: -webkit-fill-available;"
+                
+            
+                 
+                  size="large"
+                  required
+                  placeholder="Género"
+                  v-model="user.gender"
+                >
+                  <el-option
+                  
+                    v-for="option in genders"
+                   
+                    :value="option.type"
+                    :label="option.type"
+                    :key="option.type"
+                  ></el-option>
+                </el-select></base-input>
+            </div>
+            <div class="col">
               <base-input
+              
                 label="Número telefónico"
                 type="number"
                 name="phone_number"
@@ -162,7 +206,7 @@
               ></base-input>
             </div>
 
-            <div class="col"></div>
+            
           </div>
 
           <base-input required label="Breve Descripción">
@@ -200,6 +244,7 @@ export default {
       user: {
         first_name: "",
         last_name: "",
+        gender: "",
         document_type: "",
         document_number: "",
         professional_card_number: "",
@@ -209,11 +254,30 @@ export default {
         description: "",
         health_area: "",
         birthdate: ""
-      },
+      }, areas: [
+        { value: "General" },
+        { value: "Enfermería" },
+        { value: "Urología" },
+        { value: "Cardiología" },
+        { value: "Pediatría" },
+        { value: "Neurología" },
+        { value: "Ginecología" },
+        { value: "Ortopedia" },
+        { value: "Nefrología" },
+        { value: "Gastroenterología" },
+        { value: "Neumología" },
+        { value: "Oncología" }
+
+      ],
       document_types: [
         { type: "Cédula de Ciudadanía" },
         { type: "Cédula de Extranjería" },
         { type: "Pasaporte" }
+      ],
+      genders: [
+        { type: "Hombre" },
+        { type: "Mujer" },
+        { type: "Otro" }
       ],
       confirmation_password: "",
       errors: []
