@@ -27,11 +27,19 @@
         <!-- Modal -->
 
         <modal :show.sync="modals.modal1">
-          <h6 slot="header" class="modal-title" id="modal-title-default">Type your modal title</h6>
+          <h6
+            slot="header"
+            class="modal-title"
+            id="modal-title-default"
+          >{{currentHelp.first_name}} {{currentHelp.last_name}}</h6>
 
+          <div class="py-3 text-center">
+            <h4 class="heading mt-4">Especialidad: {{currentHelp.health_area}}</h4>
+            <h4 class="heading mt-4">Género: {{currentHelp.gender}}</h4>
+            <p>. {{currentHelp.description}}</p>
+          </div>
 
           <template slot="footer">
-            
             <base-button type="link" class="ml-auto" @click="modals.modal1 = false">Close</base-button>
           </template>
         </modal>
@@ -168,15 +176,14 @@
                 </div>
               </div>
               <div class="text-center">
-                <base-button @click="filtrar()" type="info" class="mt-4">Filtrar</base-button>
+                <base-button @click="filter()" type="info" class="mt-4">Filtrar</base-button>
               </div>
             </article>
           </div>
           <div v-for="(help, index) in filteredHelps" :key="index" class="col">
             <card class="border-0" hover shadow body-classes="py-5" style="margin-bottom:20px">
               <div class="row" style="
-                  place-content: center;
-              ">
+                  place-content: center;">
                 <h6 class="text-info text-uppercase">{{help.first_name}} {{help.last_name}}</h6>
 
                 <p class="description mt-3">Especialidad: {{help.health_area}}</p>
@@ -185,9 +192,7 @@
                 </div>
               </div>
               <br />
-              <div class="row" style="
-    place-content: center;
-">
+              <div class="row" style="place-content: center;">
                 <div class="col">
                   <base-button type="info">
                     <router-link to="/helpMenu" style="color:white">Solicitar</router-link>
@@ -197,7 +202,7 @@
                   <button
                     type="button"
                     class="btn btn-outline-secondary"
-                    @click="modals.modal1 = true"
+                    @click="changeCurrentHelp(help)"
                   >Detalles</button>
                 </div>
               </div>
@@ -218,6 +223,16 @@ export default {
   },
   data() {
     return {
+      currentHelp: {
+        idProfessional: "",
+        first_name: "",
+        last_name: "",
+        gender: "",
+        description: "",
+        health_area: "",
+        schedules: "",
+        professionalAge: ""
+      },
       checkedFilters: [],
       helps: [],
       filteredHelps: [],
@@ -227,7 +242,16 @@ export default {
     };
   },
   methods: {
-    filtrar() {
+    formatDate(time) {
+      console.log(this.$store.state.user);
+
+      var t = new Date(time);
+      var dateFormat = require("dateformat");
+
+      var s = dateFormat(t, "dd/mm/yyyy");
+      return s;
+    },
+    filter() {
       this.filteredHelps = [];
       if (this.checkedFilters.length > 0) {
         this.helps.forEach(element => {
@@ -244,6 +268,10 @@ export default {
       } else {
         this.filteredHelps = this.helps;
       }
+    },
+    changeCurrentHelp(newHelp) {
+      this.modals.modal1 = true;
+      this.currentHelp = newHelp;
     }
   },
   created() {
@@ -255,9 +283,11 @@ export default {
               idProfessional: element.idProfessional,
               first_name: response.data.first_name,
               last_name: response.data.last_name,
+              gender: response.data.gender,
               description: response.data.description,
               health_area: response.data.health_area,
-              schedules: element.schedules
+              schedules: element.schedules,
+              professionalAge: response.data.birthdate
             };
             this.helps.push(singleHelp);
           });
