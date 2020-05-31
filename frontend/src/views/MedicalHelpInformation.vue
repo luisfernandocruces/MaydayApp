@@ -37,9 +37,16 @@
           <div class="col">
             <div class="row row-grid">
               <div class="col text-center">
-                
-                <div id="carousel-1" style="margin-top:-300px">
-                  <b-carousel id="carousel1" controls indicators>
+                <div id="carousel-1" style="margin-top:-100px">
+                  <b-carousel
+                    id="carousel-fade"
+                    :interval="2000"
+                    style="text-shadow: 0px 0px 2px #000"
+                    fade
+                    indicators
+                    img-width="1024"
+                    img-height="480"
+                  >
                     <b-carousel-slide img-blank img-alt="Blank image">
                       <div class="embed-responsive embed-responsive-21by9">
                         <iframe
