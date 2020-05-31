@@ -32,12 +32,12 @@
                     <router-link to="/medicalHelpFeed" style="color:white">Ver Ayuda</router-link>
                   </base-button>
 
-                  <base-button type="info" class="mt-4">
-                    <router-link
-                      v-if="this.logged_usu == true && this.type_user == 'health professional'"
-                      to="/helpMenu"
-                      style="color:white"
-                    >Ofrecer Ayuda</router-link>
+                  <base-button
+                    v-if="this.logged_usu == true && this.type_user == 'health professional'"
+                    type="info"
+                    class="mt-4"
+                  >
+                    <router-link to="/publishHelp" style="color:white">Ofrecer Ayuda</router-link>
                     <router-link
                       v-if="this.logged_usu == false"
                       to="/login"
@@ -136,9 +136,9 @@
               </tab-pane>
 
               <tab-pane title="Trabajo" class="text-center">
-                <p class="description">
-                 Muchos hogares se han visto afectados económicamente por esta crisis, y requieren ayuda en tal sentido.  MAYDAYAPP es el puente entre una posible solución que puedan brindar   las empresas que desean ayudar a los hogares afectados. 
-                </p>
+                <p
+                  class="description"
+                >Muchos hogares se han visto afectados económicamente por esta crisis, y requieren ayuda en tal sentido. MAYDAYAPP es el puente entre una posible solución que puedan brindar las empresas que desean ayudar a los hogares afectados.</p>
                 <img
                   src="img/helps/ayudatrabajo.png"
                   alt="ayudatrabajo"

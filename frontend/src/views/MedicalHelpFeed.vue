@@ -36,7 +36,7 @@
           <div class="py-3 text-center">
             <h4 class="heading mt-4">Especialidad: {{currentHelp.health_area}}</h4>
             <h4 class="heading mt-4">Género: {{currentHelp.gender}}</h4>
-            <p>. {{currentHelp.description}}</p>
+            <p>{{currentHelp.description}}</p>
           </div>
 
           <template slot="footer">
@@ -194,7 +194,11 @@
               <br />
               <div class="row" style="place-content: center;">
                 <div class="col">
-                  <base-button @click="openChat(help.idProfessional)" type="info">Solicitar</base-button>
+                  <base-button
+                    v-if="userRol == 'normal person'"
+                    @click="openChat(help.idProfessional)"
+                    type="info"
+                  >Solicitar</base-button>
                 </div>
                 <div class="col">
                   <button
@@ -231,6 +235,7 @@ export default {
         schedules: "",
         professionalAge: ""
       },
+      userRol: this.$store.state.user.rol,
       checkedFilters: [],
       helps: [],
       filteredHelps: [],

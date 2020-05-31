@@ -22,9 +22,9 @@
           >
             <div id="Chat-Box">
               <ul>
-                <li v-for="message in messages" :key="message">
-                  <strong>{{ message.from }} :</strong>
-                  {{ message.msg }}
+                <li v-for="message in conversation.messages" :key="message">
+                  <strong>{{ message.idSender }} :</strong>
+                  {{ message.content }}
                 </li>
               </ul>
             </div>
@@ -61,34 +61,25 @@ export default {
       },
       user_connected: this.$store.state.user._id,
       other_user: this.$store.state.toUserEmail,
-      messages: [
-        { from: this.$store.state.user._id, msg: "hola que tal" },
-        { from: this.$store.state.toUserEmail, msg: "Bien y vos?" }
-      ],
       new_message: "",
       socket: null
     };
   },
   created() {
-    console.log("entra 0")
     if (this.$store.state.user.rol == "health professional") {
-      console.log("entra 1")
       this.conversation.idUser = this.other_user;
       this.conversation.idProfessional = this.user_connected;
       axios.post("/conversation", this.conversation).then(response => {
         if (response.status == 200) {
           this.conversation = response.data;
-          console.log(this.conversation)
         }
       });
     } else if (this.$store.state.user.rol == "normal person") {
-      console.log("entra 2")
       this.conversation.idUser = this.user_connected;
       this.conversation.idProfessional = this.other_user;
       axios.post("/conversation", this.conversation).then(response => {
         if (response.status == 200) {
           this.conversation = response.data;
-          console.log(this.conversation)
         }
       });
     }
@@ -101,7 +92,7 @@ export default {
       });
     });
     this.socket.on("message_received", data => {
-      this.messages.push({ from: data.from, msg: data.message });
+      this.conversation.messages.push({ idSender: data.from, content: data.message });
     });
   },
 
@@ -114,10 +105,11 @@ export default {
           to: this.other_user,
           msg: this.new_message
         });
-        this.messages.push({
-          from: this.user_connected,
-          msg: this.new_message
-        });
+        this.conversation.messages.push({ idSender: this.user_connected, 
+            content: this.new_message });
+        
+        axios.put('/conversation/' + this.conversation._id, this.conversation).then(response => {
+            console.log(JSON.stringify(response))});
         this.new_message = "";
       }
     }

@@ -113,10 +113,6 @@ io.on("connection", socket => {
     messageFrom = data.from;
     messageTo = data.to;
     messageBody = data.msg;
-    
-    //TODO: AGREGAR A BD
-    
-
     channelName = "";
     if (messageFrom < messageTo){
       channelName = messageFrom + "$" + messageTo;

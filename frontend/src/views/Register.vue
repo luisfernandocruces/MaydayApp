@@ -290,15 +290,15 @@ export default {
       if (this.userType == "normal") {
         axios.post("/users/normalUser", this.user).then(response => {
           if (response.status == 200) {
-            alert("Usuario creado");
-          } else {
+            alert("Usuario creado, por favor Inicie sesión");
+            this.$router.push("/login");
           }
         });
       } else if (this.userType == "health") {
-        axios.post("/users/healthProfessional", this.user).then(response => {
+        axios.post("/users/healthProfessional, por favor Inicie sesión", this.user).then(response => {
           if (response.status == 200) {
             alert("Usuario creado");
-          } else {
+            this.$router.push("/login");
           }
         });
       }

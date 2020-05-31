@@ -59,9 +59,9 @@
                   ></base-input>
 
                   <div class="text-center">
-
-                    <base-button type="primary" class="my-4" @click="signin">Iniciar Sesión</base-button>
-
+                    <base-button type="primary" class="my-4" @click="signin"
+                      >Iniciar Sesión</base-button
+                    >
                   </div>
                 </form>
               </template>
@@ -70,7 +70,9 @@
               <div class="col-6"></div>
               <div class="col-6 text-right">
                 <a href="#" class="text-white">
-                  <router-link to="/registerMenu" class="text-white">Crear una cuenta</router-link>
+                  <router-link to="/registerMenu" class="text-white"
+                    >Crear una cuenta</router-link
+                  >
                 </a>
               </div>
             </div>
@@ -136,15 +138,10 @@ export default {
             var user = response.data.currentUser;
             var token = response.data.accessToken;
             localStorage.setItem("jwt", token);
-
             this.$store.commit("updateUser", user);
-            console.log(this.$store.state.user);
             this.$store.commit("changeTheLogged", true);
             this.$router.push("/");
           }
-
-          this.$router.push("/");
-
         })
         .catch((error) => {
           console.log(error);
@@ -155,16 +152,14 @@ export default {
             this.messageLogin = "Usuario no registrado";
             this.modalShow = true;
           } else {
-            this.messageLogin = "Problemas interno del servido. " + error;
+            this.messageLogin = "Problemas interno del servidor" + error;
             this.modalShow = true;
           }
         });
 
-      this.$store.commit("changeTheLogged", true);
-      console.log(this.$store.state.logged);
-    }
-  }
-
+      
+    },
+  },
 };
 </script>
 <style></style>
