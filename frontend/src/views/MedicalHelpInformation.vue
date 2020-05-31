@@ -37,15 +37,20 @@
           <div class="col">
             <div class="row row-grid">
               <div class="col text-center">
-                <iframe
-                  width="1000"
-                  height="563"
-                  src="https://www.youtube.com/embed/NMmAj1EKdVo"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; 
-                  encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
+                <b-carousel id="carousel1" controls indicators>
+                  <!-- Text slides with image -->
+                  <b-carousel-slide  img-blank img-alt="Blank image">
+                    <div class="embed-responsive embed-responsive-21by9">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/G8tbMMGc0so" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </b-carousel-slide>
+
+                  <b-carousel-slide  img-blank img-alt="Blank image">
+                    <div class="embed-responsive embed-responsive-21by9">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/vlzxSleRnmg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </b-carousel-slide>
+                </b-carousel>
               </div>
             </div>
           </div>
@@ -177,8 +182,17 @@
 </template>
 
 <script>
+import { BCarousel } from "bootstrap-vue";
+import { BCarouselSlide } from "bootstrap-vue";
+
 export default {
-  name: "home",
-  components: {}
+  name: "medialInfo",
+  components: {
+    BCarousel,
+    BCarouselSlide
+  }
 };
 </script>
+<style >
+
+</style>
