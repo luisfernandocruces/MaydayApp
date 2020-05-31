@@ -177,164 +177,85 @@
                     class="font-weight-bold"
                   >Sufre usted de alguna de las siguientes comorbilidades:</span>
                 </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Se ha realizado transplante(s) de órganos</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Se encuentra en tratamiento activo para cáncer</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Se encuentra en tratamiento de radioterapia para cáncer de pulmón</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Ha sido diagnosticado con leucemia, linfoma y/o mieloma</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Se encuentra en tratamiento de inmunoterapia o tratamiento con anticuerpos</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Se ha realizado transplante de médula ósea en los últimos 6 meses y/o se encuentra en tratamiento de inmunosupresores</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label class="form-check-label" for="exampleCheck1">
-                    Ha sido diagnosticado con una enfermedad pulmonar severa como asma severa, EPOC
-                    severo, enfermedad intersticial fibrosis quística
-                  </label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Ha sido diagnosticada con una enfermedad cardíaca y está en embarazo</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label class="form-check-label" for="exampleCheck1">Ha sido diagnosticado con CID</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Se encuentra en tratamiento con altas dosis de esteroides o terapias inmunosupresores</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label class="form-check-label" for="exampleCheck1">Discapacidad en el aprendizaje</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Ha sido diagnosticado con una enfermedad pulmonar leve o que afecte la respiración</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Ha sido diagnosticado con una enfermedad cardiaca</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label class="form-check-label" for="exampleCheck1">Presenta hipertensión alta</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Ha sido diagnosticado con diabetes</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Ha sido diagnosticado con una enfermedad renal crónica</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Ha sido diagnosticado con una enfermedad hepática</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Ha sido diagnosticado con cáncer</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Padece de inmunosupresión, VIH y/o escleroderma</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Ha sido diagnosticado con una enfermedad cerebrovascular</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Ha sido diagnosticado con una enfermedad del sistema nervioso</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Presenta problemas en el bazo o asplenia</label>
-                </div>
-
-                <div style="margin-top:15px; margin-left:20px">
-                  <label
-                    class="form-check-label"
-                    for="exampleCheck1"
-                  >Ha sido diagnosticado con obesidad (ICM > 40)</label>
-                </div>
+                <br>
+                <ul>
+                  <li>
+                    <p>Se ha realizado transplante(s) de órganos</p>
+                  </li>
+                  <li>
+                    <p>Se encuentra en tratamiento activo para cáncer</p>
+                  </li>
+                  <li>
+                    <p>Se encuentra en tratamiento de radioterapia para cáncer de pulmón</p>
+                  </li>
+                   <li>
+                    <p>Ha sido diagnosticado con leucemia, linfoma y/o mieloma</p>
+                  </li>
+                   <li>
+                    <p>Se encuentra en tratamiento de inmunoterapia o tratamiento con anticuerpos</p>
+                  </li>
+                  <li>
+                    <p>Se ha realizado transplante de médula ósea en los últimos 6 meses y/o se encuentra en tratamiento de inmunosupresores</p>
+                  </li>
+                  <li>
+                    <p> Ha sido diagnosticado con una enfermedad pulmonar severa como asma severa, EPOC
+                    severo, enfermedad intersticial fibrosis quística</p>
+                  </li>
+                  <li>
+                    <p>Ha sido diagnosticada con una enfermedad cardíaca y está en embarazo</p>
+                  </li>
+                    <li>
+                    <p>Ha sido diagnosticado con CID</p>
+                  </li>
+                    <li>
+                    <p>Se encuentra en tratamiento con altas dosis de esteroides o terapias inmunosupresores</p>
+                  </li>
+                    <li>
+                    <p>Discapacidad en el aprendizaje</p>
+                  </li>
+                   <li>
+                    <p>Ha sido diagnosticado con una enfermedad pulmonar leve o que afecte la respiración</p>
+                  </li>
+                   <li>
+                    <p>Ha sido diagnosticado con una enfermedad cardiaca</p>
+                  </li>
+                   <li>
+                    <p>Presenta hipertensión alta</p>
+                  </li>
+                   <li>
+                    <p>Ha sido diagnosticado con diabetes</p>
+                  </li>
+                   <li>
+                    <p>Ha sido diagnosticado con una enfermedad renal crónica</p>
+                  </li>
+                  <li>
+                    <p>Ha sido diagnosticado con una enfermedad hepática</p>
+                  </li>
+                   <li>
+                    <p>Ha sido diagnosticado con cáncer</p>
+                  </li>
+                  <li>
+                    <p>Padece de inmunosupresión, VIH y/o escleroderma</p>
+                  </li>
+                  <li>
+                    <p>Ha sido diagnosticado con una enfermedad cerebrovascular</p>
+                  </li>
+                   <li>
+                    <p>Ha sido diagnosticado con una enfermedad del sistema nervioso</p>
+                  </li>
+                   <li>
+                    <p>Presenta problemas en el bazo o asplenia</p>
+                  </li>
+                  <li>
+                    <p>Ha sido diagnosticado con obesidad (ICM > 40)</p>
+                  </li>
+                </ul>
+                <br>
               </form>
-            </div>
-
-            <base-input  type="text">
+               <div>
+            <base-input type="text">
               <el-select
-                v-model="option2"
+                v-model="option3"
                 placeholder="Seleccionar"
                 style=" width: -webkit-fill-available;"
               >
@@ -346,7 +267,9 @@
                 ></el-option>
               </el-select>
             </base-input>
-
+            </div>
+            </div>
+           
             <div class="mt-5 py-5 border-top text-center">
               <div class="row justify-content-center">
                 <div class="col-lg-9">
@@ -388,8 +311,8 @@ export default {
       options: [{ type: "Si" }, { type: "No" }],
       option: "",
       option2: "",
-      gender: "",
-      age: "",
+      option3: "",
+      
       checkedSymptoms: []
     };
   }
@@ -397,5 +320,4 @@ export default {
 </script>
 
 <style>
-
 </style>
