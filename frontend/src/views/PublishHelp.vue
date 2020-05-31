@@ -257,8 +257,6 @@ export default {
     axios.get("/healthsupport").then(response => {
       if (response.status == 200) {
         response.data.forEach(element => {
-          console.log(element);
-          console.log(element.idProfessional + "   " + this.idUser);
           if (element.idProfessional == this.idUser) {
             this.healthSupport = element;
             this.idHS = element._id;
@@ -271,49 +269,108 @@ export default {
   methods: {
     register() {
       if (this.editing == false) {
-        let sc = {
-          dayOfWeek: this.dayOfWeek,
-          startTime: this.startTime,
-          endTime: this.endTime
-        };
-        if (this.supports == undefined) {
-          this.supports = [];
-        }
-        this.supports.push(sc);
-        this.healthSupport.schedules = this.supports;
+        if (
+          this.dayOfWeek == undefined ||
+          this.startTime == undefined ||
+          this.endTime == undefined
+        ) {
+          alert("Porfavor llene todos los campos");
+        } else {
+          var startSplitted = this.startTime.split(":");
+          var endSplitted = this.endTime.split(":");
+          var startHour = parseInt(startSplitted[0], 10);
+          var endHour = parseInt(endSplitted[0], 10);
+          var startMinute = parseInt(startSplitted[1], 10);
+          var endMinute = parseInt(endSplitted[1], 10);
 
-        if (this.supports.length == 1) {
-          this.healthSupport.idProfessional = this.idUser;
-          axios.post("/healthsupport", this.healthSupport).then(response => {
-            if (response.status == 200) {
-              this.idHS = response.data;
-              alert("Horario Agregado Satisfactoriamente");
+          var condition = false;
+
+          if (startHour < endHour) {
+            condition = true;
+          } else if (startHour == endHour) {
+            if (startMinute < endMinute) {
+              condition = true;
+            } else {
+              condition = false;
             }
-          });
-        } else if (this.supports.length > 1) {
+          } else if (startHour > endHour) {
+            condition = false;
+          }
+
+          if (condition == true) {
+            let sc = {
+              dayOfWeek: this.dayOfWeek,
+              startTime: this.startTime,
+              endTime: this.endTime
+            };
+            if (this.supports == undefined) {
+              this.supports = [];
+            }
+            this.supports.push(sc);
+            this.healthSupport.schedules = this.supports;
+
+            if (this.supports.length == 1) {
+              this.healthSupport.idProfessional = this.idUser;
+              axios
+                .post("/healthsupport", this.healthSupport)
+                .then(response => {
+                  if (response.status == 200) {
+                    this.idHS = response.data;
+                    alert("Horario Agregado Satisfactoriamente");
+                  }
+                });
+            } else if (this.supports.length > 1) {
+              axios
+                .put("/healthsupport/" + this.idHS, this.healthSupport)
+                .then(response => {
+                  if (response.status == 200) {
+                    alert("Horario Agregado Satisfactoriamente");
+                  }
+                });
+            }
+          } else {
+            alert("La hora de inicio debe ser menor a la hora de fin");
+          }
+        }
+      } else {
+        var startSplitted = this.startTime2.split(":");
+        var endSplitted = this.endTime2.split(":");
+        var startHour = parseInt(startSplitted[0], 10);
+        var endHour = parseInt(endSplitted[0], 10);
+        var startMinute = parseInt(startSplitted[1], 10);
+        var endMinute = parseInt(endSplitted[1], 10);
+
+        var condition = false;
+
+        if (startHour < endHour) {
+          condition = true;
+        } else if (startHour == endHour) {
+          if (startMinute < endMinute) {
+            condition = true;
+          } else {
+            condition = false;
+          }
+        } else if (startHour > endHour) {
+          condition = false;
+        }
+        if (condition == true) {
+          this.supports[this.Id].dayOfWeek = this.dayOfWeek2;
+          this.supports[this.Id].startTime = this.startTime2;
+          this.supports[this.Id].endTime = this.endTime2;
+          this.healthSupport.schedules = this.supports;
           axios
             .put("/healthsupport/" + this.idHS, this.healthSupport)
             .then(response => {
               if (response.status == 200) {
-                alert("Horario Agregado Satisfactoriamente");
+                alert("Horario Editado Satisfactoriamente");
               }
             });
-        }
-      } else {
-        this.supports[this.Id].dayOfWeek = this.dayOfWeek2;
-        this.supports[this.Id].startTime = this.startTime2;
-        this.supports[this.Id].endTime = this.endTime2;
-        this.healthSupport.schedules = this.supports;
-        axios
-          .put("/healthsupport/" + this.idHS, this.healthSupport)
-          .then(response => {
-            if (response.status == 200) {
-              alert("Horario Editado Satisfactoriamente");
-            }
-          });
 
-        this.modals.modal1 = false;
-        this.editing = false;
+          this.modals.modal1 = false;
+          this.editing = false;
+        }else{
+          alert("La hora de inicio debe ser menor a la hora de fin");
+        }
       }
     },
     updateSchedule(index) {
@@ -328,15 +385,13 @@ export default {
       this.supports.splice(index, 1);
       this.healthSupport.schedules = this.supports;
       if (this.healthSupport.schedules.length == 0) {
-        axios
-          .delete("/healthsupport/" + this.idHS)
-          .then(response => {
-            console.log(response.data);
-            this.healthSupport.idProfessional = "";
-            this.healthSupport.schedules = [];
-            this.supports = [];
-            this.idHS = "";
-          });
+        axios.delete("/healthsupport/" + this.idHS).then(response => {
+          console.log(response.data);
+          this.healthSupport.idProfessional = "";
+          this.healthSupport.schedules = [];
+          this.supports = [];
+          this.idHS = "";
+        });
       } else {
         axios
           .put("/healthsupport/" + this.healthSupport._id, this.healthSupport)
