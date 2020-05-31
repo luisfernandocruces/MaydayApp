@@ -72,6 +72,7 @@ export default {
     signout() {
       this.$store.commit("changeTheLogged", false);
       alert("Ha cerrado sesión");
+      this.$router.push("/");
     }
   }
 };

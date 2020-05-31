@@ -2,14 +2,13 @@ import Vue from "vue";
 import Router from "vue-router";
 import AppHeader from "./views/AppHeader";
 
-
 import Home from "./views/Home.vue";
 import UserRegistration from "./views/Register.vue";
 import Login from "./views/Login.vue";
 import Profile from "./views/Profile.vue";
+import EditProfile from "./views/EditInfoProfile";
 
 import RegisterMenu from "./views/RegisterMenu.vue";
-
 
 Vue.use(Router);
 
@@ -21,10 +20,8 @@ export default new Router({
       name: "Home",
       components: {
         header: AppHeader,
-        default: Home
-      
-      }
-    
+        default: Home,
+      },
     },
     {
       path: "/registerHealth",
@@ -33,9 +30,9 @@ export default new Router({
         header: AppHeader,
         default: UserRegistration,
       },
-      props:{
-        default: {userType: 'health'}
-      }
+      props: {
+        default: { userType: "health" },
+      },
     },
     {
       path: "/registerNormal",
@@ -44,43 +41,48 @@ export default new Router({
         header: AppHeader,
         default: UserRegistration,
       },
-      props:{
-        default: {userType: 'normal'}
-      }
+      props: {
+        default: { userType: "normal" },
+      },
     },
     {
       path: "/login",
       name: "Login",
       components: {
         header: AppHeader,
-        default: Login
-      
-      }
+        default: Login,
+      },
     },
     {
       path: "/profile",
       name: "Profile",
       components: {
         header: AppHeader,
-        default: Profile
-      
-      }
-    }, 
+        default: Profile,
+      },
+    },
     {
       path: "/registerMenu",
       name: "RegisterMenu",
       components: {
         header: AppHeader,
-        default: RegisterMenu
-      
-      }
-    }, 
+        default: RegisterMenu,
+      },
+    },
+    {
+      path: "/editProfile",
+      name: "EditProfile",
+      components: {
+        header: AppHeader,
+        default: EditProfile,
+      },
+    },
   ],
-  scrollBehavior: to => {
+  scrollBehavior: (to) => {
     if (to.hash) {
       return { selector: to.hash };
     } else {
       return { x: 0, y: 0 };
     }
-  }
+  },
 });

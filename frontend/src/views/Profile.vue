@@ -25,7 +25,9 @@
               </div>
               <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
                 <div class="card-profile-actions py-4 mt-lg-0">
-                  <base-button type="info" size="sm" class="mr-4">Editar Información</base-button>
+                  <base-button type="info" size="sm" class="mr-4">
+                    <router-link to="/editProfile" style="color:#FFFFFF">Editar Información</router-link>
+                  </base-button>
                   <base-button type="default" size="sm" class="float-right">Mensajes</base-button>
                 </div>
               </div>
