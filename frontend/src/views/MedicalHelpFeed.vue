@@ -46,45 +46,20 @@
                   </label>
                 </div>
               </div>
+              <div class="text-center">
+                <base-button type="info" class="mt-4">
+                  <router-link to="/symptomsForm" style="color:white">Solicitar</router-link>
+                </base-button>
+              </div>
             </article>
           </div>
-          <div class="col">
+          <div  v-for="(help, index) in helps" :key="index" class="col">
             <card class="border-0" hover shadow body-classes="py-5" style="margin-bottom:20px">
-              <h6 class="text-info text-uppercase">Ayuda Médica 1</h6>
-              <p class="description mt-3">Descripción ayuda médica.</p>
+              <h6 class="text-info text-uppercase">{{help.first_name}} {{help.last_name}}</h6>
+              <p class="description mt-3">{{help.description}}</p>
               <div>
-                <badge type="info" rounded>tag1</badge>
-                <badge type="info" rounded>tag2</badge>
-                <badge type="info" rounded>tag3</badge>
-                <badge type="info" rounded>tag4</badge>
-              </div>
-              <base-button type="info" class="mt-4">
-                <router-link to="/helpMenu" style="color:white">Solicitar</router-link>
-              </base-button>
-            </card>
-
-            <card class="border-0" hover shadow body-classes="py-5" style="margin-bottom:20px">
-              <h6 class="text-info text-uppercase">Ayuda Médica 2</h6>
-              <p class="description mt-3">Descripción ayuda médica.</p>
-              <div>
-                <badge type="info" rounded>tag1</badge>
-                <badge type="info" rounded>tag2</badge>
-                <badge type="info" rounded>tag3</badge>
-                <badge type="info" rounded>tag4</badge>
-              </div>
-              <base-button type="info" class="mt-4">
-                <router-link to="/helpMenu" style="color:white">Solicitar</router-link>
-              </base-button>
-            </card>
-
-            <card class="border-0" hover shadow body-classes="py-5" style="margin-bottom:20px">
-              <h6 class="text-info text-uppercase">Ayuda Médica 3</h6>
-              <p class="description mt-3">Descripción ayuda médica.</p>
-              <div>
-                <badge type="info" rounded>tag1</badge>
-                <badge type="info" rounded>tag2</badge>
-                <badge type="info" rounded>tag3</badge>
-                <badge type="info" rounded>tag4</badge>
+                <badge type="info" rounded>{{help.health_area}}</badge>
+              
               </div>
               <base-button type="info" class="mt-4">
                 <router-link to="/helpMenu" style="color:white">Solicitar</router-link>
@@ -97,11 +72,33 @@
   </div>
 </template>
 <script>
+import axios from "../plugins/axios";
 export default {
   data() {
     return {
-      checkedFilters: []
+      checkedFilters: [],
+      helps: []
     };
+  },
+  created() {
+      axios.get("/healthsupport").then(response => {
+      if (response.status == 200) {
+        response.data.forEach(element => {
+          axios.get("/users/" + element.idProfessional).then(response =>{
+            let singleHelp = {
+              idProfessional : element.idProfessional,
+              first_name : response.data.first_name,
+              last_name : response.data.last_name,
+              description : response.data.description,
+              health_area : response.data.health_area
+            }
+            this.helps.push(singleHelp)
+          });
+        });
+        
+        console.log(this.helps)
+      }
+    });
   }
 };
 </script>
