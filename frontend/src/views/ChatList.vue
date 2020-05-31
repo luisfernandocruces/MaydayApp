@@ -15,16 +15,19 @@
       <div class="container">
         <div class="row">
           <div class="col">
+            <h1 v-if="userRole == 'health professional'">PACIENTES:</h1>
+            <h1 v-if="userRole == 'normal person'">PROFESIONALES DE LA SALUD:</h1>
+            <br />
             <card
               class="border-0"
               hover
               shadow
               body-classes="py-5"
               style="margin_bottom:20px"
-              v-for="user in usersWithChat"
-              :key="user.email"
+              v-for="(user, index) in usersWithChat"
+              :key="index"
             >
-              <h6 class="text-info text-uppercase">{{user.first_name}} {{user.last_name}}</h6>
+              <h6 class="text-info text-uppercase">{{otherUserNames[index]}}</h6>
               <p class="description mt-3">{{user.email}}</p>
               <base-button type="info" class="mt-4" @click="goToPrivateChat(user.email)">
                 Ver Chat
@@ -43,12 +46,13 @@ import axios from "../plugins/axios";
 export default {
   data() {
     return {
-      usersWithChat: []
+      userRole: this.$store.state.user.rol,
+      usersWithChat: [],
+      otherUserNames: []
     };
   },
 
   created() {
-    console.log("Componente Creado!");
     this.loadChats();
   },
 
@@ -58,11 +62,13 @@ export default {
       this.$router.push("/privateChat");
     },
     loadChats() {
-      console.log("Holaaaaa");
       axios
         .get("/conversation/allChats/" + this.$store.state.user._id)
         .then(response => {
           this.usersWithChat = response.data;
+          this.usersWithChat.forEach(element => {
+            axios.get("/users/" + element.email).then(response => {});
+          });
         });
     }
   }
