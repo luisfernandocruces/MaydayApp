@@ -299,7 +299,7 @@ export default {
         });
       } else if (this.userType == "health") {
         axios
-          .post("/users/healthProfessional, por favor Inicie sesión", this.user)
+          .post("/users/healthProfessional", this.user)
           .then(response => {
             if (response.status == 200) {
               this.messageRegister =
