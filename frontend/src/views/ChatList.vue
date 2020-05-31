@@ -67,7 +67,9 @@ export default {
         .then(response => {
           this.usersWithChat = response.data;
           this.usersWithChat.forEach(element => {
-            axios.get("/users/" + element.email).then(response => {});
+            axios.get("/users/" + element.email).then(response => {
+              this.otherUserNames.push(response.data.first_name + " " + response.data.last_name)
+            });
           });
         });
     }
