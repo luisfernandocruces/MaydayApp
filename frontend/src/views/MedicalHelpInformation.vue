@@ -214,7 +214,6 @@
         </div>
       </div>
     </section>
-
     <section class="section bg-secondary">
       <div class="container">
         <div class="row row-grid align-items-center">
