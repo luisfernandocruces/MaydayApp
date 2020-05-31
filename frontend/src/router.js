@@ -15,6 +15,7 @@ import EditProfile from "./views/EditInfoProfile";
 import RegisterMenu from "./views/RegisterMenu.vue";
 import HelpMenu from "./views/HelpMenu.vue";
 import MedicalHelpFeed from "./views/MedicalHelpFeed.vue";
+import ChatList from "./views/ChatList.vue";
 
 Vue.use(Router);
 
@@ -106,6 +107,14 @@ export default new Router({
       components: {
         header: AppHeader,
         default: EditProfile,
+      },
+    },
+    {
+      path: "/myChats",
+      name: "ChatList",
+      components: {
+        header: AppHeader,
+        default: ChatList,
       },
     },
   ],
