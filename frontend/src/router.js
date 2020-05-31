@@ -10,7 +10,11 @@ import EditProfile from "./views/EditInfoProfile";
 
 import RegisterMenu from "./views/RegisterMenu.vue";
 import HelpMenu from "./views/HelpMenu.vue";
+<<<<<<< HEAD
 import MedicalHelpFeed from "./views/MedicalHelpFeed.vue";
+=======
+import PrivateChat from "./views/PrivateChat.vue";
+>>>>>>> 7d882e33ac90853999a53f707ee4cccc4908f78b
 
 Vue.use(Router);
 
@@ -94,7 +98,16 @@ export default new Router({
         header: AppHeader,
         default: EditProfile,
       },
-    },
+    }, 
+    {
+      path: "/privateChat",
+      name: "privateChat",
+      components: {
+        header: AppHeader,
+        default: PrivateChat
+      
+      }
+    }, 
   ],
   scrollBehavior: (to) => {
     if (to.hash) {
