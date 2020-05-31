@@ -1,59 +1,101 @@
 const Conversation = require('../models/conversation')
-
+const User = require('../models/user')
 
 exports.create = function (req, res, next) {
-    let conversation = new Conversation({
-        idUser: req.body.idUser,
-        idProfessional: req.body.idProfessional,
-        messages: req.body.messages,
-        
-    })
 
-    conversation.save(err => {
-        if(err){
-            return next(err)
-        }else{
-            res.send(conversation._id)
+    Conversation.find({ idUser: req.body.idUser, idProfessional: req.body.idProfessional }, function (err, conversations) {
+        if (err) {
+            return next(err);
+        } else {
+            if (conversations.length == 0) {
+                let conversation = new Conversation({
+                    idUser: req.body.idUser,
+                    idProfessional: req.body.idProfessional,
+                    messages: req.body.messages,
+                })
+                conversation.save(err => {
+                    if (err) {
+                        return next(err)
+                    } else {
+                        res.send(conversation)
+                    }
+                })
+            } else {
+                res.send(conversations[0])
+            }
         }
     })
 
+
+
 }
 
-exports.details = function (req,res,next){
-    Conversation.findById(req.params.id, function(err, conversation){
-        if(err){
+exports.details = function (req, res, next) {
+    Conversation.findById(req.params.id, function (err, conversation) {
+        if (err) {
             return next(err);
-        }else{
+        } else {
             res.send(conversation)
         }
     })
 }
 
-exports.update = function (req,res,next){
-    Conversation.findByIdAndUpdate(req.params.id, { $set: req.body} , function(err, conversation){
-        if(err){
+exports.update = function (req, res, next) {
+    Conversation.findByIdAndUpdate(req.params.id, { $set: req.body }, function (err, conversation) {
+        if (err) {
             return next(err);
-        }else{
+        } else {
             res.send('Conversation Updated Succesfully')
         }
     })
 }
-exports.delete = function (req,res,next){
-    Conversation.findByIdAndDelete(req.params.id, function(err, conversation){
-        if(err){
+exports.delete = function (req, res, next) {
+    Conversation.findByIdAndDelete(req.params.id, function (err, conversation) {
+        if (err) {
             return next(err);
-        }else{
+        } else {
             res.send('Conversation Deleted Succesfully')
         }
     })
 }
 
-exports.index = function (req,res,next){
-    let conversations =Conversation.find({}, function(err, conversations){
-        if(err){
+exports.index = function (req, res, next) {
+    let conversations = Conversation.find({}, function (err, conversations) {
+        if (err) {
             return next(err);
-        }else{
+        } else {
             res.send(conversations)
+        }
+    })
+}
+
+exports.getChatsFromUser = function (req, res, next) {
+    let conversations = Conversation.find({ $or: [{ idUser: req.params.idPerson }, { idProfessional: req.params.idPerson }] }, function (err, conversations) {
+        if (err) {
+            return next(err);
+        } else {
+            console.log(conversations);
+            var toReturn = [];
+            conversations.forEach(conversation => {
+                var idOther = "";
+                if (conversation.idUser === req.params.idPerson) {
+                    idOther = conversation.idProfessional;
+                } else {
+                    idOther = conversation.idUser;
+                }
+                var theFirst_name = idOther
+                var theLast_name = " "
+                User.findById(idOther, function (err, user) {
+                    if (err) {
+                        return next(err);
+                    } else {
+                        theFirst_name = user.first_name;
+                        theLast_name = user.last_name
+                    }
+                })
+                toReturn.push({ email: idOther, first_name: idOther, last_name: idOther });
+            });
+            res.send(toReturn);
         }
     })
 }

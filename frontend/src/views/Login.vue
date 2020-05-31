@@ -59,9 +59,7 @@
                   ></base-input>
 
                   <div class="text-center">
-
                     <base-button type="primary" class="my-4" @click="signin">Iniciar Sesión</base-button>
-
                   </div>
                 </form>
               </template>
@@ -84,6 +82,16 @@
           <br />
           <br />
           <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
         </div>
       </div>
     </div>
@@ -94,9 +102,7 @@
       </template>
       <div>{{ messageLogin }}</div>
       <template slot="footer">
-        <base-button type="secondary" @click="modalShow = false"
-          >Aceptar</base-button
-        >
+        <base-button type="secondary" @click="modalShow = false">Aceptar</base-button>
       </template>
     </modal>
   </section>
@@ -108,7 +114,7 @@ import Modal from "@/components/Modal";
 export default {
   name: "login",
   components: {
-    Modal,
+    Modal
   },
   data() {
     return {
@@ -116,7 +122,7 @@ export default {
       show: false,
       email: "",
       password: "",
-      messageLogin: "",
+      messageLogin: ""
     };
   },
   methods: {
@@ -127,26 +133,21 @@ export default {
       console.log(this.password);
       let user = {
         email: this.email,
-        password: this.password,
+        password: this.password
       };
       await axios
         .post("/users/signin", user)
-        .then((response) => {
+        .then(response => {
           if (response.status == 200) {
             var user = response.data.currentUser;
             var token = response.data.accessToken;
             localStorage.setItem("jwt", token);
-
             this.$store.commit("updateUser", user);
-            console.log(this.$store.state.user);
             this.$store.commit("changeTheLogged", true);
             this.$router.push("/");
           }
-
-          this.$router.push("/");
-
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
           if (error.response.status == 401) {
             this.messageLogin = "Contraseña incorrecta";
@@ -155,16 +156,12 @@ export default {
             this.messageLogin = "Usuario no registrado";
             this.modalShow = true;
           } else {
-            this.messageLogin = "Problemas interno del servido. " + error;
+            this.messageLogin = "Problemas interno del servidor" + error;
             this.modalShow = true;
           }
         });
-
-      this.$store.commit("changeTheLogged", true);
-      console.log(this.$store.state.logged);
     }
   }
-
 };
 </script>
 <style></style>

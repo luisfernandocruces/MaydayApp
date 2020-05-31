@@ -28,34 +28,28 @@
                   <base-button type="info" size="sm" class="mr-4">
                     <router-link to="/editProfile" style="color:#FFFFFF">Editar Información</router-link>
                   </base-button>
-                  <base-button type="default" size="sm" class="float-right">Mensajes</base-button>
+                  <base-button type="default" size="sm" class="float-right">
+                    <router-link to="/myChats">Mensajes</router-link>
+                  </base-button>
                 </div>
               </div>
               <div class="col-lg-4 order-lg-1"></div>
             </div>
             <div class="text-center mt-5">
-              <h3>
-                {{firstName}} {{lastName}}</h3>
-                  <div class="h6 mt-4">
-                <i class="ni business_briefcase-24 mr-2"></i>
-                 Fecha Nacimiento: {{formatDate(birthdate)}}
-              </div>
-             
-              <div class="h6 mt-4">
-                <i class="ni business_briefcase-24 mr-2"></i>
-                  Numero de Telefono: {{phone}}
-              </div>
-              <div class="h6 mt-4">
-                <i class="ni business_briefcase-24 mr-2"></i>
-                Tipo documento: {{documentType}}
-              </div>
-              <div class="h6 mt-4">
-                <i class="ni business_briefcase-24 mr-2"></i>
-                Número de documento: {{documentNumber}}
-              </div>
-              <div>
-                
-              </div>
+              <br />
+              <br />
+              <h3>{{firstName}} {{lastName}}</h3>
+              <div class="h6 mt-4">Género: {{gender}}</div>
+              <div class="h6 mt-4">Fecha Nacimiento: {{formatDate(birthdate)}}</div>
+
+              <div class="h6 mt-4">Numero de Telefono: {{phone}}</div>
+              <div class="h6 mt-4">Tipo documento: {{documentType}}</div>
+              <div class="h6 mt-4">Número de documento: {{documentNumber}}</div>
+              <div
+                class="h6 mt-4"
+                v-if="this.health_area != undefined"
+              >Área de la salúd: {{health_area}}</div>
+              <div></div>
             </div>
             <div class="mt-5 py-5 border-top text-center">
               <div class="row justify-content-center">
@@ -81,19 +75,22 @@ export default {
       birthdate: this.$store.state.user.birthdate,
       description: this.$store.state.user.description,
       documentType: this.$store.state.user.document_type,
-      documentNumber: this.$store.state.user.document_number
+      documentNumber: this.$store.state.user.document_number,
+      gender: this.$store.state.user.gender,
+      health_area: this.$store.state.user.health_area
     };
-  },methods: {
-     formatDate(time){
-     
+  },
+  methods: {
+    formatDate(time) {
+      console.log(this.$store.state.user);
 
-        var t = new Date(time)
-      var dateFormat = require('dateformat');
+      var t = new Date(time);
+      var dateFormat = require("dateformat");
 
-      var s= dateFormat(t, "dd/mm/yyyy");
-       return s
-      }
-   }
+      var s = dateFormat(t, "dd/mm/yyyy");
+      return s;
+    }
+  }
 };
 </script>
 <style></style>

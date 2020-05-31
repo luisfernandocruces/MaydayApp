@@ -1,7 +1,5 @@
 <template>
   <div>
-
-    
     <div class="position-relative">
       <section class="section-shaped my-0">
         <div class="shape shape-style-1 bg-gradient-info shape-skew">
@@ -19,7 +17,6 @@
           <div class="col px-0">
             <div class="row">
               <div class="col-lg-6">
-
                 <h1 class="display-3 text-white">Una aplicación especial para la oferta de ayudas</h1>
                 <p
                   class="lead text-white"
@@ -30,9 +27,8 @@
           </div>
         </div>
       </section>
-      <!-- 1st Hero Variation -->
     </div>
-    
+
     <section class="section section-lg pt-lg-0 mt--200">
       <div class="container">
         <div class="row justify-content-center">
@@ -53,11 +49,9 @@
                     <badge type="primary" rounded>PSICOLÓGICA</badge>
                   </div>
 
-                <base-button type="primary" class="mt-4">
+                  <base-button type="primary" class="mt-4">
                     <router-link to="/helpMenu" style="color:white">Entrar</router-link>
                   </base-button>
-               
-               
                 </card>
               </div>
               <div class="col-lg-4">
@@ -108,6 +102,69 @@
                 </card>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section section-shaped my-0 overflow-hidden">
+      <div class="shape shape-style-1 bg-gradient-warning shape-skew">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="container py-0">
+        <div class="row row-grid align-items-center">
+          <div class="col-md-6 order-lg-2 ml-lg-auto">
+            <div class="position-relative pl-md-5">
+              <img src="img/consult.png" class="img-center img-fluid" />
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="d-flex px-3">
+              <div>
+                <icon
+                  name="ni ni-sound-wave"
+                  size="lg"
+                  class="bg-gradient-white"
+                  color="warning"
+                  shadow
+                  rounded
+                ></icon>
+              </div>
+              <div class="pl-4">
+                <h4 class="display-3 text-white">Prevención COVID-19</h4>
+                <p class="text-white">Revisa tus síntomas y descubre qué hacer después.</p>
+              </div>
+            </div>
+            <card shadow class="shadow-lg--hover mt-5">
+              <div class="d-flex px-3">
+                <div>
+                  <icon name="ni ni-bullet-list-67" gradient="success" color="white" shadow rounded></icon>
+                </div>
+                <div class="pl-4">
+                  <h5 class="title text-success">Realizar Cuestionario</h5>
+                  <p>En tiempos de crisis debes tener la máxima prevención posible, por lo que es importante que realices nuestro cuestionario para evaluar tus síntomas.</p>
+
+                  <router-link class="text-success" to="/symptomsForm">Click Aquí</router-link>
+                </div>
+              </div>
+            </card>
+            <card shadow class="shadow-lg--hover mt-5">
+              <div class="d-flex px-3">
+                <div>
+                  <icon name="ni ni-bulb-61" gradient="warning" color="white" shadow rounded></icon>
+                </div>
+                <div class="pl-4">
+                  <h5 class="title text-warning">Más información sobre COVID-19</h5>
+                  <p>No olvides la importancia de estar correctamente informado sobre este virus.</p>
+                  <router-link class="text-warning" to="/medicalHelpInformation">Click Aquí</router-link>
+                </div>
+              </div>
+            </card>
           </div>
         </div>
       </div>

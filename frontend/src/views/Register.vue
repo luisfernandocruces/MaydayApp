@@ -19,7 +19,7 @@
             <p v-if="errors.length">
               <base-alert v-for="error in errors" type="warning" :key="error">
                 <strong>Atención!</strong>
-                {{error}}
+                {{ error }}
               </base-alert>
             </p>
           </div>
@@ -48,12 +48,12 @@
           </div>
 
           <div class="row">
-            <div class="col">
+            <div class="col-md-6">
               <base-input required label="Tipo de Documento">
                 <el-select
+                  style="width: -webkit-fill-available;"
                   label="Tipo de documento"
                   collapse-tags
-                  class="select-primary"
                   size="large"
                   required
                   placeholder="Ingrese el tipo de Documento"
@@ -83,13 +83,15 @@
 
           <div class="row">
             <div class="col">
-              <base-input
-                label="Fecha de Nacimiento"
-                type="date"
-                name="birthdate"
-                required
-                v-model="user.birthdate"
-              ></base-input>
+              <base-input label="Fecha de Nacimiento" type="date" name="birthdate" required>
+                <el-date-picker
+                  style="width: -webkit-fill-available;"
+                  v-model="user.birthdate"
+                  type="date"
+                  format="dd/MM/yyyy"
+                  placeholder="Selecciona una fecha de nacimiento"
+                ></el-date-picker>
+              </base-input>
             </div>
           </div>
 
@@ -112,8 +114,21 @@
                 placeholder="Area de la Salud"
                 name="healtArea"
                 required
-                v-model="user.health_area"
-              ></base-input>
+              >
+                <el-select
+                  v-model="user.health_area"
+                  size="large"
+                  placeholder="Seleccionar"
+                  style="width: -webkit-fill-available;"
+                >
+                  <el-option
+                    v-for="item in areas"
+                    :key="item.value"
+                    :label="item.value"
+                    :value="item.value"
+                  ></el-option>
+                </el-select>
+              </base-input>
             </div>
           </div>
 
@@ -154,6 +169,24 @@
 
           <div class="row">
             <div class="col">
+              <base-input label="Género" required name="gender">
+                <el-select
+                  style="width: -webkit-fill-available;"
+                  size="large"
+                  required
+                  placeholder="Género"
+                  v-model="user.gender"
+                >
+                  <el-option
+                    v-for="option in genders"
+                    :value="option.type"
+                    :label="option.type"
+                    :key="option.type"
+                  ></el-option>
+                </el-select>
+              </base-input>
+            </div>
+            <div class="col">
               <base-input
                 label="Número telefónico"
                 type="number"
@@ -161,8 +194,6 @@
                 v-model="user.phone_number"
               ></base-input>
             </div>
-
-            <div class="col"></div>
           </div>
 
           <base-input required label="Breve Descripción">
@@ -182,14 +213,26 @@
         <base-button type="info" @click="checkForm">Registrarme</base-button>
       </card>
     </div>
+
+    <modal :show.sync="modalShow">
+      <template slot="header">
+        <h5 class="modal-title" id="exampleModalLabel">¡Cuenta creada!</h5>
+      </template>
+      <div>{{ messageRegister }}</div>
+      <template slot="footer">
+        <base-button type="secondary" @click="goLogin">Aceptar</base-button>
+      </template>
+    </modal>
   </section>
 </template>
 <script>
 import { Select, Option } from "element-ui";
+import Modal from "@/components/Modal";
 
 import axios from "../plugins/axios";
 export default {
   components: {
+    Modal,
     [Option.name]: Option,
     [Select.name]: Select
   },
@@ -197,9 +240,12 @@ export default {
   props: ["userType"],
   data() {
     return {
+      modalShow: false,
+      messageRegister: "",
       user: {
         first_name: "",
         last_name: "",
+        gender: "",
         document_type: "",
         document_number: "",
         professional_card_number: "",
@@ -210,11 +256,26 @@ export default {
         health_area: "",
         birthdate: ""
       },
+      areas: [
+        { value: "General" },
+        { value: "Enfermería" },
+        { value: "Urología" },
+        { value: "Cardiología" },
+        { value: "Pediatría" },
+        { value: "Neurología" },
+        { value: "Ginecología" },
+        { value: "Ortopedia" },
+        { value: "Nefrología" },
+        { value: "Gastroenterología" },
+        { value: "Neumología" },
+        { value: "Oncología" }
+      ],
       document_types: [
         { type: "Cédula de Ciudadanía" },
         { type: "Cédula de Extranjería" },
         { type: "Pasaporte" }
       ],
+      genders: [{ type: "Hombre" }, { type: "Mujer" }, { type: "Otro" }],
       confirmation_password: "",
       errors: []
     };
@@ -222,21 +283,32 @@ export default {
   created() {},
 
   methods: {
+    goLogin() {
+      this.$router.push("/login");
+    },
     register() {
       if (this.userType == "normal") {
         axios.post("/users/normalUser", this.user).then(response => {
           if (response.status == 200) {
-            alert("Usuario creado");
-          } else {
+            this.messageRegister =
+              "El usuario con el emial " +
+              this.email +
+              " ha sido creado correctamente. Ya puede iniciar sesión.";
+            this.modalShow = true;
           }
         });
       } else if (this.userType == "health") {
-        axios.post("/users/healthProfessional", this.user).then(response => {
-          if (response.status == 200) {
-            alert("Usuario creado");
-          } else {
-          }
-        });
+        axios
+          .post("/users/healthProfessional", this.user)
+          .then(response => {
+            if (response.status == 200) {
+              this.messageRegister =
+                "El usuario con el emial " +
+                this.email +
+                " ha sido creado correctamente. Ya puede iniciar sesión.";
+              this.modalShow = true;
+            }
+          });
       }
     },
 
@@ -298,5 +370,4 @@ export default {
   }
 };
 </script>
-<style>
-</style>
+<style></style>

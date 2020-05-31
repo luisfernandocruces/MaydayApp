@@ -9,6 +9,7 @@ export default new Vuex.Store({
   state: {
     logged: false,
     user: {},
+    toUserEmail: "",
   },
   mutations: {
     changeTheLogged(state, newLogged) {
@@ -17,6 +18,9 @@ export default new Vuex.Store({
     updateUser(state, currentUser) {
       state.user = currentUser;
     },
+    updateToUserEmail(state, newToUserEmail){
+      state.toUserEmail = newToUserEmail;
+    }
   },
   actions: {
     changeLogged({ commit }, newLogged) {

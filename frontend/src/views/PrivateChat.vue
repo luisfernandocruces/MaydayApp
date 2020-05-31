@@ -20,16 +20,16 @@
             body-classes="px-lg py-lg"
             class="border-0"
           >
-            <div id="Chat-Box">
+            <div id="Chat-Box" style="overflow-y:scroll">
               <ul>
-                <li v-for="message in messages" :key="message">
-                  <strong>{{message.from}} :</strong>
-                  {{message.msg}}
+                <li v-for="message in conversation.messages" :key="message">
+                  <strong>{{ message.idSender }} :</strong>
+                  {{ message.content }}
                 </li>
               </ul>
             </div>
             <div id="sendMessage" class="row">
-                <div class="col">
+              <div class="col">
                 <textarea
                   class="form-control"
                   id="description"
@@ -37,10 +37,10 @@
                   placeholder="Escribe tu mensaje..."
                   v-model="new_message"
                 ></textarea>
-                </div>
-                <div class="col-md-auto">
+              </div>
+              <div class="col-md-auto">
                 <base-button type="primary" @click="sendMessage">Enviar</base-button>
-                </div>
+              </div>
             </div>
           </card>
         </div>
@@ -50,33 +50,80 @@
 </template>
 <script>
 import io from "socket.io-client";
+import axios from "../plugins/axios";
 export default {
-
-  props: ["other_user"],  
   data() {
     return {
-      messages: [
-        { from: "dangaltor", msg: "hola que tal" },
-        { from: "otra_persona", msg: "Bien y vos?" }
-      ],
+      conversation: {
+        idUser: "",
+        idProfessional: "",
+        messages: [{}]
+      },
+      user_connected: this.$store.state.user._id,
+      other_user: this.$store.state.toUserEmail,
       new_message: "",
-      socket: null,
+      socket: null
     };
   },
-  created(){
-      this.socket = io('localhost:8080');
-      this.socket.on('message_received', (message) => {
-          this.messages.push({from: this.other_user, msg: message});
+  created() {
+    if (this.$store.state.user.rol == "health professional") {
+      this.conversation.idUser = this.other_user;
+      this.conversation.idProfessional = this.user_connected;
+      axios.post("/conversation", this.conversation).then(response => {
+        if (response.status == 200) {
+          this.conversation = response.data;
+        }
       });
+    } else if (this.$store.state.user.rol == "normal person") {
+      this.conversation.idUser = this.user_connected;
+      this.conversation.idProfessional = this.other_user;
+      axios.post("/conversation", this.conversation).then(response => {
+        if (response.status == 200) {
+          this.conversation = response.data;
+        }
+      });
+    }
+
+    this.socket = io("http://localhost:3000");
+    this.socket.on("Server Ready", () => {
+      this.socket.emit("new_chat", {
+        startedBy: this.user_connected,
+        chatsWith: this.other_user
+      });
+    });
+    this.socket.on("message_received", data => {
+      this.conversation.messages.push({
+        idSender: data.from,
+        content: data.message
+      });
+    });
   },
 
   methods: {
-      sendMessage(){
-          if(this.new_message){
-              this.messages.push({from: "dangaltor", msg: this.new_message});
-              this.new_message = "";
-          }
+    loadChat() {},
+    sendMessage() {
+      if (this.new_message) {
+        this.socket.emit("message_sent", {
+          from: this.user_connected,
+          to: this.other_user,
+          msg: this.new_message
+        });
+        this.conversation.messages.push({
+          idSender: this.user_connected,
+          content: this.new_message
+        });
+
+        axios
+          .put("/conversation/" + this.conversation._id, this.conversation)
+          .then(response => {
+            console.log(JSON.stringify(response));
+          });
+        this.new_message = "";
       }
+    }
+  },
+  beforeDestroy() {
+    this.socket = null;
   }
 };
 </script>
