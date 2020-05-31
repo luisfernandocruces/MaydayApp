@@ -180,36 +180,42 @@
               </div>
             </article>
           </div>
-          <div v-for="(help, index) in filteredHelps" :key="index" class="col">
-            <card class="border-0" hover shadow body-classes="py-5" style="margin-bottom:20px">
-              <div class="row" style="
-                  place-content: center;">
-                <h6 class="text-info text-uppercase">{{help.first_name}} {{help.last_name}}</h6>
+          <div col col-lg-9 style="padding-left: 3%;">
+            <div v-for="(help, index) in filteredHelps" :key="index" class="row">
+              <div class="card" style="margin-bottom:5%; width: 40rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{help.first_name}} {{help.last_name}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Especialidad: {{help.health_area}}</h6>
 
-                <p class="description mt-3">Especialidad: {{help.health_area}}</p>
-                <div v-for="(sce, index) in help.schedules" :key="index">
-                  <badge type="info" rounded>{{sce.dayOfWeek}}: {{sce.startTime}}-{{sce.endTime}}</badge>
+                  <div class="row">
+                    <div class="col">
+                      <button
+                        style="margin-top:4%;margin-bottom:4%"
+                        type="button"
+                        class="btn btn-outline-secondary"
+                        @click="changeCurrentHelp(help)"
+                      >Detalles</button>
+                    </div>
+                    <div class="col">
+                      <base-button
+                        v-if="userRol == 'normal person'"
+                        @click="openChat(help.idProfessional)"
+                        type="info"
+                      >Solicitar</base-button>
+                    </div>
+                  </div>
+
+                  <div v-for="(sce, index) in help.schedules" :key="index">
+                    <badge type="info" rounded>{{sce.dayOfWeek}}: {{sce.startTime}}-{{sce.endTime}}</badge>
+                  </div>
                 </div>
               </div>
-              <br />
-              <div class="row" style="place-content: center;">
-                <div class="col">
-                  <base-button
-                    v-if="userRol == 'normal person'"
-                    @click="openChat(help.idProfessional)"
-                    type="info"
-                  >Solicitar</base-button>
-                </div>
-                <div class="col">
-                  <button
-                    type="button"
-                    class="btn btn-outline-secondary"
-                    @click="changeCurrentHelp(help)"
-                  >Detalles</button>
-                </div>
-              </div>
-            </card>
+            </div>
           </div>
+        </div>
+
+        <div class="row">
+          <div v-for="(help, index) in filteredHelps" :key="index" class="row"></div>
         </div>
       </div>
     </section>

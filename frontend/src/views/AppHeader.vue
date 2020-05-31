@@ -39,19 +39,48 @@
             <span class="nav-link-inner--text">Menú</span>
           </a>
 
-
-          <router-link v-if="this.logged_usu == true" to="/profile" class="dropdown-item">Perfil</router-link>
-          <router-link v-if="this.type_user == 'health professional'" to="/publishHelp" class="dropdown-item">Publicar Ayuda</router-link>
-          <router-link v-if="this.logged_usu == false" to="/login" class="dropdown-item">Iniciar Sesión</router-link>
-          <router-link v-if="this.logged_usu == false" to="/registerMenu" class="dropdown-item">Registro</router-link>
-          
-
+          <router-link
+            v-if="this.logged_usu == true"
+            to="/profile"
+            class="dropdown-item"
+            >Perfil</router-link
+          >
+          <router-link
+            v-if="this.type_user == 'health professional'"
+            to="/publishHelp"
+            class="dropdown-item"
+            >Publicar Ayuda</router-link
+          >
+          <router-link
+            v-if="this.logged_usu == false"
+            to="/login"
+            class="dropdown-item"
+            >Iniciar Sesión</router-link
+          >
+          <router-link
+            v-if="this.logged_usu == false"
+            to="/registerMenu"
+            class="dropdown-item"
+            >Registro</router-link
+          >
         </base-dropdown>
       </ul>
 
-      <div class="col" style="text-align-last: right;">	
-          <a class="text-white" @click="signout()" v-if="this.logged_usu == true" >Cerrar Sesión</a>	     
-        </div>
+      <modal :show.sync="modalShow">
+        <template slot="header">
+          <h5 class="modal-title" id="exampleModalLabel">Cerrar sesión</h5>
+        </template>
+        <div>{{ message }}</div>
+        <template slot="footer">
+          <base-button type="secondary" @click="goHome">Aceptar</base-button>
+        </template>
+      </modal>
+
+      <div class="col" style="text-align-last: right;">
+        <a class="text-white" @click="signout()" v-if="this.logged_usu == true"
+          >Cerrar Sesión</a
+        >
+      </div>
     </base-nav>
   </header>
 </template>
@@ -59,29 +88,41 @@
 import BaseNav from "@/components/BaseNav";
 import BaseDropdown from "@/components/BaseDropdown";
 import CloseButton from "@/components/CloseButton";
+import Modal from "@/components/Modal";
 
 export default {
   components: {
     BaseNav,
     CloseButton,
     BaseDropdown,
+    Modal,
+  },
+  data() {
+    return {
+      modalShow: false,
+      message: "",
+    };
   },
   computed: {
     logged_usu() {
       return this.$store.state.logged;
     },
-    type_user(){
-      return this.$store.state.user.rol
-    }
+    type_user() {
+      return this.$store.state.user.rol;
+    },
   },
   created() {
     console.log(this.logged_usu);
   },
   methods: {
     signout() {
+      this.message = "Ha cerrado su sesión.";
+      this.modalShow = true;
+    },
+    goHome() {
       this.$store.commit("changeTheLogged", false);
-      this.$store.commit("updateUser", {} );
-      alert("Ha cerrado sesión");
+      this.$store.commit("updateUser", {});
+      this.modalShow = false;
       this.$router.push("/login");
     },
   },
