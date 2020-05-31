@@ -170,11 +170,20 @@
       </div>
     </section>
   </div>
+
+  
 </template>
 
 <script>
 export default {
+<<<<<<< HEAD
+  name: '',
+  components: {
+  }
+}
+=======
   name: "home",
   components: {}
 };
+>>>>>>> 5d476bdf570bdf8e17b5c1b330bab8a84a4b1586
 </script>
