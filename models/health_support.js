@@ -5,8 +5,8 @@ let Health_SupportSchema = new mongoose.Schema({
     idProfessional: {type: String, required:true},
     schedules: [{
         dayOfWeek: String,
-        startTime: Number,
-        endTime: Number
+        startTime: String,
+        endTime: String
     }]
 
 })
