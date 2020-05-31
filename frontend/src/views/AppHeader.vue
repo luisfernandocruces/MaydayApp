@@ -39,35 +39,19 @@
             <span class="nav-link-inner--text">Menú</span>
           </a>
 
-          <router-link
-            v-if="this.logged_usu == true"
-            to="/profile"
-            class="dropdown-item"
-            >Perfil</router-link
-          >
 
-          <router-link
-            v-if="this.logged_usu == false"
-            to="/login"
-            class="dropdown-item"
-            >Iniciar Sesión</router-link
-          >
-          <router-link
-            v-if="this.logged_usu == false"
-            to="/registerMenu"
-            class="dropdown-item"
-            >Registro</router-link
-          >
+          <router-link v-if="this.logged_usu == true" to="/profile" class="dropdown-item">Perfil</router-link>
+          <router-link v-if="this.logged_usu == true" to="/publishHelp" class="dropdown-item">Publicar Ayuda</router-link>
+          <router-link v-if="this.logged_usu == false" to="/login" class="dropdown-item">Iniciar Sesión</router-link>
+          <router-link v-if="this.logged_usu == false" to="/registerMenu" class="dropdown-item">Registro</router-link>
+          
+
         </base-dropdown>
       </ul>
 
-      <base-button
-        type="primary"
-        @click="signout()"
-        v-if="this.logged_usu == true"
-        class="dropdown-item"
-        >Cerrar Sesión</base-button
-      >
+      <div class="col" style="text-align-last: right;">	
+          <a class="text-white" @click="signout()" v-if="this.logged_usu == true" >Cerrar Sesión</a>	     
+        </div>
     </base-nav>
   </header>
 </template>
@@ -94,7 +78,7 @@ export default {
     signout() {
       this.$store.commit("changeTheLogged", false);
       alert("Ha cerrado sesión");
-      this.$router.push("/");
+      this.$router.push("/login");
     },
   },
 };

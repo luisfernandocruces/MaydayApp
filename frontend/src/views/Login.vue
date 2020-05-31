@@ -41,29 +41,27 @@
               </div>
               </template>-->
               <template>
-                <div class="text-center text-muted mb-4">
-                  <small>Sig in</small>
-                </div>
+                <div class="text-center text-muted mb-4">Iniciar Sesión</div>
                 <form role="form">
                   <base-input
                     alternative
                     class="mb-3"
-                    placeholder="Email"
+                    placeholder="Correo Electronico"
                     addon-left-icon="ni ni-email-83"
                     v-model="email"
                   ></base-input>
                   <base-input
                     alternative
                     type="password"
-                    placeholder="Password"
+                    placeholder="Contraseña"
                     addon-left-icon="ni ni-lock-circle-open"
                     v-model="password"
                   ></base-input>
 
                   <div class="text-center">
-                    <base-button type="primary" class="my-4" @click="signin">
-                      Iniciar Sesión</base-button
-                    >
+
+                    <base-button type="primary" class="my-4" @click="signin">Iniciar Sesión</base-button>
+
                   </div>
                 </form>
               </template>
@@ -72,7 +70,7 @@
               <div class="col-6"></div>
               <div class="col-6 text-right">
                 <a href="#" class="text-white">
-                  <small>Create new account</small>
+                  <router-link to="/registerMenu" class="text-white">Crear una cuenta</router-link>
                 </a>
               </div>
             </div>
@@ -144,6 +142,9 @@ export default {
             this.$store.commit("changeTheLogged", true);
             this.$router.push("/");
           }
+
+          this.$router.push("/");
+
         })
         .catch((error) => {
           console.log(error);
@@ -158,8 +159,12 @@ export default {
             this.modalShow = true;
           }
         });
-    },
-  },
+
+      this.$store.commit("changeTheLogged", true);
+      console.log(this.$store.state.logged);
+    }
+  }
+
 };
 </script>
 <style></style>
