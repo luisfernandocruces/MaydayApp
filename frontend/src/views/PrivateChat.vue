@@ -69,12 +69,16 @@ export default {
     this.socket = io("http://localhost:3000");
     this.socket.on('Server Ready', () => {
       this.socket.emit('new_chat',{startedBy: this.user_connected, chatsWith: this.other_user});
+    });
+    this.socket.on('message_received', data => {
+      this.messages.push({ from: data.from, msg: data.message });
     })
   },
 
   methods: {
     sendMessage() {
       if (this.new_message) {
+        this.socket.emit('message_sent', {from: this.user_connected, to: this.other_user, msg: this.new_message});
         this.messages.push({ from: this.user_connected, msg: this.new_message });
         this.new_message = "";
       }

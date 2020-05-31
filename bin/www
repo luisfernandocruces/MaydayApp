@@ -104,5 +104,21 @@ io.on("connection", socket => {
     channelName = user1+"$"+user2;
     socket.join(channelName);
   });
+
+  socket.on('message_sent', data => {
+    messageFrom = data.from;
+    messageTo = data.to;
+    messageBody = data.msg;
+    
+    //TODO: AGREGAR A BD
+    
+    channelName = "";
+    if (messageFrom < messageTo){
+      channelName = messageFrom + "$" + messageTo;
+    } else {
+      channelName = messageTo + "$" + messageFrom;
+    }
+    socket.to(channelName).emit('message_received', {from: messageFrom, message: messageBody});
+  })
   io.to(socket.id).emit('Server Ready', 'Ready');
 });
