@@ -36,38 +36,20 @@
               <div class="col-lg-4 order-lg-1"></div>
             </div>
             <div class="text-center mt-5">
-              <br>
-              <br>
-              <h3>
-                {{firstName}} {{lastName}}</h3>
-                <div class="h6 mt-4">
-                
-                Género: {{gender}}
-              </div>
-                  <div class="h6 mt-4">
-                
-                 Fecha Nacimiento: {{formatDate(birthdate)}}
-              </div>
-             
-              <div class="h6 mt-4">
-                
-                  Numero de Telefono: {{phone}}
-              </div>
-              <div class="h6 mt-4">
-                
-                Tipo documento: {{documentType}}
-              </div>
-              <div class="h6 mt-4">
-                
-                Número de documento: {{documentNumber}}
-              </div>
-              <div class="h6 mt-4"  v-if="this.health_area != undefined">
-                
-                Área de la salúd: {{health_area}}
-              </div>
-              <div>
-                
-              </div>
+              <br />
+              <br />
+              <h3>{{firstName}} {{lastName}}</h3>
+              <div class="h6 mt-4">Género: {{gender}}</div>
+              <div class="h6 mt-4">Fecha Nacimiento: {{formatDate(birthdate)}}</div>
+
+              <div class="h6 mt-4">Numero de Telefono: {{phone}}</div>
+              <div class="h6 mt-4">Tipo documento: {{documentType}}</div>
+              <div class="h6 mt-4">Número de documento: {{documentNumber}}</div>
+              <div
+                class="h6 mt-4"
+                v-if="this.health_area != undefined"
+              >Área de la salúd: {{health_area}}</div>
+              <div></div>
             </div>
             <div class="mt-5 py-5 border-top text-center">
               <div class="row justify-content-center">
@@ -97,18 +79,18 @@ export default {
       gender: this.$store.state.user.gender,
       health_area: this.$store.state.user.health_area
     };
-  },methods: {
+  },
+  methods: {
+    formatDate(time) {
+      console.log(this.$store.state.user);
 
-     formatDate(time){
-     console.log(this.$store.state.user)
+      var t = new Date(time);
+      var dateFormat = require("dateformat");
 
-        var t = new Date(time)
-      var dateFormat = require('dateformat');
-
-      var s= dateFormat(t, "dd/mm/yyyy");
-       return s
-      }
-   }
+      var s = dateFormat(t, "dd/mm/yyyy");
+      return s;
+    }
+  }
 };
 </script>
 <style></style>

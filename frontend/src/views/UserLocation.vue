@@ -30,19 +30,16 @@ export default {
     return {
       address: "",
       error: "",
-      spinner: false,
+      spinner: false
     };
   },
 
   mounted() {
-    new google.maps.places.Autocomplete(
-      this.$refs["autocomplete"],
-      {
-        bounds: new google.maps.LatLngBounds(
-          new google.maps.LatLng(45.4215296, -75.6971931)
-        )
-      }
-    )
+    new google.maps.places.Autocomplete(this.$refs["autocomplete"], {
+      bounds: new google.maps.LatLngBounds(
+        new google.maps.LatLng(45.4215296, -75.6971931)
+      )
+    });
   },
 
   methods: {
@@ -80,7 +77,7 @@ export default {
             "&key=AIzaSyD5-oRZadIQ67WpaCriLl_RscJGG9BHE8c"
         )
         .then(response => {
-          if (response.data.error_message) { 
+          if (response.data.error_message) {
             this.error = response.data.error_message;
             console.log(response.data.error_message);
           } else {
@@ -108,24 +105,22 @@ export default {
 }
 
 .pac-icon {
-  display:none;
+  display: none;
 }
 
 .pac-item {
-  padding:10px;
-  font-size: 16px; 
+  padding: 10px;
+  font-size: 16px;
   cursor: pointer;
 }
 
 .pac-item:hover {
-  background-color:#ececec;
+  background-color: #ececec;
 }
-
 
 .pac-item-query {
   font-size: 16px;
-} 
-
+}
 </style>
 
 

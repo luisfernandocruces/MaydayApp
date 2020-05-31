@@ -15,30 +15,29 @@
       <div class="container">
         <card shadow class="card-profile mt--300" no-body>
           <div class="col-md-4">
-        
+            <modal
+              :show.sync="modal2"
+              gradient="danger"
+              modal-classes="modal-danger modal-dialog-centered"
+            >
+              <h6 slot="header" class="modal-title" id="modal-title-notification">Atención!!!</h6>
 
-            <modal :show.sync="modal2"
-                   gradient="danger"
-                   modal-classes="modal-danger modal-dialog-centered">
-                <h6 slot="header" class="modal-title" id="modal-title-notification">Atención!!!</h6>
+              <div class="py-3 text-center">
+                <i class="ni ni-bell-55 ni-3x"></i>
+                <h4 class="heading mt-4">Proximamente...</h4>
+                <p>Esta sección esta en desarrollo.</p>
+              </div>
 
-                <div class="py-3 text-center">
-                    <i class="ni ni-bell-55 ni-3x"></i>
-                    <h4 class="heading mt-4">Proximamente...</h4>
-                    <p>Esta sección esta en desarrollo.</p>
-                </div>
-
-                <template slot="footer">
-                   
-                    <base-button type="link"
-                                 text-color="white"
-                                 class="ml-auto"
-                                 @click="modal2 = false">
-                        Cerrar
-                    </base-button>
-                </template>
+              <template slot="footer">
+                <base-button
+                  type="link"
+                  text-color="white"
+                  class="ml-auto"
+                  @click="modal2 = false"
+                >Cerrar</base-button>
+              </template>
             </modal>
-        </div>
+          </div>
           <div class="px-4">
             <div class="row justify-content-center">
               <div class="col-lg-3 order-lg-2">
@@ -202,7 +201,7 @@
                     class="font-weight-bold"
                   >Sufre usted de alguna de las siguientes comorbilidades:</span>
                 </div>
-                <br>
+                <br />
                 <ul>
                   <li>
                     <p>Se ha realizado transplante(s) de órganos</p>
@@ -213,50 +212,52 @@
                   <li>
                     <p>Se encuentra en tratamiento de radioterapia para cáncer de pulmón</p>
                   </li>
-                   <li>
+                  <li>
                     <p>Ha sido diagnosticado con leucemia, linfoma y/o mieloma</p>
                   </li>
-                   <li>
+                  <li>
                     <p>Se encuentra en tratamiento de inmunoterapia o tratamiento con anticuerpos</p>
                   </li>
                   <li>
                     <p>Se ha realizado transplante de médula ósea en los últimos 6 meses y/o se encuentra en tratamiento de inmunosupresores</p>
                   </li>
                   <li>
-                    <p> Ha sido diagnosticado con una enfermedad pulmonar severa como asma severa, EPOC
-                    severo, enfermedad intersticial fibrosis quística</p>
+                    <p>
+                      Ha sido diagnosticado con una enfermedad pulmonar severa como asma severa, EPOC
+                      severo, enfermedad intersticial fibrosis quística
+                    </p>
                   </li>
                   <li>
                     <p>Ha sido diagnosticada con una enfermedad cardíaca y está en embarazo</p>
                   </li>
-                    <li>
+                  <li>
                     <p>Ha sido diagnosticado con CID</p>
                   </li>
-                    <li>
+                  <li>
                     <p>Se encuentra en tratamiento con altas dosis de esteroides o terapias inmunosupresores</p>
                   </li>
-                    <li>
+                  <li>
                     <p>Discapacidad en el aprendizaje</p>
                   </li>
-                   <li>
+                  <li>
                     <p>Ha sido diagnosticado con una enfermedad pulmonar leve o que afecte la respiración</p>
                   </li>
-                   <li>
+                  <li>
                     <p>Ha sido diagnosticado con una enfermedad cardiaca</p>
                   </li>
-                   <li>
+                  <li>
                     <p>Presenta hipertensión alta</p>
                   </li>
-                   <li>
+                  <li>
                     <p>Ha sido diagnosticado con diabetes</p>
                   </li>
-                   <li>
+                  <li>
                     <p>Ha sido diagnosticado con una enfermedad renal crónica</p>
                   </li>
                   <li>
                     <p>Ha sido diagnosticado con una enfermedad hepática</p>
                   </li>
-                   <li>
+                  <li>
                     <p>Ha sido diagnosticado con cáncer</p>
                   </li>
                   <li>
@@ -265,42 +266,40 @@
                   <li>
                     <p>Ha sido diagnosticado con una enfermedad cerebrovascular</p>
                   </li>
-                   <li>
+                  <li>
                     <p>Ha sido diagnosticado con una enfermedad del sistema nervioso</p>
                   </li>
-                   <li>
+                  <li>
                     <p>Presenta problemas en el bazo o asplenia</p>
                   </li>
                   <li>
                     <p>Ha sido diagnosticado con obesidad (ICM > 40)</p>
                   </li>
                 </ul>
-                <br>
+                <br />
               </form>
-               <div>
-            <base-input type="text">
-              <el-select
-                v-model="option3"
-                placeholder="Seleccionar"
-                style=" width: -webkit-fill-available;"
-              >
-                <el-option
-                  v-for="item in options"
-                  :key="item.type"
-                  :label="item.type"
-                  :value="item.type"
-                ></el-option>
-              </el-select>
-            </base-input>
+              <div>
+                <base-input type="text">
+                  <el-select
+                    v-model="option3"
+                    placeholder="Seleccionar"
+                    style=" width: -webkit-fill-available;"
+                  >
+                    <el-option
+                      v-for="item in options"
+                      :key="item.type"
+                      :label="item.type"
+                      :value="item.type"
+                    ></el-option>
+                  </el-select>
+                </base-input>
+              </div>
             </div>
-            </div>
-           
+
             <div class="mt-5 py-5 border-top text-center">
               <div class="row justify-content-center">
                 <div class="col-lg-9">
-                  <base-button type="primary" class="mt-4" @click="modal2 = true">
-                    Obtener resultados
-                  </base-button>
+                  <base-button type="primary" class="mt-4" @click="modal2 = true">Obtener resultados</base-button>
                 </div>
               </div>
             </div>
@@ -316,8 +315,8 @@ import Modal from "@/components/Modal";
 export default {
   components: {
     Modal
-  }
-  ,data() {
+  },
+  data() {
     return {
       ages: [
         {

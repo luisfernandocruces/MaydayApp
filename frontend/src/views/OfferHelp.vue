@@ -45,30 +45,27 @@ import { Select, Option } from "element-ui";
 
 import axios from "../plugins/axios";
 export default {
-components: {
+  components: {
     [Option.name]: Option,
     [Select.name]: Select
   },
 
   data() {
     return {
-      timesOffered: [],
+      timesOffered: []
     };
   },
-  created() {
-
-  },
+  created() {},
 
   methods: {
     offerHelp() {
-        axios.post("/users/normalUser", this.timesOffered).then(response => {
-          if (response.status == 200) {
-            alert("Usuario creado");
-          } else {
-
-          }
-        });
-    } 
+      axios.post("/users/normalUser", this.timesOffered).then(response => {
+        if (response.status == 200) {
+          alert("Usuario creado");
+        } else {
+        }
+      });
+    }
   }
 };
 </script>

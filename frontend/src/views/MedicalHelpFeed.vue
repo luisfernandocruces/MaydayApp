@@ -31,25 +31,20 @@
         <!-- Modal -->
 
         <modal :show.sync="modals.modal1">
-          <h6 slot="header" class="modal-title" id="modal-title-default">
-            {{ currentHelp.first_name }} {{ currentHelp.last_name }}
-          </h6>
+          <h6
+            slot="header"
+            class="modal-title"
+            id="modal-title-default"
+          >{{ currentHelp.first_name }} {{ currentHelp.last_name }}</h6>
 
           <div class="py-3 text-center">
-            <h4 class="heading mt-4">
-              Especialidad: {{ currentHelp.health_area }}
-            </h4>
+            <h4 class="heading mt-4">Especialidad: {{ currentHelp.health_area }}</h4>
             <h4 class="heading mt-4">Género: {{ currentHelp.gender }}</h4>
             <p>{{ currentHelp.description }}</p>
           </div>
 
           <template slot="footer">
-            <base-button
-              type="link"
-              class="ml-auto"
-              @click="modals.modal1 = false"
-              >Cerrar</base-button
-            >
+            <base-button type="link" class="ml-auto" @click="modals.modal1 = false">Cerrar</base-button>
           </template>
         </modal>
 
@@ -185,26 +180,16 @@
                 </div>
               </div>
               <div class="text-center">
-                <base-button @click="filter()" type="info" class="mt-4"
-                  >Filtrar</base-button
-                >
+                <base-button @click="filter()" type="info" class="mt-4">Filtrar</base-button>
               </div>
             </article>
           </div>
           <div col col-lg-9 style="padding-left: 3%;">
-            <div
-              v-for="(help, index) in filteredHelps"
-              :key="index"
-              class="row"
-            >
+            <div v-for="(help, index) in filteredHelps" :key="index" class="row">
               <div class="card" style="margin-bottom:5%; width: 40rem;">
                 <div class="card-body">
-                  <h5 class="card-title">
-                    {{ help.first_name }} {{ help.last_name }}
-                  </h5>
-                  <h6 class="card-subtitle mb-2 text-muted">
-                    Especialidad: {{ help.health_area }}
-                  </h6>
+                  <h5 class="card-title">{{ help.first_name }} {{ help.last_name }}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Especialidad: {{ help.health_area }}</h6>
 
                   <div class="row">
                     <div class="col">
@@ -213,26 +198,23 @@
                         type="button"
                         class="btn btn-outline-secondary"
                         @click="changeCurrentHelp(help)"
-                      >
-                        Detalles
-                      </button>
+                      >Detalles</button>
                     </div>
                     <div class="col">
                       <base-button
                         v-if="userRol == 'normal person'"
                         @click="openChat(help.idProfessional)"
                         type="info"
-                        >Solicitar</base-button
-                      >
+                      >Solicitar</base-button>
                     </div>
                   </div>
 
                   <div v-for="(sce, index) in help.schedules" :key="index">
-                    <badge type="info" rounded
-                      >{{ sce.dayOfWeek }}: {{ sce.startTime }}-{{
-                        sce.endTime
-                      }}</badge
-                    >
+                    <badge type="info" rounded>
+                      {{ sce.dayOfWeek }}: {{ sce.startTime }}-{{
+                      sce.endTime
+                      }}
+                    </badge>
                   </div>
                 </div>
               </div>
@@ -241,11 +223,7 @@
         </div>
 
         <div class="row">
-          <div
-            v-for="(help, index) in filteredHelps"
-            :key="index"
-            class="row"
-          ></div>
+          <div v-for="(help, index) in filteredHelps" :key="index" class="row"></div>
         </div>
       </div>
     </section>
@@ -257,7 +235,7 @@ import axios from "../plugins/axios";
 import Modal from "@/components/Modal";
 export default {
   components: {
-    Modal,
+    Modal
   },
   data() {
     return {
@@ -269,15 +247,15 @@ export default {
         description: "",
         health_area: "",
         schedules: "",
-        professionalAge: "",
+        professionalAge: ""
       },
       userRol: this.$store.state.user.rol,
       checkedFilters: [],
       helps: [],
       filteredHelps: [],
       modals: {
-        modal1: false,
-      },
+        modal1: false
+      }
     };
   },
   methods: {
@@ -297,9 +275,9 @@ export default {
     filter() {
       this.filteredHelps = [];
       if (this.checkedFilters.length > 0) {
-        this.helps.forEach((element) => {
+        this.helps.forEach(element => {
           var condition = false;
-          this.checkedFilters.forEach((filter) => {
+          this.checkedFilters.forEach(filter => {
             if (element.health_area == filter) {
               condition = true;
             }
@@ -315,13 +293,13 @@ export default {
     changeCurrentHelp(newHelp) {
       this.modals.modal1 = true;
       this.currentHelp = newHelp;
-    },
+    }
   },
   created() {
-    axios.get("/healthsupport").then((response) => {
+    axios.get("/healthsupport").then(response => {
       if (response.status == 200) {
-        response.data.forEach((element) => {
-          axios.get("/users/" + element.idProfessional).then((response) => {
+        response.data.forEach(element => {
+          axios.get("/users/" + element.idProfessional).then(response => {
             let singleHelp = {
               idProfessional: element.idProfessional,
               first_name: response.data.first_name,
@@ -330,7 +308,7 @@ export default {
               description: response.data.description,
               health_area: response.data.health_area,
               schedules: element.schedules,
-              professionalAge: response.data.birthdate,
+              professionalAge: response.data.birthdate
             };
             this.helps.push(singleHelp);
           });
@@ -338,7 +316,7 @@ export default {
         this.filteredHelps = this.helps;
       }
     });
-  },
+  }
 };
 </script>
 <style></style>

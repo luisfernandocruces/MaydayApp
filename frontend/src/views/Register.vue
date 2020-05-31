@@ -83,20 +83,15 @@
 
           <div class="row">
             <div class="col">
-              <base-input
-                label="Fecha de Nacimiento"
-                type="date"
-                name="birthdate"
-                required
-                ><el-date-picker
+              <base-input label="Fecha de Nacimiento" type="date" name="birthdate" required>
+                <el-date-picker
                   style="width: -webkit-fill-available;"
                   v-model="user.birthdate"
                   type="date"
                   format="dd/MM/yyyy"
                   placeholder="Selecciona una fecha de nacimiento"
-                >
-                </el-date-picker
-              ></base-input>
+                ></el-date-picker>
+              </base-input>
             </div>
           </div>
 
@@ -131,8 +126,9 @@
                     :key="item.value"
                     :label="item.value"
                     :value="item.value"
-                  ></el-option> </el-select
-              ></base-input>
+                  ></el-option>
+                </el-select>
+              </base-input>
             </div>
           </div>
 
@@ -186,8 +182,9 @@
                     :value="option.type"
                     :label="option.type"
                     :key="option.type"
-                  ></el-option> </el-select
-              ></base-input>
+                  ></el-option>
+                </el-select>
+              </base-input>
             </div>
             <div class="col">
               <base-input
@@ -237,7 +234,7 @@ export default {
   components: {
     Modal,
     [Option.name]: Option,
-    [Select.name]: Select,
+    [Select.name]: Select
   },
 
   props: ["userType"],
@@ -257,7 +254,7 @@ export default {
         phone_number: "",
         description: "",
         health_area: "",
-        birthdate: "",
+        birthdate: ""
       },
       areas: [
         { value: "General" },
@@ -271,16 +268,16 @@ export default {
         { value: "Nefrología" },
         { value: "Gastroenterología" },
         { value: "Neumología" },
-        { value: "Oncología" },
+        { value: "Oncología" }
       ],
       document_types: [
         { type: "Cédula de Ciudadanía" },
         { type: "Cédula de Extranjería" },
-        { type: "Pasaporte" },
+        { type: "Pasaporte" }
       ],
       genders: [{ type: "Hombre" }, { type: "Mujer" }, { type: "Otro" }],
       confirmation_password: "",
-      errors: [],
+      errors: []
     };
   },
   created() {},
@@ -291,7 +288,7 @@ export default {
     },
     register() {
       if (this.userType == "normal") {
-        axios.post("/users/normalUser", this.user).then((response) => {
+        axios.post("/users/normalUser", this.user).then(response => {
           if (response.status == 200) {
             this.messageRegister =
               "El usuario con el emial " +
@@ -303,7 +300,7 @@ export default {
       } else if (this.userType == "health") {
         axios
           .post("/users/healthProfessional, por favor Inicie sesión", this.user)
-          .then((response) => {
+          .then(response => {
             if (response.status == 200) {
               this.messageRegister =
                 "El usuario con el emial " +
@@ -369,8 +366,8 @@ export default {
       }
 
       e.preventDefault();
-    },
-  },
+    }
+  }
 };
 </script>
 <style></style>
