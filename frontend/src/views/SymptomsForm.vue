@@ -40,14 +40,12 @@
                     style="margin-bottom:20px"
                     class="font-weight-bold"
                   >Seleccione su rango de edad:</span>
-                  <base-input
-                    type="text"
-
-                  >
+                  <base-input type="text">
                     <el-select
                       v-model="age"
                       placeholder="Seleccionar"
-                      style=" width: -webkit-fill-available;">
+                      style=" width: -webkit-fill-available;"
+                    >
                       <el-option
                         v-for="item in ages"
                         :key="item.value"
@@ -63,14 +61,12 @@
                     style="margin-bottom:20px"
                     class="font-weight-bold"
                   >¿Has realizado algún viaje en los últimas 15 días?</span>
-                  <base-input
-                    type="text"
-               
-                  >
+                  <base-input type="text">
                     <el-select
                       v-model="option"
                       placeholder="Seleccionar"
-                      style=" width: -webkit-fill-available;">
+                      style=" width: -webkit-fill-available;"
+                    >
                       <el-option
                         v-for="item in options"
                         :key="item.type"
@@ -89,7 +85,8 @@
                     <el-select
                       v-model="option2"
                       placeholder="Seleccionar"
-                      style=" width: -webkit-fill-available;">
+                      style=" width: -webkit-fill-available;"
+                    >
                       <el-option
                         v-for="item in options"
                         :key="item.type"
@@ -100,42 +97,21 @@
                   </base-input>
                 </div>
               </div>
-              <form>
+              <!-- <form>
                 <span
                   style="margin-bottom:20px"
                   class="font-weight-bold"
                 >Seleccione los síntomas que ha presentado:</span>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label class="form-check-label" for="exampleCheck1">Fiebre</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label class="form-check-label" for="exampleCheck1">Cansancio</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -143,57 +119,22 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label class="form-check-label" for="exampleCheck1">Dolor de garganta</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label class="form-check-label" for="exampleCheck1">Diarrea</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label class="form-check-label" for="exampleCheck1">Conjuntivitis</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label class="form-check-label" for="exampleCheck1">Dolor de cabeza</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -201,13 +142,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -215,13 +149,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -229,13 +156,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -243,34 +163,22 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
                   >Incapacidad para hablar o moverse</label>
                 </div>
-              </form>
+              </form>-->
 
               <form style="margin-top:30px">
-                <span
-                  style="margin-bottom:20px"
-                  class="font-weight-bold"
-                >Seleccione la(s) condicion(es) que aplican a su perfil:</span>
+                <div>
+                  <span
+                    style="margin-bottom:20px"
+                    class="font-weight-bold"
+                  >Sufre usted de alguna de las siguientes comorbilidades:</span>
+                </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -278,13 +186,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -292,13 +193,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -306,13 +200,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -320,13 +207,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -334,13 +214,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -348,13 +221,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label class="form-check-label" for="exampleCheck1">
                     Ha sido diagnosticado con una enfermedad pulmonar severa como asma severa, EPOC
                     severo, enfermedad intersticial fibrosis quística
@@ -362,13 +228,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -376,24 +235,10 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label class="form-check-label" for="exampleCheck1">Ha sido diagnosticado con CID</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -401,24 +246,10 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label class="form-check-label" for="exampleCheck1">Discapacidad en el aprendizaje</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -426,13 +257,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -440,24 +264,10 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label class="form-check-label" for="exampleCheck1">Presenta hipertensión alta</label>
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -465,13 +275,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -479,13 +282,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -493,13 +289,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -507,13 +296,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -521,13 +303,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -535,13 +310,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -549,13 +317,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -563,13 +324,6 @@
                 </div>
 
                 <div style="margin-top:15px; margin-left:20px">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="exampleRadio"
-                    value
-                    style="margin-top:5px"
-                  />
                   <label
                     class="form-check-label"
                     for="exampleCheck1"
@@ -577,6 +331,21 @@
                 </div>
               </form>
             </div>
+
+            <base-input  type="text">
+              <el-select
+                v-model="option2"
+                placeholder="Seleccionar"
+                style=" width: -webkit-fill-available;"
+              >
+                <el-option
+                  v-for="item in options"
+                  :key="item.type"
+                  :label="item.type"
+                  :value="item.type"
+                ></el-option>
+              </el-select>
+            </base-input>
 
             <div class="mt-5 py-5 border-top text-center">
               <div class="row justify-content-center">
@@ -616,15 +385,11 @@ export default {
           label: "70+"
         }
       ],
-      options: [
-      
-        { type: "Si" },
-        { type: "No" }
-      ],
-      option:'',
-      option2:'',
-      gender:'',
-      age:'',
+      options: [{ type: "Si" }, { type: "No" }],
+      option: "",
+      option2: "",
+      gender: "",
+      age: "",
       checkedSymptoms: []
     };
   }
@@ -632,4 +397,5 @@ export default {
 </script>
 
 <style>
+
 </style>

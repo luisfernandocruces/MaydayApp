@@ -34,25 +34,29 @@
   </div>
 </template>
 <script>
+import axios from "../plugins/axios";
 export default {
   data() {
     return {
-      usersWithChat: [{first_name: 'Daniel', last_name: 'Galvis', email: "tomas@gmail.com"},
-        {first_name: 'Sara', last_name: 'Ortiz', email: "daniel@gmail.com"},
-        {first_name: 'Daniela', last_name: 'Llano', email: "jose@gmail.com"},
-        {first_name: 'Oswaldo', last_name: 'Ortiz', email: "a@d.com"},
-        {first_name: 'Jose', last_name: 'Galvis', email: "a@e.com"},
-        {first_name: 'Luis Fernando', last_name: 'Cruces', email: "a@f.com"},
-        ],
-
+      usersWithChat: [],
     };
+  },
+
+  created(){
+    console.log('Componente Creado!');
+    this.loadChats();
   },
 
   methods: {
       goToPrivateChat(other_email) {
         this.$store.commit('updateToUserEmail', other_email);
         this.$router.push('/privateChat'); 
-      }
+      },
+      loadChats(){
+        console.log('Holaaaaa');
+        axios.get('/conversation/allChats/' + this.$store.state.user._id).then(response => {
+            this.usersWithChat = response.data});
+      },
   }
 };
 </script>

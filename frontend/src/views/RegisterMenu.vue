@@ -15,8 +15,11 @@
         <div class="col-lg-8">
           <h2 class="display-3" style="color:white">¿Quieres ofrecer ayuda?</h2>
         </div>
-      </div>
-      <div class="row">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
         <div class="col-md-6 col-lg-3 mb-5 mb-lg-0"></div>
         <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
           <div class="px-4">
@@ -65,6 +68,27 @@
         </div>
         <div class="col-md-6 col-lg-3 mb-5 mb-lg-0"></div>
       </div>
+      <div class="row justify-content-center">
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+         
+          
+          
+         
+        </div>
+      </div>
+      
     </div>
   </section>
 </template>

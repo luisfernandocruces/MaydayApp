@@ -28,7 +28,9 @@
                   <base-button type="info" size="sm" class="mr-4">
                     <router-link to="/editProfile" style="color:#FFFFFF">Editar Información</router-link>
                   </base-button>
-                  <base-button type="default" size="sm" class="float-right">Mensajes</base-button>
+                  <base-button type="default" size="sm" class="float-right">
+                    <router-link to="/myChats">Mensajes</router-link>
+                  </base-button>
                 </div>
               </div>
               <div class="col-lg-4 order-lg-1"></div>

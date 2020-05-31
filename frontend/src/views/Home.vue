@@ -148,9 +148,7 @@
                 <div class="pl-4">
                   <h5 class="title text-success">Realizar Cuestionario</h5>
                   <p>
-                    The Arctic Ocean freezes every winter and much of the sea-ice then thaws
-                    every summer, and that process will continue whatever happens.
-                  </p>
+                   En tiempos de crisis debes tener la máxima prevención posible, por lo que es importante que realices nuestro cuestionario para evaluar tus síntomas.  </p>
 
                   <router-link class="text-success" to="/symptomsForm">Click Aquí</router-link>
                 </div>
@@ -164,9 +162,7 @@
                 <div class="pl-4">
                   <h5 class="title text-warning">Más información sobre COVID-19</h5>
                   <p>
-                    The Arctic Ocean freezes every winter and much of the sea-ice then thaws
-                    every summer, and that process will continue whatever happens.
-                  </p>
+                   No olvides la importancia de estar correctamente informado sobre este virus. </p>
                   <router-link class="text-warning" to="/medicalHelpInformation">Click Aquí</router-link>
                 </div>
               </div>

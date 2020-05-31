@@ -7,5 +7,6 @@ router.post('/', conversationController.create)
 router.get('/:id', conversationController.details)
 router.put('/:id', conversationController.update)
 router.delete('/:id', conversationController.delete)
+router.get('/allChats/:idPerson', conversationController.getChatsFromUser)
 
 module.exports = router;
