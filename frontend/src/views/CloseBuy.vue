@@ -113,7 +113,6 @@ export default {
           }
         );
       } else {
-        this.error = error.message;
         this.spinner = false;
         console.log("Your browser does not support geolocation API ");
       }
