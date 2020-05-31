@@ -29,19 +29,9 @@
         <modal :show.sync="modals.modal1">
           <h6 slot="header" class="modal-title" id="modal-title-default">Type your modal title</h6>
 
-          <p>
-            Far far away, behind the word mountains, far from the countries Vokalia and
-            Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-            right at the coast of the Semantics, a large language ocean.
-          </p>
-          <p>
-            A small river named Duden flows by their place and supplies it with the necessary
-            regelialia. It is a paradisematic country, in which roasted parts of sentences
-            fly into your mouth.
-          </p>
 
           <template slot="footer">
-            <base-button type="primary">Save changes</base-button>
+            
             <base-button type="link" class="ml-auto" @click="modals.modal1 = false">Close</base-button>
           </template>
         </modal>
@@ -184,15 +174,33 @@
           </div>
           <div v-for="(help, index) in filteredHelps" :key="index" class="col">
             <card class="border-0" hover shadow body-classes="py-5" style="margin-bottom:20px">
-              <h6 class="text-info text-uppercase">{{help.first_name}} {{help.last_name}}</h6>
-              <p class="description mt-3">Especialidad: {{help.health_area}}</p>
-              <div v-for="(sce, index) in help.schedules" :key="index">
-                <badge type="info" rounded>{{sce.dayOfWeek}}: {{sce.startTime}}-{{sce.endTime}}</badge>
+              <div class="row" style="
+                  place-content: center;
+              ">
+                <h6 class="text-info text-uppercase">{{help.first_name}} {{help.last_name}}</h6>
+
+                <p class="description mt-3">Especialidad: {{help.health_area}}</p>
+                <div v-for="(sce, index) in help.schedules" :key="index">
+                  <badge type="info" rounded>{{sce.dayOfWeek}}: {{sce.startTime}}-{{sce.endTime}}</badge>
+                </div>
               </div>
-              <base-button type="info" class="mt-4">
-                <router-link to="/helpMenu" style="color:white">Solicitar</router-link>
-              </base-button>
-              <base-button block type="primary" class="mb-3" @click="modals.modal1 = true">Default</base-button>
+              <br />
+              <div class="row" style="
+    place-content: center;
+">
+                <div class="col">
+                  <base-button type="info">
+                    <router-link to="/helpMenu" style="color:white">Solicitar</router-link>
+                  </base-button>
+                </div>
+                <div class="col">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary"
+                    @click="modals.modal1 = true"
+                  >Detalles</button>
+                </div>
+              </div>
             </card>
           </div>
         </div>
