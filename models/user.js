@@ -15,6 +15,7 @@ let UserSchema = new mongoose.Schema({
   professional_card_number: { type: String },
   health_area: { type: String },
   conversations_ids: { type: [] },
+  gender: {type: String}
 });
 
 module.exports = mongoose.model("User", UserSchema);

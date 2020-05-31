@@ -19,6 +19,7 @@ exports.createNormalPerson = function (req, res, next) {
     description: req.body.description,
     professional_card_number: "",
     health_area: "",
+    gender: req.body.gender
   });
   console.log(user);
 
