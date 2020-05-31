@@ -12,14 +12,50 @@
       </div>
     </section>
     <section class="section section-skew">
-      <modal v-if="this.editing == true">
-        <template slot="header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        </template>
-        
-      </modal>
       <div class="container">
         <card shadow class="card-profile mt--300" no-body>
+          <div class="col-md-4">
+            <modal :show.sync="modals.modal1">
+              <h6 slot="header" class="modal-title" id="modal-title-default">Editar Horario</h6>
+
+              <base-input
+                v-model="dayOfWeek2"
+                type="text"
+                placeholder="Día de la Semana"
+                name="first_name2"
+                required
+              ></base-input>
+              <base-input
+                placeholder="Hora Inicio"
+                type="number"
+                name="startTime2"
+                v-model="startTime2"
+              ></base-input>
+              <base-input placeholder="Hora Fin" type="number" name="endTime" v-model="endTime2"></base-input>
+
+              <template slot="footer">
+                <base-button type="primary" @click="register()">Guardar</base-button>
+                <base-button type="link" class="ml-auto" @click="modals.modal1 = false">Cerrar</base-button>
+              </template>
+            </modal>
+          </div>
+          <div class="container pt-lg-md">
+            <base-input
+              v-model="dayOfWeek"
+              type="text"
+              placeholder="Día de la Semana"
+              name="first_name"
+              required
+            ></base-input>
+            <base-input
+              placeholder="Hora Inicio"
+              type="number"
+              name="startTime"
+              v-model="startTime"
+            ></base-input>
+            <base-input placeholder="Hora Fin" type="number" name="endTime" v-model="endTime"></base-input>
+            <base-button @click="register">Guardar</base-button>
+          </div>
           <table class="table">
             <thead>
               <tr>
@@ -61,24 +97,8 @@
               </tr>
             </tbody>
           </table>
-          <hr />
-          <div class="container pt-lg-md">
-            <base-input
-              v-model="dayOfWeek"
-              type="text"
-              placeholder="Día de la Semana"
-              name="first_name"
-              required
-            ></base-input>
-            <base-input
-              placeholder="Hora Inicio"
-              type="number"
-              name="startTime"
-              v-model="startTime"
-            ></base-input>
-            <base-input placeholder="Hora Fin" type="number" name="endTime" v-model="endTime"></base-input>
-            <base-button @click="register">Registrar Horario de Ayuda</base-button>
-          </div>
+         
+          
         </card>
       </div>
     </section>
@@ -93,9 +113,16 @@ export default {
   },
   data() {
     return {
+      modals: {
+        modal1: false
+      },
+      Id: undefined,
       editing: false,
       healthSupport: undefined,
       supports: [],
+      dayOfWeek2: undefined,
+      startTime2: undefined,
+      endTime2: undefined,
       dayOfWeek: undefined,
       startTime: undefined,
       endTime: undefined,
@@ -116,26 +143,48 @@ export default {
   },
   methods: {
     register() {
-      let sc = {
-        dayOfWeek: this.dayOfWeek,
-        startTime: this.startTime,
-        endTime: this.endTime
-      };
-      if (this.supports == undefined) {
-        this.supports = [];
+      if (this.editing == false) {
+        let sc = {
+          dayOfWeek: this.dayOfWeek,
+          startTime: this.startTime,
+          endTime: this.endTime
+        };
+        if (this.supports == undefined) {
+          this.supports = [];
+        }
+        this.supports.push(sc);
+        this.healthSupport.schedules = this.supports;
+        axios
+          .put("/healthsupport/" + this.healthSupport._id, this.healthSupport)
+          .then(response => {
+            if (response.status == 200) {
+              alert("Horario Agregado Satisfactoriamente");
+            }
+          });
+      } else {
+        this.supports[this.Id].dayOfWeek = this.dayOfWeek2;
+        this.supports[this.Id].startTime = this.startTime2;
+        this.supports[this.Id].endTime = this.endTime2;
+        this.healthSupport.schedules = this.supports;
+        axios
+          .put("/healthsupport/" + this.healthSupport._id, this.healthSupport)
+          .then(response => {
+            if (response.status == 200) {
+              alert("Horario Editado Satisfactoriamente");
+            }
+          });
+
+        this.modals.modal1 = false;
+        this.editing = false;
       }
-      this.supports.push(sc);
-      this.healthSupport.schedules = this.supports;
-      axios
-        .put("/healthsupport/" + this.healthSupport._id, this.healthSupport)
-        .then(response => {
-          if (response.status == 200) {
-            alert("Horario Agregado Satisfactoriamente");
-          }
-        });
     },
     updateSchedule(index) {
+      this.modals.modal1 = true;
       this.editing = true;
+      this.Id = index;
+      this.dayOfWeek2 = this.supports[this.Id].dayOfWeek;
+      this.startTime2 = this.supports[this.Id].startTime;
+      this.endTime2 = this.supports[this.Id].endTime;
     },
     deleteSchedule(index) {
       this.supports.splice(index, 1);
