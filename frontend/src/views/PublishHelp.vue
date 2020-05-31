@@ -368,7 +368,7 @@ export default {
 
           this.modals.modal1 = false;
           this.editing = false;
-        }else{
+        } else {
           alert("La hora de inicio debe ser menor a la hora de fin");
         }
       }

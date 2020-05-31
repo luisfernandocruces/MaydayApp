@@ -1,7 +1,6 @@
 <template>
   <div class="ui grid">
     <div class="six wide column">
-      
       <form class="ui segment large form">
         <div class="ui message red" v-show="error">{{error}}</div>
         <div class="ui segment">
@@ -20,7 +19,7 @@
           <div class="field">
             <div class="two fields">
               <div class="field">
-                 <select v-model="radius">
+                <select v-model="radius">
                   <option value="5">5KM</option>
                   <option value="10">10KM</option>
                   <option value="15">15KM</option>
@@ -28,9 +27,7 @@
                 </select>
               </div>
 
-              <div class="field">
-               
-              </div>
+              <div class="field"></div>
             </div>
           </div>
 
@@ -71,7 +68,7 @@ export default {
       address: "",
       error: "",
       spinner: false,
-      apiKey: 'AIzaSyD5-oRZadIQ67WpaCriLl_RscJGG9BHE8c',
+      apiKey: "AIzaSyD5-oRZadIQ67WpaCriLl_RscJGG9BHE8c",
       lat: 0,
       lng: 0,
       type: "hospital",
@@ -134,7 +131,6 @@ export default {
             console.log(response.data.error_message);
           } else {
             this.address = response.data.results[0].formatted_address;
-            
           }
           this.spinner = false;
         })
@@ -246,6 +242,4 @@ export default {
 .pac-item-query {
   font-size: 16px;
 }
-
-
 </style>

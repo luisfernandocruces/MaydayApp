@@ -220,7 +220,6 @@
           <div class="col-lg-12">
             <h4>Centros Médicos más cercanos</h4>
             <closebuy></closebuy>
-            
           </div>
         </div>
       </div>

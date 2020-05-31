@@ -15,200 +15,188 @@
       <div class="container">
         <card shadow class="card-profile mt--300" no-body>
           <div class="px-4">
-            <br>
+            <br />
             <h1>Editar perfil</h1>
             <template>
               <form>
-                  <div class="row">
-            <div class="col">
-              <base-input
-                label="Nombre"
-                type="text"
-                placeholder="Nombre"
-                name="first_name"
-                required
-                v-model="user.first_name"
-              ></base-input>
-            </div>
+                <div class="row">
+                  <div class="col">
+                    <base-input
+                      label="Nombre"
+                      type="text"
+                      placeholder="Nombre"
+                      name="first_name"
+                      required
+                      v-model="user.first_name"
+                    ></base-input>
+                  </div>
 
-            <div class="col">
-              <base-input
-                label="Apellido"
-                type="text"
-                placeholder="Apellido"
-                name="last_name"
-                required
-                v-model="user.last_name"
-              ></base-input>
-            </div>
-          </div>
+                  <div class="col">
+                    <base-input
+                      label="Apellido"
+                      type="text"
+                      placeholder="Apellido"
+                      name="last_name"
+                      required
+                      v-model="user.last_name"
+                    ></base-input>
+                  </div>
+                </div>
 
-          <div class="row">
-            <div class="col-md-6" >
-              <base-input required label="Tipo de Documento"  >
-              
-                <el-select
-                style="width: -webkit-fill-available;"
-                  label="Tipo de documento"
-                  collapse-tags
-                 
-                  size="large"
-                  required
-                  placeholder="Ingrese el tipo de Documento"
-                  v-model="user.document_type"
-                  disabled
-                >
-                  <el-option
-                  
-                    v-for="option in document_types"
-                    class="select-primary"
-                    :value="option.type"
-                    :label="option.type"
-                    :key="option.type"
-                  ></el-option>
-                </el-select>
-              </base-input>
-            </div>
-            <div class="col">
-              <base-input
-               disabled
-                label="Documento de identidad"
-                type="number"
-                placeholder="Documento"
-                name="document_number"
-                required
-                v-model="user.document_number"
-              ></base-input>
-            </div>
-          </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <base-input required label="Tipo de Documento">
+                      <el-select
+                        style="width: -webkit-fill-available;"
+                        label="Tipo de documento"
+                        collapse-tags
+                        size="large"
+                        required
+                        placeholder="Ingrese el tipo de Documento"
+                        v-model="user.document_type"
+                        disabled
+                      >
+                        <el-option
+                          v-for="option in document_types"
+                          class="select-primary"
+                          :value="option.type"
+                          :label="option.type"
+                          :key="option.type"
+                        ></el-option>
+                      </el-select>
+                    </base-input>
+                  </div>
+                  <div class="col">
+                    <base-input
+                      disabled
+                      label="Documento de identidad"
+                      type="number"
+                      placeholder="Documento"
+                      name="document_number"
+                      required
+                      v-model="user.document_number"
+                    ></base-input>
+                  </div>
+                </div>
 
-          <div class="row">
-            <div class="col">
-              <base-input
-                label="Fecha de Nacimiento"
-                type="date"
-                name="birthdate"
-                required
-               
-              ><el-date-picker  style="width: -webkit-fill-available;"
-                  v-model="user.birthdate"
-                  type="date"
-                  format="dd/MM/yyyy"
-                  placeholder="Selecciona una fecha de nacimiento">
-                </el-date-picker></base-input>
-            </div>
-          </div>
+                <div class="row">
+                  <div class="col">
+                    <base-input label="Fecha de Nacimiento" type="date" name="birthdate" required>
+                      <el-date-picker
+                        style="width: -webkit-fill-available;"
+                        v-model="user.birthdate"
+                        type="date"
+                        format="dd/MM/yyyy"
+                        placeholder="Selecciona una fecha de nacimiento"
+                      ></el-date-picker>
+                    </base-input>
+                  </div>
+                </div>
 
-          <div class="row" v-if="user.rol === 'health professional'">
-            <div class="col">
-              <base-input
-                label="Numero Tarjeta profesional"
-                type="number"
-                placeholder="Numero Tarjeta profesional"
-                name="professionalCardNumber"
-                required
-                v-model="user.professional_card_number"
-              ></base-input>
-            </div>
+                <div class="row" v-if="user.rol === 'health professional'">
+                  <div class="col">
+                    <base-input
+                      label="Numero Tarjeta profesional"
+                      type="number"
+                      placeholder="Numero Tarjeta profesional"
+                      name="professionalCardNumber"
+                      required
+                      v-model="user.professional_card_number"
+                    ></base-input>
+                  </div>
 
-            <div class="col">
-              <base-input
-                label="Area de la Salud"
-                type="text"
-                placeholder="Area de la Salud"
-                name="healtArea"
-                required
-                
-              > <el-select v-model="user.health_area" size="large" placeholder="Seleccionar"   style="width: -webkit-fill-available;">
-                    <el-option
-                     
-                      v-for="item in areas"
-                      :key="item.value"
-                      :label="item.value"
-                      :value="item.value"
-                    ></el-option>
-                  </el-select></base-input>
-            </div>
-          </div>
+                  <div class="col">
+                    <base-input
+                      label="Area de la Salud"
+                      type="text"
+                      placeholder="Area de la Salud"
+                      name="healtArea"
+                      required
+                    >
+                      <el-select
+                        v-model="user.health_area"
+                        size="large"
+                        placeholder="Seleccionar"
+                        style="width: -webkit-fill-available;"
+                      >
+                        <el-option
+                          v-for="item in areas"
+                          :key="item.value"
+                          :label="item.value"
+                          :value="item.value"
+                        ></el-option>
+                      </el-select>
+                    </base-input>
+                  </div>
+                </div>
 
-          <div class="row">
-            <div class="col">
-              <base-input
-                label="Correo Electronico"
-                type="text"
-                placeholder="Correo"
-                name="email"
-                required
-                v-model="user.email"
-              ></base-input>
-            </div>
-          </div>
+                <div class="row">
+                  <div class="col">
+                    <base-input
+                      label="Correo Electronico"
+                      type="text"
+                      placeholder="Correo"
+                      name="email"
+                      required
+                      v-model="user.email"
+                    ></base-input>
+                  </div>
+                </div>
 
-          <div class="row">
-            <div class="col">
-              <base-input
-                label="Contraseña"
-                type="password"
-                name="password"
-                required
-                v-model="user.password"
-              ></base-input>
-            </div>
+                <div class="row">
+                  <div class="col">
+                    <base-input
+                      label="Contraseña"
+                      type="password"
+                      name="password"
+                      required
+                      v-model="user.password"
+                    ></base-input>
+                  </div>
+                </div>
 
-        
-          </div>
+                <div class="row">
+                  <div class="col">
+                    <base-input label="Género" required name="gender">
+                      <el-select
+                        style="width: -webkit-fill-available;"
+                        size="large"
+                        required
+                        placeholder="Género"
+                        v-model="user.gender"
+                      >
+                        <el-option
+                          v-for="option in genders"
+                          :value="option.type"
+                          :label="option.type"
+                          :key="option.type"
+                        ></el-option>
+                      </el-select>
+                    </base-input>
+                  </div>
+                  <div class="col">
+                    <base-input
+                      label="Número telefónico"
+                      type="number"
+                      name="phone_number"
+                      v-model="user.phone_number"
+                    ></base-input>
+                  </div>
+                </div>
 
-          <div class="row">
-            <div class="col">
-               <base-input
-                label="Género"
-                required
-                name="gender"
-                
-              > <el-select
-                style="width: -webkit-fill-available;"
-    
-                  size="large"
-                  required
-                  placeholder="Género"
-                  v-model="user.gender"
-                >
-                  <el-option
-                  
-                    v-for="option in genders"
-                   
-                    :value="option.type"
-                    :label="option.type"
-                    :key="option.type"
-                  ></el-option>
-                </el-select></base-input>
-            </div>
-            <div class="col">
-              <base-input
-              
-                label="Número telefónico"
-                type="number"
-                name="phone_number"
-                v-model="user.phone_number"
-              ></base-input>
-            </div>
-
-            
-          </div>
-
-          <base-input required label="Breve Descripción">
-            <textarea
-              class="form-control"
-              id="description"
-              rows="3"
-              label="Breve Descripción"
-              placeholder="Haz una breve descripción tuya"
-              v-model="user.description"
-            ></textarea>
-          </base-input>
-          <div class="row">
-            <div class="col"></div>
-          </div>
+                <base-input required label="Breve Descripción">
+                  <textarea
+                    class="form-control"
+                    id="description"
+                    rows="3"
+                    label="Breve Descripción"
+                    placeholder="Haz una breve descripción tuya"
+                    v-model="user.description"
+                  ></textarea>
+                </base-input>
+                <div class="row">
+                  <div class="col"></div>
+                </div>
 
                 <base-button type="primary" @click="updateUser">Actualizar</base-button>
                 <br />
@@ -247,7 +235,7 @@ export default {
   data() {
     return {
       modalShow: false,
-      messageLogin: "", 
+      messageLogin: "",
       areas: [
         { value: "General" },
         { value: "Enfermería" },
@@ -261,13 +249,8 @@ export default {
         { value: "Gastroenterología" },
         { value: "Neumología" },
         { value: "Oncología" }
-
       ],
-      genders: [
-        { type: "Hombre" },
-        { type: "Mujer" },
-        { type: "Otro" }
-      ],
+      genders: [{ type: "Hombre" }, { type: "Mujer" }, { type: "Otro" }],
       user: {
         rol: this.$store.state.user.rol,
         first_name: this.$store.state.user.first_name,
@@ -283,7 +266,6 @@ export default {
         health_area: this.$store.state.user.health_area,
         birthdate: this.$store.state.user.birthdate,
         gender: this.$store.state.user.gender
-        
       },
       document_types: [
         { type: "Cédula de Ciudadanía" },
@@ -299,16 +281,13 @@ export default {
       location.reload();
     },
     updateUser() {
-      
       axios
         .put("/users/" + this.user.email, this.user)
         .then(response => {
-          
           if (response.status == 200) {
             this.$store.commit("updateUser", this.user);
             this.messageLogin = "Se han actualizado los datos correctamente.";
             this.modalShow = true;
-            
           }
         })
         .catch(error => {

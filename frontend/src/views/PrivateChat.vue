@@ -92,7 +92,10 @@ export default {
       });
     });
     this.socket.on("message_received", data => {
-      this.conversation.messages.push({ idSender: data.from, content: data.message });
+      this.conversation.messages.push({
+        idSender: data.from,
+        content: data.message
+      });
     });
   },
 
@@ -105,11 +108,16 @@ export default {
           to: this.other_user,
           msg: this.new_message
         });
-        this.conversation.messages.push({ idSender: this.user_connected, 
-            content: this.new_message });
-        
-        axios.put('/conversation/' + this.conversation._id, this.conversation).then(response => {
-            console.log(JSON.stringify(response))});
+        this.conversation.messages.push({
+          idSender: this.user_connected,
+          content: this.new_message
+        });
+
+        axios
+          .put("/conversation/" + this.conversation._id, this.conversation)
+          .then(response => {
+            console.log(JSON.stringify(response));
+          });
         this.new_message = "";
       }
     }

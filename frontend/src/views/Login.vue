@@ -59,9 +59,7 @@
                   ></base-input>
 
                   <div class="text-center">
-                    <base-button type="primary" class="my-4" @click="signin"
-                      >Iniciar Sesión</base-button
-                    >
+                    <base-button type="primary" class="my-4" @click="signin">Iniciar Sesión</base-button>
                   </div>
                 </form>
               </template>
@@ -70,9 +68,7 @@
               <div class="col-6"></div>
               <div class="col-6 text-right">
                 <a href="#" class="text-white">
-                  <router-link to="/registerMenu" class="text-white"
-                    >Crear una cuenta</router-link
-                  >
+                  <router-link to="/registerMenu" class="text-white">Crear una cuenta</router-link>
                 </a>
               </div>
             </div>
@@ -96,8 +92,6 @@
           <br />
           <br />
           <br />
-          
-         
         </div>
       </div>
     </div>
@@ -108,9 +102,7 @@
       </template>
       <div>{{ messageLogin }}</div>
       <template slot="footer">
-        <base-button type="secondary" @click="modalShow = false"
-          >Aceptar</base-button
-        >
+        <base-button type="secondary" @click="modalShow = false">Aceptar</base-button>
       </template>
     </modal>
   </section>
@@ -122,7 +114,7 @@ import Modal from "@/components/Modal";
 export default {
   name: "login",
   components: {
-    Modal,
+    Modal
   },
   data() {
     return {
@@ -130,7 +122,7 @@ export default {
       show: false,
       email: "",
       password: "",
-      messageLogin: "",
+      messageLogin: ""
     };
   },
   methods: {
@@ -141,11 +133,11 @@ export default {
       console.log(this.password);
       let user = {
         email: this.email,
-        password: this.password,
+        password: this.password
       };
       await axios
         .post("/users/signin", user)
-        .then((response) => {
+        .then(response => {
           if (response.status == 200) {
             var user = response.data.currentUser;
             var token = response.data.accessToken;
@@ -155,7 +147,7 @@ export default {
             this.$router.push("/");
           }
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
           if (error.response.status == 401) {
             this.messageLogin = "Contraseña incorrecta";
@@ -168,10 +160,8 @@ export default {
             this.modalShow = true;
           }
         });
-
-      
-    },
-  },
+    }
+  }
 };
 </script>
 <style></style>
