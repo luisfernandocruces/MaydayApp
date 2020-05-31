@@ -23,13 +23,13 @@
             <div id="Chat-Box">
               <ul>
                 <li v-for="message in messages" :key="message">
-                  <strong>{{message.from}} :</strong>
-                  {{message.msg}}
+                  <strong>{{ message.from }} :</strong>
+                  {{ message.msg }}
                 </li>
               </ul>
             </div>
             <div id="sendMessage" class="row">
-                <div class="col">
+              <div class="col">
                 <textarea
                   class="form-control"
                   id="description"
@@ -37,10 +37,12 @@
                   placeholder="Escribe tu mensaje..."
                   v-model="new_message"
                 ></textarea>
-                </div>
-                <div class="col-md-auto">
-                <base-button type="primary" @click="sendMessage">Enviar</base-button>
-                </div>
+              </div>
+              <div class="col-md-auto">
+                <base-button type="primary" @click="sendMessage"
+                  >Enviar</base-button
+                >
+              </div>
             </div>
           </card>
         </div>
@@ -51,32 +53,39 @@
 <script>
 import io from "socket.io-client";
 export default {
-
-  props: ["other_user"],  
   data() {
     return {
+      user_connected: this.$store.state.user._id,
+      other_user: this.$store.state.toUserEmail,
       messages: [
-        { from: "dangaltor", msg: "hola que tal" },
-        { from: "otra_persona", msg: "Bien y vos?" }
+        { from: this.$store.state.user._id, msg: "hola que tal" },
+        { from: this.$store.state.toUserEmail, msg: "Bien y vos?" },
       ],
       new_message: "",
       socket: null,
     };
   },
-  created(){
-      this.socket = io('localhost:8080');
-      this.socket.on('message_received', (message) => {
-          this.messages.push({from: this.other_user, msg: message});
-      });
+  created() {
+    this.socket = io("http://localhost:3000");
+    this.socket.on('Server Ready', () => {
+      this.socket.emit('new_chat',{startedBy: this.user_connected, chatsWith: this.other_user});
+    });
+    this.socket.on('message_received', data => {
+      this.messages.push({ from: data.from, msg: data.message });
+    })
   },
 
   methods: {
-      sendMessage(){
-          if(this.new_message){
-              this.messages.push({from: "dangaltor", msg: this.new_message});
-              this.new_message = "";
-          }
+    sendMessage() {
+      if (this.new_message) {
+        this.socket.emit('message_sent', {from: this.user_connected, to: this.other_user, msg: this.new_message});
+        this.messages.push({ from: this.user_connected, msg: this.new_message });
+        this.new_message = "";
       }
-  }
+    },
+  },
+  beforeDestroy() {
+    this.socket = null;
+  },
 };
 </script>
