@@ -39,25 +39,13 @@
             <span class="nav-link-inner--text">Menú</span>
           </a>
 
-          <router-link
-            v-if="this.logged_usu == true"
-            to="/profile"
-            class="dropdown-item"
-            >Perfil</router-link
-          >
 
-          <router-link
-            v-if="this.logged_usu == false"
-            to="/login"
-            class="dropdown-item"
-            >Iniciar Sesión</router-link
-          >
-          <router-link
-            v-if="this.logged_usu == false"
-            to="/registerMenu"
-            class="dropdown-item"
-            >Registro</router-link
-          >
+          <router-link v-if="this.logged_usu == true" to="/profile" class="dropdown-item">Perfil</router-link>
+          <router-link v-if="this.logged_usu == true" to="/publishHelp" class="dropdown-item">Publicar Ayuda</router-link>
+          <router-link v-if="this.logged_usu == false" to="/login" class="dropdown-item">Iniciar Sesión</router-link>
+          <router-link v-if="this.logged_usu == false" to="/registerMenu" class="dropdown-item">Registro</router-link>
+          
+
         </base-dropdown>
       </ul>
 

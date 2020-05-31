@@ -4,6 +4,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+
   state: {
     logged: false,
     user: {},
@@ -11,6 +12,7 @@ export default new Vuex.Store({
   mutations: {
     changeTheLogged(state, newLogged) {
       state.logged = newLogged;
+
     },
     updateUser(state, currentUser) {
       state.user = currentUser;
