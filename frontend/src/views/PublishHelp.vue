@@ -12,6 +12,12 @@
       </div>
     </section>
     <section class="section section-skew">
+      <modal v-if="this.editing == true">
+        <template slot="header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        </template>
+        
+      </modal>
       <div class="container">
         <card shadow class="card-profile mt--300" no-body>
           <table class="table">
@@ -80,9 +86,14 @@
 </template>
 <script>
 import axios from "../plugins/axios";
+import Modal from "@/components/Modal";
 export default {
+  components: {
+    Modal
+  },
   data() {
     return {
+      editing: false,
       healthSupport: undefined,
       supports: [],
       dayOfWeek: undefined,
@@ -124,10 +135,18 @@ export default {
         });
     },
     updateSchedule(index) {
-      console.log(index);
+      this.editing = true;
     },
     deleteSchedule(index) {
-      console.log(index);
+      this.supports.splice(index, 1);
+      this.healthSupport.schedules = this.supports;
+      axios
+        .put("/healthsupport/" + this.healthSupport._id, this.healthSupport)
+        .then(response => {
+          if (response.status == 200) {
+            alert("Horario Borrado Satisfactoriamente");
+          }
+        });
     }
   }
 };
