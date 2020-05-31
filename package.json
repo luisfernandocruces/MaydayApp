@@ -6,6 +6,8 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@chenfengyuan/vue-carousel": "^1.0.5",
+    "bootstrap-vue": "^2.15.0",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "dateformat": "^3.0.3",
@@ -17,6 +19,8 @@
     "mongoose": "^5.9.16",
     "morgan": "^1.9.1",
     "socket.io": "^2.3.0",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11",
     "vuetify": "^2.2.11",
     "vuex-persistedstate": "^3.0.1"
   },
