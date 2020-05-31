@@ -298,9 +298,9 @@ export default {
       this.$router.push("/profile");
     },
     updateUser() {
-      console.log("done");
+      console.log(this.user.email);
       axios
-        .put("/users/" + this._id, this.user)
+        .put("/users/" + this.user.email, this.user)
         .then(response => {
           
           if (response.status == 200) {
