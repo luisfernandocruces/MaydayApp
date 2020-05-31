@@ -14,6 +14,31 @@
     <section class="section section-skew">
       <div class="container">
         <card shadow class="card-profile mt--300" no-body>
+          <div class="col-md-4">
+        
+
+            <modal :show.sync="modal2"
+                   gradient="danger"
+                   modal-classes="modal-danger modal-dialog-centered">
+                <h6 slot="header" class="modal-title" id="modal-title-notification">Atención!!!</h6>
+
+                <div class="py-3 text-center">
+                    <i class="ni ni-bell-55 ni-3x"></i>
+                    <h4 class="heading mt-4">Proximamente...</h4>
+                    <p>Esta sección esta en desarrollo.</p>
+                </div>
+
+                <template slot="footer">
+                   
+                    <base-button type="link"
+                                 text-color="white"
+                                 class="ml-auto"
+                                 @click="modal2 = false">
+                        Cerrar
+                    </base-button>
+                </template>
+            </modal>
+        </div>
           <div class="px-4">
             <div class="row justify-content-center">
               <div class="col-lg-3 order-lg-2">
@@ -273,8 +298,8 @@
             <div class="mt-5 py-5 border-top text-center">
               <div class="row justify-content-center">
                 <div class="col-lg-9">
-                  <base-button type="primary" class="mt-4">
-                    <router-link to="/helpMenu" style="color:white">Obtener resultados</router-link>
+                  <base-button type="primary" class="mt-4" @click="modal2 = true">
+                    Obtener resultados
                   </base-button>
                 </div>
               </div>
@@ -287,8 +312,12 @@
 </template>
 
 <script>
+import Modal from "@/components/Modal";
 export default {
-  data() {
+  components: {
+    Modal
+  }
+  ,data() {
     return {
       ages: [
         {
@@ -312,7 +341,7 @@ export default {
       option: "",
       option2: "",
       option3: "",
-      
+      modal2: false,
       checkedSymptoms: []
     };
   }

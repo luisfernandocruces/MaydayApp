@@ -34,7 +34,7 @@
             </div>
           </div>
 
-          <button class="ui button" @click="findCloseBuyButtonPressed">Find  Places</button>
+          <button class="ui button" @click="findCloseBuyButtonPressed">Mostrar</button>
         </div>
       </form>
 
@@ -134,7 +134,7 @@ export default {
             console.log(response.data.error_message);
           } else {
             this.address = response.data.results[0].formatted_address;
-            // console.log(response.data.results[0].formatted_address);
+            
           }
           this.spinner = false;
         })
