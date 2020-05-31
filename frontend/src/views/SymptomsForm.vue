@@ -255,7 +255,7 @@
                <div>
             <base-input type="text">
               <el-select
-                v-model="option2"
+                v-model="option3"
                 placeholder="Seleccionar"
                 style=" width: -webkit-fill-available;"
               >
@@ -311,8 +311,8 @@ export default {
       options: [{ type: "Si" }, { type: "No" }],
       option: "",
       option2: "",
-      gender: "",
-      age: "",
+      option3: "",
+      
       checkedSymptoms: []
     };
   }
