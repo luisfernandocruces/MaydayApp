@@ -10,9 +10,10 @@
         <div class="col-6 collapse-brand">
           <a href>
             <img src="img/brand/black.png" style="
-    height: 100px;" />
+              height: 100px;" />
           </a>
         </div>
+        
         <div class="col-6 collapse-close">
           <close-button @click="closeMenu"></close-button>
         </div>
@@ -26,6 +27,7 @@
           </a>
 
           <router-link v-if="this.logged_usu == true" to="/profile" class="dropdown-item">Perfil</router-link>
+          <router-link v-if="this.logged_usu == true" to="/myChats" class="dropdown-item">Mensajes</router-link>
           <router-link
             v-if="this.type_user == 'health professional'"
             to="/publishHelp"
@@ -53,6 +55,9 @@
           <base-button type="secondary" @click="goHome">Aceptar</base-button>
         </template>
       </modal>
+      <div class="col" >
+        <a class="text-white"  v-if="this.logged_usu == true"> Usuario: {{this.name}}</a>
+      </div>
 
       <div class="col" style="text-align-last: right;">
         <a class="text-white" @click="signout()" v-if="this.logged_usu == true">Cerrar Sesión</a>
@@ -85,6 +90,9 @@ export default {
     },
     type_user() {
       return this.$store.state.user.rol;
+    },
+    name() {
+      return this.$store.state.user.first_name +" "+ this.$store.state.user.last_name ;
     }
   },
   created() {
